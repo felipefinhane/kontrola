@@ -1,21 +1,14 @@
-<!-- Accounts List (Multi-currency) — canonical, replaces superseded/accounts-list.old.html.
-     KNOWN ISSUE: the "Total Net Worth" summary card still shows one blended number
-     (€42,850) instead of grouping by currency per ADR-0007 — only the account cards
-     below got the per-currency label added. Needs a follow-up Stitch prompt: "the
-     Total Net Worth card must show one subtotal per currency, like the Home screen
-     does, never a single blended total." -->
-<!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Accounts List (Multi-currency, final) -- Total Balance now grouped, BRL banks -->
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Kontrola - Accounts</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -205,7 +198,7 @@
 <!-- TopAppBar -->
 <header class="w-full top-0 sticky bg-background z-40 flex justify-between items-center px-container-margin py-stack-md">
 <div class="active:scale-95 duration-200 cursor-pointer overflow-hidden rounded-full w-10 h-10 border border-surface-variant">
-<img class="w-full h-full object-cover" data-alt="A close up portrait of a calm, professional individual with a soft, warm smile, lit by natural soft window light in a modern, bright living space with minimal background details. The aesthetic is clean, light-mode, and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO0zfcLsSTi02eXeQL_YDbCmTKC-Jvmsi8yu_xn9eWRLAY0L3E_swY37Vb4roM5WCwRaNRNbWzwNo6xe9Nu61rGp1XAlsqE-H3e-QQ8L1Kw2Tkb-yxzitFhLjyi0KJQgwLb8HJtztOW0lXHiCCfRwxFEkLVGgiEAsEiHROQOt8akxKxPEKwYj4vVsHTCwf2ovttdiwjrhrQtTKf55NDfWoUO82KcLVTkqDISq66_KzHZvfayHOgliB"/>
+<img class="w-full h-full object-cover" data-alt="A close up portrait of a calm, professional individual with a soft, warm smile, lit by natural soft window light in a modern, bright living space with minimal background details. The aesthetic is clean, light-mode, and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO0zfcLsSTi02eXeQL_YDbCmTKC-Jvmsi8yu_xn9eWRLAY0L3E_swY37Vb4roM5WCwRaNRNbWzwNo6xe9Nu61rGp1XAlsqE-H3e-QQ8L1Kw2Tkb-yxzitFhLjyi0KJQgwLb8HJtztOW0lXHiCCfRwxFEkLVGgiEAsEiHROQOt8akxKxPEKwYj4vVsHTCwf2ovttdiwjrhrQtTKf55NDfWoUO82KcLVTkqDISq66_KzHZvfayHOgliB">
 </div>
 <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">Kontrola</h1>
 <button class="active:scale-95 duration-200 hover:bg-surface-container-low transition-colors w-10 h-10 rounded-full flex items-center justify-center text-primary">
@@ -217,25 +210,19 @@
 <!-- Summary Bento Box -->
 <section class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-calm-card flex flex-col gap-stack-sm relative overflow-hidden">
 <div class="absolute -right-10 -top-10 w-32 h-32 bg-primary-light rounded-full blur-2xl opacity-50 pointer-events-none"></div>
-<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Net Worth</h2>
-<div class="flex items-baseline gap-2">
-<span class="font-display-lg-mobile text-display-lg-mobile text-primary">€42,850</span>
-<span class="font-currency-tabular text-currency-tabular text-on-surface-variant">.00</span>
-</div>
-<div class="flex items-center gap-1 text-secondary mt-1">
-<span class="material-symbols-outlined text-sm">trending_up</span>
-<span class="font-label-md text-label-md">+€1,240 this month</span>
-</div>
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Balance</h2>
+<div class="flex items-baseline gap-2"><div class="flex flex-col gap-1"><div class="flex items-baseline gap-2"><span class="font-display-lg-mobile text-display-lg-mobile text-primary">R$ 23.218</span><span class="font-currency-tabular text-currency-tabular text-on-surface-variant">,77</span></div><div class="flex items-baseline gap-2 opacity-70"><span class="font-headline-sm text-headline-sm text-primary">US$ 1.200</span><span class="font-currency-tabular text-currency-tabular text-on-surface-variant">,00</span></div></div></div>
+
 </section>
 <!-- Accounts List -->
 <section class="flex flex-col gap-stack-md">
 <h3 class="font-headline-sm text-headline-sm text-primary mb-2">Linked Accounts</h3>
 <!-- Card 1: Primary Checking -->
-<article class="bg-surface-container-lowest rounded-xl p-stack-md shadow-calm-card border-b-2 border-primary flex items-center justify-between active:scale-[0.98] transition-transform duration-200 cursor-pointer"><div class="flex items-center gap-stack-md"><div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined fill-icon">account_balance</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Nordea Bank • EUR</span><span class="font-headline-sm text-headline-sm text-on-background">Main Checking</span></div></div><div class="flex flex-col items-end"><span class="font-currency-tabular text-currency-tabular text-primary">€4,250.00</span><span class="material-symbols-outlined text-secondary mt-1 text-sm">show_chart</span></div></article>
+<article class="bg-surface-container-lowest rounded-xl p-stack-md shadow-calm-card border-b-2 border-primary flex items-center justify-between active:scale-[0.98] transition-transform duration-200 cursor-pointer"><div class="flex items-center gap-stack-md"><div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined fill-icon">account_balance</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Itaú • BRL</span><span class="font-headline-sm text-headline-sm text-on-background">Main Checking</span></div></div><div class="flex flex-col items-end"><span class="font-currency-tabular text-currency-tabular text-primary">R$ 4.250,00</span><span class="material-symbols-outlined text-secondary mt-1 text-sm">show_chart</span></div></article>
 <!-- Card 2: Savings -->
-<article class="bg-surface-container-lowest rounded-xl p-stack-md shadow-calm-card border-b-2 border-[#2DB88A] flex items-center justify-between active:scale-[0.98] transition-transform duration-200 cursor-pointer"><div class="flex items-center gap-stack-md"><div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary shrink-0"><span class="material-symbols-outlined fill-icon">savings</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Revolut • EUR</span><span class="font-headline-sm text-headline-sm text-on-background">Vault Savings</span></div></div><div class="flex flex-col items-end"><span class="font-currency-tabular text-currency-tabular text-primary">€12,500.00</span><span class="material-symbols-outlined text-secondary mt-1 text-sm">trending_up</span></div></article>
+<article class="bg-surface-container-lowest rounded-xl p-stack-md shadow-calm-card border-b-2 border-[#2DB88A] flex items-center justify-between active:scale-[0.98] transition-transform duration-200 cursor-pointer"><div class="flex items-center gap-stack-md"><div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary shrink-0"><span class="material-symbols-outlined fill-icon">savings</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Nubank • BRL</span><span class="font-headline-sm text-headline-sm text-on-background">Vault Savings</span></div></div><div class="flex flex-col items-end"><span class="font-currency-tabular text-currency-tabular text-primary">R$ 12.500,00</span><span class="material-symbols-outlined text-secondary mt-1 text-sm">trending_up</span></div></article>
 <!-- Card 3: Credit Card -->
-<article class="bg-surface-container-lowest rounded-xl p-stack-md shadow-calm-card border-b-2 border-semantic-debit flex items-center justify-between active:scale-[0.98] transition-transform duration-200 cursor-pointer"><div class="flex items-center gap-stack-md"><div class="w-12 h-12 rounded-full bg-error-container/50 flex items-center justify-center text-semantic-debit shrink-0"><span class="material-symbols-outlined fill-icon">credit_card</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Amex • EUR</span><span class="font-headline-sm text-headline-sm text-on-background">Platinum Card</span></div></div><div class="flex flex-col items-end"><span class="font-currency-tabular text-currency-tabular text-on-background">-€850.20</span><span class="material-symbols-outlined text-semantic-debit mt-1 text-sm">trending_down</span></div></article>
+<article class="bg-surface-container-lowest rounded-xl p-stack-md shadow-calm-card border-b-2 border-semantic-debit flex items-center justify-between active:scale-[0.98] transition-transform duration-200 cursor-pointer"><div class="flex items-center gap-stack-md"><div class="w-12 h-12 rounded-full bg-error-container/50 flex items-center justify-center text-semantic-debit shrink-0"><span class="material-symbols-outlined fill-icon">credit_card</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">XP • BRL</span><span class="font-headline-sm text-headline-sm text-on-background">Platinum Card</span></div></div><div class="flex flex-col items-end"><span class="font-currency-tabular text-currency-tabular text-on-background">-R$ 850,20</span><span class="material-symbols-outlined text-semantic-debit mt-1 text-sm">trending_down</span></div></article>
 <!-- Add Account Action -->
 <button class="mt-stack-sm w-full py-stack-md rounded-xl border-2 border-dashed border-primary/20 text-primary hover:bg-primary-light/50 transition-colors flex items-center justify-center gap-stack-sm active:scale-[0.98] duration-200">
 <span class="material-symbols-outlined">add</span>
@@ -275,4 +262,6 @@
 <span class="font-label-sm text-label-sm mt-1">Settings</span>
 </button>
 </nav>
+
+
 </body></html>

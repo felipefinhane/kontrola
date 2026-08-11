@@ -1,0 +1,351 @@
+<!-- v1.2 -- guardado como referência, não muda o roadmap -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Import - Kontrola</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-light": "#EAF1F8",
+                      "on-background": "#1a1c1a",
+                      "on-surface": "#1a1c1a",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "semantic-debit": "#E2685E",
+                      "tertiary-fixed-dim": "#ebc076",
+                      "surface-tint": "#455f87",
+                      "outline": "#74777f",
+                      "surface-container-highest": "#e3e2e0",
+                      "surface-container-high": "#e9e8e5",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "tertiary": "#322100",
+                      "secondary-container": "#7afac7",
+                      "surface-bright": "#faf9f6",
+                      "surface-container": "#efeeeb",
+                      "secondary-fixed-dim": "#5bddac",
+                      "on-primary-fixed": "#001c3b",
+                      "tertiary-fixed": "#ffdea9",
+                      "on-error": "#ffffff",
+                      "primary-container": "#1e3a5f",
+                      "tertiary-container": "#4d3500",
+                      "surface-variant": "#e3e2e0",
+                      "inverse-on-surface": "#f2f1ee",
+                      "on-primary-container": "#8aa4cf",
+                      "surface-dim": "#dbdad7",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#002115",
+                      "secondary-fixed": "#7afac7",
+                      "on-tertiary-fixed": "#271900",
+                      "text-charcoal": "#232323",
+                      "primary-fixed": "#d5e3ff",
+                      "on-surface-variant": "#43474e",
+                      "background": "#faf9f6",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#adc8f5",
+                      "surface-container-low": "#f4f3f1",
+                      "inverse-surface": "#2f312f",
+                      "on-secondary-container": "#007353",
+                      "outline-variant": "#c4c6cf",
+                      "on-tertiary-container": "#c59d56",
+                      "primary": "#022448",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#006c4e",
+                      "surface": "#faf9f6",
+                      "primary-fixed-dim": "#adc8f5",
+                      "on-primary-fixed-variant": "#2d486d",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "container-margin": "20px",
+                      "gutter": "16px",
+                      "stack-xl": "40px",
+                      "stack-sm": "8px",
+                      "stack-lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "currency-tabular": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "currency-tabular": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom checkbox styling for a softer, tactile feel */
+        .kontrol-checkbox {
+            appearance: none;
+            background-color: transparent;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 24px;
+            height: 24px;
+            border: 2px solid theme('colors.outline-variant');
+            border-radius: 8px;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .kontrol-checkbox::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+            transform: scale(0);
+            transform-origin: bottom left;
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em white;
+            background-color: white;
+        }
+
+        .kontrol-checkbox:checked {
+            background-color: theme('colors.primary');
+            border-color: theme('colors.primary');
+        }
+
+        .kontrol-checkbox:checked::before {
+            transform: scale(1);
+        }
+
+        .shadow-ambient {
+            box-shadow: 0px 4px 20px rgba(2, 36, 72, 0.06);
+        }
+        
+        .shadow-elevated {
+            box-shadow: 0px 4px 12px rgba(2, 36, 72, 0.12);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md selection:bg-primary-light selection:text-primary">
+<!-- TopAppBar -->
+<!-- Suppressed navigation shell intent since this is a transactional/task-focused flow (Review Import). Using a simple contextual back header. -->
+<header class="w-full top-0 sticky z-40 bg-background/90 backdrop-blur-md flex justify-between items-center px-container-margin py-stack-md">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-primary active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md-mobile text-headline-md-mobile text-primary font-bold">Review Import</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-container-margin pb-[120px]"> <!-- Padding bottom to account for sticky footer -->
+<div class="mb-stack-lg mt-stack-sm">
+<p class="font-body-md text-on-surface-variant">We found 12 transactions from your bank statement. Review and select which ones to import.</p>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<!-- Transaction Item 1: Standard, Checked -->
+<label class="bg-surface rounded-xl p-4 shadow-ambient flex items-start gap-4 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="pt-1">
+<input checked="" class="kontrol-checkbox" type="checkbox"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md text-on-surface truncate pr-2">Starbucks Coffee</span>
+<span class="font-currency-tabular text-currency-tabular text-on-surface whitespace-nowrap">-$4.50</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<!-- Inline Category Picker -->
+<div class="inline-flex items-center gap-1 bg-primary-light px-2 py-1 rounded-lg text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+                            Coffee
+                            <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 12</span>
+</div>
+</div>
+</label>
+<!-- Transaction Item 2: Duplicate Warning (Indigo/Coral palette request) -->
+<label class="bg-surface rounded-xl p-4 shadow-ambient flex items-start gap-4 cursor-pointer hover:bg-surface-container-low transition-colors border border-semantic-debit/20">
+<div class="pt-1">
+<input class="kontrol-checkbox" type="checkbox"/> <!-- Unchecked by default as suggestion for duplicate -->
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md text-on-surface truncate pr-2">Netflix Subscription</span>
+<span class="font-currency-tabular text-currency-tabular text-on-surface whitespace-nowrap">-$15.99</span>
+</div>
+<div class="flex items-center gap-2 mt-2 flex-wrap">
+<div class="inline-flex items-center gap-1 bg-primary-light px-2 py-1 rounded-lg text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">movie</span>
+                            Entertainment
+                            <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 11</span>
+</div>
+<!-- Duplicate Badge -->
+<div class="mt-3 flex items-center gap-1 text-semantic-debit bg-error-container/30 px-2 py-1 rounded text-label-sm font-label-sm w-fit">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                        Possible Duplicate
+                    </div>
+</div>
+</label>
+<!-- Transaction Item 3: Standard, Checked -->
+<label class="bg-surface rounded-xl p-4 shadow-ambient flex items-start gap-4 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="pt-1">
+<input checked="" class="kontrol-checkbox" type="checkbox"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md text-on-surface truncate pr-2">Whole Foods Market</span>
+<span class="font-currency-tabular text-currency-tabular text-on-surface whitespace-nowrap">-$84.20</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="inline-flex items-center gap-1 bg-primary-light px-2 py-1 rounded-lg text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+                            Groceries
+                            <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 10</span>
+</div>
+</div>
+</label>
+<!-- Transaction Item 4: Income, Checked -->
+<label class="bg-surface rounded-xl p-4 shadow-ambient flex items-start gap-4 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="pt-1">
+<input checked="" class="kontrol-checkbox" type="checkbox"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md text-on-surface truncate pr-2">TechCorp Salary</span>
+<span class="font-currency-tabular text-currency-tabular text-secondary whitespace-nowrap">+$3,200.00</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="inline-flex items-center gap-1 bg-secondary-container px-2 py-1 rounded-lg text-on-secondary-container text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                            Income
+                            <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 01</span>
+</div>
+</div>
+</label>
+</div>
+</main>
+<!-- Sticky Footer (Thumb-friendly action) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest/90 backdrop-blur-lg border-t border-surface-variant p-4 pb-8 z-50 flex flex-col gap-4 shadow-[0_-4px_20px_rgba(2,36,72,0.06)]">
+<div class="flex justify-between items-center px-2">
+<span class="font-body-md text-on-surface-variant">Selected (3/12)</span>
+<span class="font-currency-tabular text-on-surface font-semibold">Net: +$3,111.30</span>
+</div>
+<button class="w-full bg-primary text-on-primary rounded-xl py-4 font-headline-sm text-headline-sm shadow-elevated active:scale-95 transition-transform duration-200">
+            Import 3 Transactions
+        </button>
+</div>
+</body></html>

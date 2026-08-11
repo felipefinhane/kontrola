@@ -197,3 +197,5 @@ Using the same Kontrola design system, design a "Share Account" screen: shows wh
 ```
 Using the same Kontrola design system, design a "Manage Account Access" screen: a list of people who have access to this account (avatar, name/email, role badge "Owner" or "Member"), with a "Remove access" action per member, and the same "+ Invite" action from the previous screen.
 ```
+
+> **Telas bônus que o Stitch gerou sozinho** ao explorar o fluxo de convite (v3), sem estarem no prompt: **Accept Invitation** (tela que a pessoa convidada vê pra aceitar), **Invitation Email** (template de e-mail — não é tela do app), e **Member Dashboard (Shared)** (o que o membro vê depois de aceitar). Fazem sentido como fluxo completo. Salvas em [`stitch-export/23-accept-invitation.html`](./stitch-export/23-accept-invitation.html), [`stitch-export/24-invitation-email.html`](./stitch-export/24-invitation-email.html) e [`stitch-export/25-member-dashboard-shared.html`](./stitch-export/25-member-dashboard-shared.html).

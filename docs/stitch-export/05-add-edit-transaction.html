@@ -1,4 +1,4 @@
-<!-- Add / Edit Transaction (Multi-currency) — canonical, replaces superseded/add-edit-transaction.old.html -->
+<!-- Add / Edit Transaction (Multi-currency) -->
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
@@ -184,13 +184,13 @@
 <style>
         .thumb-zone-padding { padding-bottom: 120px; }
         .currency-input::placeholder { color: theme('colors.outline'); }
-
+        
         /* Smooth transitions for toggle */
         .type-toggle-bg { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .is-debit .type-toggle-bg { transform: translateX(100%); }
         .is-debit .debit-text { color: theme('colors.on-primary'); }
         .is-debit .credit-text { color: theme('colors.on-surface-variant'); }
-
+        
         .is-credit .type-toggle-bg { transform: translateX(0); background-color: theme('colors.secondary'); }
         .is-credit .credit-text { color: theme('colors.on-primary'); }
         .is-credit .debit-text { color: theme('colors.on-surface-variant'); }
@@ -315,7 +315,7 @@
                 });
             }
         }
-
+        
         // Basic amount formatting logic for demo
         const input = document.getElementById('amount-input');
         input.addEventListener('input', function (e) {

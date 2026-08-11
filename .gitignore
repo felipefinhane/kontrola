@@ -35,3 +35,8 @@ pnpm-debug.log*
 # Vercel / Supabase local
 .vercel
 .supabase/
+
+# Raw Stitch export bundles (huge, full of PNG screenshots — the .html
+# screens we actually use are extracted into docs/stitch-export/)
+stitch_multi_platform_prompt_analyzer.zip
+*.zip

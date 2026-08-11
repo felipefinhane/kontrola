@@ -1,0 +1,169 @@
+<!-- v3 -- guardado como referência, não muda o roadmap -->
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Manage Account Access</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#5bddac",
+                        "surface-container-highest": "#e3e2e0",
+                        "secondary-fixed": "#7afac7",
+                        "surface-container-high": "#e9e8e5",
+                        "on-background": "#1a1c1a",
+                        "inverse-on-surface": "#f2f1ee",
+                        "surface-container-low": "#f4f3f1",
+                        "primary-container": "#1e3a5f",
+                        "surface-tint": "#455f87",
+                        "surface-dim": "#dbdad7",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "background": "#faf9f6",
+                        "secondary-container": "#7afac7",
+                        "error": "#ba1a1a",
+                        "text-charcoal": "#232323",
+                        "primary-light": "#EAF1F8",
+                        "tertiary": "#322100",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ebc076",
+                        "semantic-debit": "#E2685E",
+                        "surface-variant": "#e3e2e0",
+                        "on-secondary-fixed": "#002115",
+                        "surface": "#faf9f6",
+                        "on-surface-variant": "#43474e",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#8aa4cf",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d5e3ff",
+                        "on-tertiary-container": "#c59d56",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#4d3500",
+                        "primary": "#022448",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f312f",
+                        "surface-bright": "#faf9f6",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary-fixed-dim": "#adc8f5",
+                        "on-secondary-container": "#007353",
+                        "secondary": "#006c4e",
+                        "outline": "#74777f",
+                        "surface-container": "#efeeeb",
+                        "on-surface": "#1a1c1a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#adc8f5",
+                        "on-primary-fixed": "#001c3b",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary-fixed": "#271900"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-xl": "40px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Manrope"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Manrope"],
+                        "currency-tabular": ["Inter"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "currency-tabular": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ambient-shadow {
+            box-shadow: 0 4px 20px rgba(2, 36, 72, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background flex justify-between items-center px-container-margin py-stack-md z-40">
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary text-center absolute left-1/2 -translate-x-1/2">Manage Access</h1>
+<div class="w-10 h-10"></div> <!-- Spacer -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-container-margin py-stack-lg max-w-md mx-auto w-full flex flex-col gap-stack-lg pb-32">
+<!-- Context Header -->
+<div class="flex flex-col gap-stack-sm items-center text-center px-4">
+<div class="w-16 h-16 rounded-2xl bg-primary-light flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 32px;">account_balance</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Main Checking</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Control who can view and manage this account.</p>
+</div>
+<!-- Access List -->
+<section class="flex flex-col gap-stack-sm">
+<!-- Owner -->
+<div class="bg-surface-container-low rounded-2xl p-4 ambient-shadow flex items-center gap-4 transition-colors hover:bg-surface-container-highest">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait photograph of a confident professional smiling warmly. Soft, diffused lighting highlights their features against a bright, modern office background. The color palette features calm neutrals and professional navy blue tones. The mood is trustworthy, secure, and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwDeBbrKotAn9iaFw4K-Q0TX1s3OI90EZUi3apxXIymnPvN7cQv3sBplkzyhZ_BFmKhubDwtdAsS7emF-aecCs7TnOyRDvdT6A-5kLQ_9DN3pzgmKyta0RRBxuq1tHdHllU3_iEroZZ_ERH9mOgxv5sHr1lYm2v2py9_TEFRTOJiGE0wPuYyVsT4trcYg18glfEfcXOth2n3FzUbm22ZqdKp_Qssa-hmBrmwPWuIOT-eKxiE-Ly48J">
+<div class="flex-1"><p class="font-headline-sm text-on-surface">Eleanor Shellstrop</p><p class="font-body-md text-on-surface-variant">eleanor@example.com</p></div>
+<div class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm font-bold">Owner</div>
+</div>
+<!-- Member 1 -->
+<div class="bg-surface-container-low rounded-2xl p-4 ambient-shadow flex items-center gap-4 transition-colors hover:bg-surface-container-highest">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait photograph of a friendly person with glasses. Natural daylight streaming from a window side-lights their face. The setting is a minimalist cafe with soft beige and light grey tones. The aesthetic is clean, modern, and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-muEh3VrJAywR9ElXP16r97YzrdIQhod30BKrzXwJ2nA8wHUeaQ3dIJIWaCXfK5rSRC-hJSrmroHqLfNNo642aH_C7f0munQZMR3_sqnrdJlbUl6QO06hX2SKS8Las7IF_3JZC1NWZ73QLv9_ZPiOSRTR65EHdF2WwhKoSJPBtG_fSthastXyOvzjXRvDT6_xCahWtxnmMeK8ec-YA56wxvFZBd4P9lkGdRZHRnx0AtGQXixsOpfv">
+<div class="flex-1"><p class="font-headline-sm text-on-surface">Chidi Anagonye</p><p class="font-body-md text-on-surface-variant">chidi@example.com</p></div>
+<div class="flex items-center gap-2">
+<div class="bg-secondary-fixed-dim text-on-secondary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm font-bold">Member</div>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-error transition-colors rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Member 2 (Pending) -->
+<div class="bg-surface-container-low rounded-2xl p-4 ambient-shadow flex items-center gap-4 border-[1.5px] border-dashed border-outline-variant">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1"><p class="font-headline-sm text-on-surface-variant italic">jason.mendoza@example.com</p><div class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm font-bold w-fit mt-1">Invite pending</div></div>
+<button class="font-label-md text-label-md hover:underline px-2 text-semantic-debit">Cancel</button>
+</div>
+</section>
+<!-- Invite Action -->
+<button class="mt-4 w-full bg-primary text-on-primary rounded-2xl h-16 flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors active:scale-[0.98] duration-200 ambient-shadow">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-md text-label-md">Invite someone</span>
+</button>
+</main>
+<!-- BottomNavBar (Hidden intentionally as this is a sub-page with a back button) -->
+
+
+</body></html>

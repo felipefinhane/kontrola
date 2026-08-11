@@ -1,4 +1,3 @@
-<!-- Notification Settings (Stitch mislabeled this block's HTML comment as "Planned View" in the export — the <title> "Kontrola - Notifications" and content confirm it is the Notification Settings screen) -->
 <!DOCTYPE html><html class="light" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -110,12 +109,12 @@
         body {
             -webkit-tap-highlight-color: transparent;
         }
-
+        
         /* Ambient shadows */
         .shadow-ambient-lvl1 {
             box-shadow: 0 4px 20px rgba(2, 36, 72, 0.06);
         }
-
+        
         .shadow-ambient-lvl2 {
             box-shadow: 0 4px 12px rgba(2, 36, 72, 0.12);
         }
@@ -246,7 +245,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const display = document.getElementById('daysValue');
             const btns = document.querySelectorAll('.bg-surface-container-lowest.shadow-sm');
-
+            
             if(btns.length === 2 && display) {
                 let val = 3;
                 btns[0].addEventListener('click', () => {

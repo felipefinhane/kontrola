@@ -1,0 +1,253 @@
+<!-- v3 -- BÔNUS: o Stitch gerou essa sozinha, não estava no prompt original. Tela que a pessoa convidada vê pra aceitar o convite de acesso a uma conta. -->
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Accept Invitation</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#2f312f",
+                      "tertiary-container": "#4d3500",
+                      "on-primary-container": "#8aa4cf",
+                      "on-secondary": "#ffffff",
+                      "semantic-debit": "#E2685E",
+                      "surface-variant": "#e3e2e0",
+                      "surface-container-high": "#e9e8e5",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed": "#001c3b",
+                      "surface-tint": "#455f87",
+                      "tertiary-fixed-dim": "#ebc076",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#faf9f6",
+                      "surface-container-highest": "#e3e2e0",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "text-charcoal": "#232323",
+                      "primary-container": "#1e3a5f",
+                      "surface": "#faf9f6",
+                      "surface-container": "#efeeeb",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#adc8f5",
+                      "on-tertiary-fixed": "#271900",
+                      "on-surface": "#1a1c1a",
+                      "on-secondary-container": "#007353",
+                      "on-secondary-fixed": "#002115",
+                      "on-background": "#1a1c1a",
+                      "secondary-container": "#7afac7",
+                      "primary-fixed-dim": "#adc8f5",
+                      "secondary-fixed-dim": "#5bddac",
+                      "primary": "#022448",
+                      "secondary-fixed": "#7afac7",
+                      "tertiary-fixed": "#ffdea9",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "surface-dim": "#dbdad7",
+                      "outline-variant": "#c4c6cf",
+                      "on-primary-fixed-variant": "#2d486d",
+                      "primary-fixed": "#d5e3ff",
+                      "background": "#faf9f6",
+                      "tertiary": "#322100",
+                      "outline": "#74777f",
+                      "surface-container-low": "#f4f3f1",
+                      "secondary": "#006c4e",
+                      "on-tertiary-container": "#c59d56",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f2f1ee",
+                      "primary-light": "#EAF1F8",
+                      "on-surface-variant": "#43474e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-margin": "20px",
+                      "stack-sm": "8px",
+                      "gutter": "16px",
+                      "stack-lg": "24px",
+                      "stack-md": "16px",
+                      "stack-xl": "40px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "currency-tabular": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "currency-tabular": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-bright text-on-surface font-body-md min-h-screen flex items-center justify-center p-container-margin antialiased">
+<!-- Note: TopAppBar and BottomNavBar are deliberately suppressed here as this is a transactional, focused "Invitation" screen, adhering to the "Shell Visibility & Relevance" mandate. -->
+<main class="w-full max-w-md flex flex-col items-center gap-stack-lg animate-[fadeIn_0.5s_ease-out]">
+<!-- Header Graphic -->
+<div class="w-20 h-20 rounded-full bg-primary-light flex items-center justify-center shadow-sm mb-2">
+<span class="material-symbols-outlined text-[40px] text-primary" style="font-variation-settings: 'FILL' 1;">
+                mark_email_read
+            </span>
+</div>
+<!-- Title -->
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary text-center">
+            Join Account
+        </h1>
+<!-- Details Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-stack-lg shadow-[0_4px_20px_0_rgba(2,36,72,0.06)] border border-surface-container flex flex-col gap-stack-md mt-2 relative overflow-hidden">
+<!-- Decorative Accent Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-primary opacity-20"></div>
+<div class="flex items-center gap-4 mb-2">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px] text-primary" style="font-variation-settings: 'FILL' 1;">
+                        account_balance
+                    </span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Joint Savings</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Bank: Itaú</p>
+</div>
+</div>
+<div class="h-[1px] w-full bg-surface-container my-2"></div>
+<div class="flex items-center justify-between">
+<p class="font-label-md text-label-md text-on-surface-variant">Owner</p>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-[16px] text-on-surface">Lucas</span>
+<img class="w-10 h-10 rounded-full object-cover shadow-sm border border-surface-container" data-alt="A professional, warm, close-up portrait of a young man named Lucas with a friendly smile, modern casual attire, soft natural lighting, set against a clean white background, conveying trust and calm suitable for a high-end fintech app profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIdweTJgXHJHiWsTUKex-JDjr3GvhsoouF6yq82NZuf9KC4wc1CsmJt5BD2hVMZ1MNS0KVt2CKl9BcDZf4QqlbqNdRCfJopeoo9Lhz9Lz5iwORxwt9xUsuxcc87-B0UxI3p1DJ6d5K_Nj2zBLtMF5a1FUvmJCoyiTyv5HD7n54dnsgMXjor7rloM4dwfwv7Ep2s9rZqnzRu27wQk98odN-CPDaPdYqxKJ9p0KYF6VqFFuMEavgmjIP"/>
+</div>
+</div>
+</div>
+<!-- Reassuring Text -->
+<p class="font-body-md text-body-md text-on-surface-variant text-center px-4 mt-2 leading-relaxed">
+            Joining this account lets you track shared expenses. You won't see Lucas's other private accounts.
+        </p>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-stack-sm mt-4">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-[16px] py-4 px-6 flex items-center justify-center shadow-[0_4px_12px_0_rgba(2,36,72,0.12)] hover:opacity-90 active:scale-95 transition-all duration-200" type="button">
+                Join Account
+            </button>
+<button class="w-full text-primary font-label-md text-label-md rounded-[16px] py-4 px-6 flex items-center justify-center hover:bg-primary-light active:scale-95 transition-all duration-200" type="button">
+                Not now
+            </button>
+</div>
+</main>
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

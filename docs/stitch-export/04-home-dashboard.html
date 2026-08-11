@@ -1,14 +1,12 @@
-<!-- Home / Dashboard (Multi-currency) — canonical, replaces superseded/home-dashboard.old.html -->
-<!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Home / Dashboard (Multi-currency, final) -- currency grouping + BRL banks + transaction dates all fixed -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Kontrola - Home Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -123,7 +121,7 @@
 <div class="flex justify-between items-center px-container-margin py-stack-md w-full max-w-2xl mx-auto">
 <div class="flex items-center gap-4">
 <div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden shadow-sm">
-<img class="w-full h-full object-cover" data-alt="A close-up portrait of a professional looking individual smiling warmly, shot in soft natural light, conveying a sense of calm and trustworthiness. The overall aesthetic is modern, bright, and clean, fitting a premium wellness or finance app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4rq8JtIf2-7O79ISbq8v14q1m462ISsGKOMGfTbd4RF6j_h12h2ZboS9PXupsTibV5BVxykPwanEeylz-Vx1XqIvx6EJaaWxb4BE4qB371wK3tUjx-lhIt6h1X82bceoThpWryqyLwIS68niIeS-rhr2MJk4RebwhQDP0ARdM8_D_TFsfSubzcJs_EZ1Kp4UFSS1GGvsWvqjhCgf9iXP5v5bttFs4y5gbk2vbzOZ85SFexSa8lbwv"/>
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a professional looking individual smiling warmly, shot in soft natural light, conveying a sense of calm and trustworthiness. The overall aesthetic is modern, bright, and clean, fitting a premium wellness or finance app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4rq8JtIf2-7O79ISbq8v14q1m462ISsGKOMGfTbd4RF6j_h12h2ZboS9PXupsTibV5BVxykPwanEeylz-Vx1XqIvx6EJaaWxb4BE4qB371wK3tUjx-lhIt6h1X82bceoThpWryqyLwIS68niIeS-rhr2MJk4RebwhQDP0ARdM8_D_TFsfSubzcJs_EZ1Kp4UFSS1GGvsWvqjhCgf9iXP5v5bttFs4y5gbk2vbzOZ85SFexSa8lbwv">
 </div>
 </div>
 <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed-dim tracking-tight">Kontrola</h1>
@@ -148,12 +146,12 @@
 </div>
 <div>
 <p class="font-label-md text-label-md text-on-surface">Main Checking</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Chase Bank</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Itaú</p>
 </div>
 </div>
 </div>
 <div class="mt-4">
-<p class="font-currency-tabular text-currency-tabular text-on-surface text-xl"><span class="text-label-sm mr-1">USD</span>$12,450.00</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface text-xl"><span class="text-label-sm mr-1">R$</span>12.450,00</p>
 </div>
 </div>
 <!-- Account Card 2 -->
@@ -166,12 +164,12 @@
 </div>
 <div>
 <p class="font-label-md text-label-md text-on-surface">Emergency Fund</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ally Bank</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nubank</p>
 </div>
 </div>
 </div>
 <div class="mt-4">
-<p class="font-currency-tabular text-currency-tabular text-on-surface text-xl"><span class="text-label-sm mr-1">USD</span>$25,000.00</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface text-xl"><span class="text-label-sm mr-1">R$</span>25.000,00</p>
 </div>
 </div>
 <!-- Account Card 3 -->
@@ -184,12 +182,12 @@
 </div>
 <div>
 <p class="font-label-md text-label-md text-on-surface">Platinum Credit</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Amex</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Bradesco</p>
 </div>
 </div>
 </div>
 <div class="mt-4">
-<p class="font-currency-tabular text-currency-tabular text-on-surface text-xl"><span class="text-label-sm mr-1">USD</span>-$1,250.00</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface text-xl"><span class="text-label-sm mr-1">R$</span>-1.250,00</p>
 </div>
 </div>
 <!-- Empty space for scroll peek -->
@@ -210,16 +208,12 @@
 </div>
 <div>
 <p class="font-body-md text-body-md text-on-surface font-semibold">Whole Foods Market</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span>Groceries</span>
-<span>•</span>
-<span>Main Checking</span>
-</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm"><span class="">Groceries</span><span class="">•</span><span class="">Main Checking</span></div>
 </div>
 </div>
 <div class="text-right">
 <p class="font-currency-tabular text-currency-tabular text-semantic-debit font-semibold">-$142.50</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Today</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant"><span class="">Groceries</span><span class="">•</span><span class="">Main Checking</span></p>
 </div>
 </div>
 <!-- Transaction 2 (Credit) -->
@@ -230,16 +224,12 @@
 </div>
 <div>
 <p class="font-body-md text-body-md text-on-surface font-semibold">Tech Corp Salary</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span>Income</span>
-<span>•</span>
-<span>Main Checking</span>
-</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm"><span class="">Income</span><span class="">•</span><span class="">Main Checking</span></div>
 </div>
 </div>
 <div class="text-right">
 <p class="font-currency-tabular text-currency-tabular text-secondary font-semibold">+$3,450.00</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Yesterday</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant"><span class="">Income</span><span class="">•</span><span class="">Main Checking</span></p>
 </div>
 </div>
 <!-- Transaction 3 (Debit) -->
@@ -250,16 +240,12 @@
 </div>
 <div>
 <p class="font-body-md text-body-md text-on-surface font-semibold">City Utilities</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span>Bills</span>
-<span>•</span>
-<span>Main Checking</span>
-</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm"><span class="">Bills</span><span class="">•</span><span class="">Main Checking</span></div>
 </div>
 </div>
 <div class="text-right">
 <p class="font-currency-tabular text-currency-tabular text-semantic-debit font-semibold">-$85.00</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 12</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant"><span class="">Bills</span><span class="">•</span><span class="">Main Checking</span></p>
 </div>
 </div>
 <!-- Transaction 4 (Debit - Planned State) -->
@@ -270,16 +256,12 @@
 </div>
 <div>
 <p class="font-body-md text-body-md text-on-surface font-semibold italic">Rent Payment (Upcoming)</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span>Housing</span>
-<span>•</span>
-<span>Main Checking</span>
-</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm"><span class="">Housing</span><span class="">•</span><span class="">Main Checking</span></div>
 </div>
 </div>
 <div class="text-right">
 <p class="font-currency-tabular text-currency-tabular text-on-tertiary-fixed-variant font-semibold">-$1,800.00</p>
-<p class="font-label-sm text-label-sm text-on-tertiary-container">Oct 15</p>
+<p class="font-label-sm text-label-sm text-on-tertiary-container"><span class="">Housing</span><span class="">•</span><span class="">Main Checking</span></p>
 </div>
 </div>
 </div>
@@ -317,4 +299,8 @@
 <span class="font-label-sm text-label-sm mt-1">Settings</span>
 </a>
 </nav>
+
+
+
+
 </body></html>
