@@ -32,12 +32,20 @@ O export original trazia **duas versões de várias telas** (antes e depois do P
 | `15-recurring-list.html` | Lista de recorrências |
 | `16-confirm-recurring.html` | Confirmar recorrência |
 
-## ⚠️ Bug encontrado: `07-accounts-list.html`
+## ⚠️ Inconsistências encontradas (revisão pós-export)
 
-O card "Total Net Worth" no topo da tela ainda soma tudo num número só (`€42,850`), em vez de agrupar por moeda como a Home (`04-home-dashboard.html`) já faz corretamente. Viola o [ADR-0007](../adr/0007-no-currency-conversion.md). Prompt de correção pra colar no Stitch:
+1. **Card "Total Net Worth" da tela de Contas** (`07-accounts-list.html`) ainda soma tudo num número só (`€42,850`), em vez de agrupar por moeda como a Home (`04-home-dashboard.html`) já faz corretamente — viola a [ADR-0007](../adr/0007-no-currency-conversion.md).
+2. **Nome do card inconsistente**: Home chama de "Total Balance", Contas chama de "Total Net Worth" — mesmo conceito, dois termos, e "Net Worth" não é um termo do `CONTEXT.md`.
+3. **Bancos fictícios fora do contexto**: Home, Contas e Account Detail usam "Chase Bank", "Ally Bank", "Nordea Bank", "Revolut", "Amex" — só a tela "Adicionar Conta" usa bancos brasileiros reais (Nubank, Itaú, Bradesco).
+
+Prompt de correção pra colar no Stitch (cobre os três pontos de uma vez):
 
 ```
-On the Accounts screen, the "Total Net Worth" card still shows one blended total. Fix it to match the Home screen's behavior: if all accounts share one currency, show one total; if there's more than one currency, show one subtotal per currency side by side, never summed together.
+Two consistency fixes across the app, all using the same design system already established.
+
+1. ACCOUNTS SCREEN — TOTAL CARD: The "Total Net Worth" card still shows one blended total (€42,850). Fix it to match the Home screen's behavior exactly: if all accounts share one currency, show one total; if there's more than one currency, show one subtotal per currency side by side, never summed together. Rename the card from "Total Net Worth" to "Total Balance" to match the Home screen's wording. The "+€1,240 this month" trend line below it has the same blending problem — either make it per-currency too, or remove it for now until it can be computed correctly per currency.
+
+2. BANK NAMES — CONSISTENCY: Several screens use placeholder international bank names (Chase Bank, Ally Bank, Nordea Bank, Revolut, Amex) that don't match the target user (Brazil, BRL as the default currency). Replace these with Brazilian bank names, consistent with the Add Account screen's quick-picks: Itaú, Nubank, Bradesco, C6 Bank, XP. Apply this on the Home, Accounts List, and Account Detail screens.
 ```
 
 ## `superseded/` — versões substituídas (só arquivo, não usar)

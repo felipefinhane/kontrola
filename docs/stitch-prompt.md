@@ -8,7 +8,7 @@
 >
 > Depois que o Stitch gerar o resultado, exporta o HTML/CSS (ou o link do projeto) e a gente usa como referência real de layout pra implementar no Next.js.
 >
-> **O que já foi gerado e exportado está salvo em [`stitch-export/`](./stitch-export/INDEX.md)** — um arquivo `.html` por tela, com índice explicando o que é canônico e o que ficou substituído. Tem um bug conhecido registrado lá (o card de patrimônio total da tela de Contas ainda soma tudo numa moeda só, violando a ADR-0007) com o prompt de correção pronto.
+> **O que já foi gerado e exportado está salvo em [`stitch-export/`](./stitch-export/INDEX.md)** — um arquivo `.html` por tela, com índice explicando o que é canônico e o que ficou substituído. Tem 3 inconsistências conhecidas registradas lá (bug de moeda na tela de Contas, nome de card inconsistente, bancos fictícios fora do contexto) com o prompt de correção já pronto.
 
 ---
 
