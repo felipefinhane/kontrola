@@ -1,0 +1,157 @@
+# Prompts para o Google Stitch — Kontrola
+
+> Como usar: cole o **Prompt Mestre** primeiro (ele já pede o app inteiro + as telas mais essenciais do MVP num único disparo — o Stitch consegue gerar várias telas de uma vez a partir de um prompt bem detalhado). Depois, um por vez, vá colando os prompts da seção **Telas adicionais do MVP** e, quando chegar a hora de cada fase futura, os prompts marcados como **v1.1 / v1.2 / v2 / v3** — não precisa gerar tudo de uma vez, é só usar quando for a fase certa.
+>
+> Todo o texto dos prompts está em inglês de propósito — é o idioma que travamos pra UI/código do Kontrola (ver [`CONTEXT.md`](../CONTEXT.md)), então já sai com a copy certa.
+>
+> Depois que o Stitch gerar o resultado, exporta o HTML/CSS (ou o link do projeto) e a gente usa como referência real de layout pra implementar no Next.js.
+
+---
+
+## Prompt Mestre (cole primeiro)
+
+```
+Design a mobile-first Progressive Web App called "Kontrola" — a calm, judgment-free personal finance tracker for a single person's bank account, evolving into shared/family finances later. Platform: Mobile (PWA), portrait, thumb-reach friendly, installable to home screen on iOS and Android.
+
+TARGET USER & MOOD
+The user previously tracked finances in a spreadsheet for over a year, then abandoned it for years out of friction and forgetfulness — this is not a power-user finance nerd, it's someone who needs the app to feel light, fast, and forgiving, never shaming about money. The emotional goal is "calm control", not "urgent alert". Avoid aggressive fintech clichés (neon greens, hard reds, dense data-heavy dashboards). Favor generous white space, soft rounded corners (12-16px), soft shadows, and a friendly but professional tone — closer to a wellness/habit app than a trading terminal.
+
+COLOR PALETTE (design tokens — establish these and reuse consistently across every screen)
+- Primary (brand, navigation, primary buttons): deep indigo-blue, around #1E3A5F, conveying stability and trust
+- Primary-light (backgrounds, selected states in light mode): a soft tint of the primary, around #EAF1F8
+- Accent (positive actions, credit/income, confirmations, FAB): warm emerald/teal, around #2DB88A
+- Semantic debit/expense: muted coral-red, around #E2685E — deliberately softer than a typical alarm red, avoid pure #FF0000-style aggression
+- Semantic planned/forecast: neutral amber-gray, around #C9A15A, always paired with a dashed border or outline style (never filled solid) to visually distinguish "planned" from "actual" transactions
+- Neutrals: warm off-white background #FAF9F6 and near-charcoal text #232323 for light mode; deep navy-charcoal background #12181F and warm off-white text #F5F3EE for dark mode
+- Success/confirmation: same as Accent emerald
+- Support both a light mode and a dark mode; dark mode is equally important since this is used at night/on the go
+
+TYPOGRAPHY
+A clean geometric sans-serif (something like Inter or Manrope). Large, confident numerals for money amounts (tabular figures, no ambiguity between 1 and l). Clear hierarchy: big balance numbers, medium section headers, small metadata (dates, categories).
+
+NAVIGATION SHAPE
+Bottom tab bar with 4-5 items reachable by thumb: Home, Transactions, Accounts, (Recurring — placeholder tab, can be disabled/locked look for now), Settings. A prominent circular Floating Action Button (+) above the tab bar, center-right, for quick-adding a transaction from anywhere.
+
+CORE DOMAIN VOCABULARY (use this exact language in the UI copy)
+- "Account" = a bank account, shows a running "Balance"
+- "Transaction" = a single money movement, has a "Direction" (Credit increases balance / Debit decreases it) and a "Status" (Actual = already happened, counts toward Balance; Planned = forecast, shown separately, never counted in Balance, always styled with the dashed/outline "planned" treatment)
+- "Category" = a label on a transaction (e.g. Housing, Food, Transport, Health, Education, Subscriptions, Income, Transfer, Other)
+
+GENERATE THESE SCREENS NOW (same visual system across all of them):
+
+1. ONBOARDING / WELCOME — Single screen, Kontrola logo/wordmark, one calm sentence of value proposition ("Track your money without the guilt or the spreadsheet."), primary button "Get Started", secondary link "I already have an account". On this same screen (or a second onboarding step) include a friendly illustrated callout for iOS users: "Add Kontrola to your Home Screen to enable reminders" with a small Share-icon → Add to Home Screen visual hint.
+
+2. SIGN UP — Email + password fields, password strength hint, primary CTA "Create account", link to Log In, minimal and trustworthy (small lock icon near the form to reinforce security).
+
+3. LOG IN — Email + password, "Forgot password?" link, primary CTA "Log In", link to Sign Up.
+
+4. HOME / DASHBOARD — Top: total aggregate balance across all accounts, large and prominent. Below it: a horizontally scrollable row of account cards, each showing account name, bank, and its own balance. Below that: a "Recent Transactions" list (last 5-10 actual transactions, each row showing category icon, description, account, date, and signed amount — green for credit, coral for debit). If there are no transactions yet, show a friendly empty state illustration with a "Add your first transaction" CTA. Include the bottom tab bar and the floating + button.
+
+5. ADD / EDIT TRANSACTION — Designed for one-handed thumb use, feels fast (2-3 taps to save). Large amount input at the top with a big numeric keypad. A segmented control to toggle Credit/Debit. Fields below: description (text), account (dropdown/picker), category (icon grid picker), date (defaults to today, easy to change). Primary "Save" button fixed at the bottom, always reachable by thumb.
+
+6. TRANSACTIONS LIST — Full list of transactions grouped by date (Today, Yesterday, "August 2026", etc.), with filter chips at the top (Account, Category, Status: Actual/Planned). Planned transactions in this list use the dashed/outline amber treatment, clearly visually distinct from actual ones.
+
+7. ACCOUNTS LIST — Card-based list of all accounts, each card shows bank name, account nickname, current balance, and a small sparkline or trend indicator. A "+ Add Account" card/button at the end.
+
+8. ACCOUNT DETAIL — Header with account name, bank, large balance. Below: that account's own transaction list, same date-grouped style as screen 6, but scoped to this account only.
+
+Keep spacing, corner radius, color usage, and typography perfectly consistent across all 8 screens — they must read as one coherent design system, not 8 separate designs.
+```
+
+---
+
+## Telas adicionais do MVP (gere uma a uma, depois do Prompt Mestre)
+
+### 9. Categorias
+
+```
+Using the same Kontrola design system (colors, typography, spacing) established so far, design a "Categories" screen: a grid of category chips/cards, each with an icon and name (Housing, Food, Transport, Health, Education, Subscriptions, Income, Transfer, Other, ...), showing a small count or total spent this month per category. A "+ Add custom category" card at the end, opening a simple form (name, icon picker, color picker constrained to the app's palette).
+```
+
+### 10. Previsão / Planned view
+
+```
+Using the same Kontrola design system, design a "Planned" screen (accessible from Transactions via a tab or toggle) listing only Status=Planned transactions — future/forecast entries the user projected. Every row uses the dashed/outline amber "planned" treatment from the design tokens. Include a clear, friendly banner at the top explaining "Planned transactions don't count toward your balance yet" and, per row, a quick action to "Confirm" (which would flip it to Actual).
+```
+
+### 11. Configurações de notificação
+
+```
+Using the same Kontrola design system, design a "Notifications" settings screen: a toggle to enable push notifications (with a short explanation of why — "so you don't lose the habit like last time"), a simple frequency/threshold control for "remind me if I haven't logged anything in ___ days" (e.g. a stepper or slider, default 3 days), and, for iOS users specifically, a status indicator showing whether the app is installed to the Home Screen (required for push to work), with a "How to install" link if not.
+```
+
+### 12. Perfil / Configurações gerais
+
+```
+Using the same Kontrola design system, design a "Settings" / profile screen: user avatar/initials, name and email, a language selector (showing only "English" for now, styled as if more languages could appear later), a security section (change password, log out), and an "Export my data" action. Calm, minimal list-style layout with icons, grouped into clear sections.
+```
+
+### 13. Estado vazio — sem contas ainda
+
+```
+Using the same Kontrola design system, design the empty state for the Accounts screen when the user has no accounts yet: friendly illustration, one reassuring sentence ("Add your first account to start tracking — it only takes a minute"), and a clear primary CTA "Add Account".
+```
+
+---
+
+## v1.1 — Recorrência (gerar quando chegar essa fase)
+
+### 14. Lista de recorrências
+
+```
+Using the same Kontrola design system, design a "Recurring" screen: a list of recurring transaction templates (e.g. "Rent", "Electricity Bill", "School Tuition"), each card showing name, expected amount, account, category, and next expected date. A "+ Add Recurring" button.
+```
+
+### 15. Confirmação de recorrência (a partir da notificação push)
+
+```
+Using the same Kontrola design system, design a "Confirm Recurring Transaction" screen/modal, the destination when a user taps a push notification like "Rent — August is ready to confirm". Show the pre-filled transaction (amount, account, category, date) with all fields editable, and two clear actions: "Confirm" (primary, turns it into an Actual transaction) and "Skip this month" (secondary).
+```
+
+---
+
+## v1.2 — Import de extrato (gerar quando chegar essa fase)
+
+### 16. Importar transações
+
+```
+Using the same Kontrola design system, design an "Import Transactions" screen: a drop zone / upload button for an OFX or CSV bank statement file, a short explanation of supported formats, and, once a file is uploaded, a preview state showing "42 transactions found, 3 look like duplicates".
+```
+
+### 17. Revisar transações importadas
+
+```
+Using the same Kontrola design system, design a "Review Import" screen: a checklist-style list of the imported transactions, each row with a checkbox (pre-checked, uncheck to skip), editable category picker inline, and a highlighted "possible duplicate" badge on rows that match existing transactions. A sticky footer with "Import X transactions" primary button.
+```
+
+---
+
+## v2 — Cartão de crédito (gerar quando chegar essa fase)
+
+### 18. Lista de cartões
+
+```
+Using the same Kontrola design system, design a "Credit Cards" screen: card-style visual representations of each credit card (name, last 4 digits, brand-neutral card graphic using the app's palette), each showing current statement total and due date. A "+ Add Card" action.
+```
+
+### 19. Detalhe da fatura
+
+```
+Using the same Kontrola design system, design a "Statement Detail" screen for one credit card: header with due date, total amount, and a limit-usage progress bar (used vs. available credit). Below: an itemized list of charges for this statement cycle, each with merchant, category, and amount, grouped like the main transactions list.
+```
+
+---
+
+## v3 — Compartilhamento (gerar quando chegar essa fase)
+
+### 20. Compartilhar conta
+
+```
+Using the same Kontrola design system, design a "Share Account" screen: shows which account is being shared, an email input to invite someone, and a note explaining they'll be able to see and add transactions on this specific account only (not the user's other accounts).
+```
+
+### 21. Gerenciar membros da conta
+
+```
+Using the same Kontrola design system, design a "Manage Account Access" screen: a list of people who have access to this account (avatar, name/email, role badge "Owner" or "Member"), with a "Remove access" action per member, and the same "+ Invite" action from the previous screen.
+```
