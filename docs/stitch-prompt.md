@@ -4,13 +4,37 @@
 >
 > Todo o texto dos prompts está em inglês de propósito — é o idioma que travamos pra UI/código do Kontrola (ver [`CONTEXT.md`](../CONTEXT.md)), então já sai com a copy certa. Isso não conflita com o app ter EN + PT-BR como idiomas de verdade depois — os mockups só precisam mostrar texto em uma língua; a tradução em si é trabalho de implementação (i18n), não de layout.
 >
-> **Se você já gerou o Prompt Mestre antes desta atualização**: não precisa recomeçar do zero — só regenere a tela **4 (Home)** e a **14 (Configurações)** com os prompts atualizados abaixo, e gere a nova tela **9 (Adicionar conta)**. O resto continua válido.
+> **Se você já gerou o Prompt Mestre antes desta atualização**: não precisa recomeçar do zero — cole o **Prompt de Atualização** logo abaixo no mesmo chat/projeto do Stitch, que ele reaproveita o que já existe e só ajusta o que mudou.
 >
 > Depois que o Stitch gerar o resultado, exporta o HTML/CSS (ou o link do projeto) e a gente usa como referência real de layout pra implementar no Next.js.
 
 ---
 
-## Prompt Mestre (cole primeiro)
+## Prompt de Atualização (cole no chat do projeto já existente no Stitch)
+
+```
+I'm updating the Kontrola app with a new concept: Accounts now have a Currency (e.g. BRL, USD). Revise the existing screens below and add one new screen, all using the same design system (colors, typography, spacing, and the dashed/outline "planned" treatment) already established in this project. Keep every other screen exactly as already generated — this is a refinement, not a redesign.
+
+REVISE these existing screens:
+
+1. HOME / DASHBOARD — Change the top balance area: if every account shares the same currency, keep one large prominent total. If accounts span more than one currency, show one subtotal per currency instead, side by side (e.g. "R$ 23.218,77" and "US$ 1.200,00") — never blend different currencies into a single number. Also add the currency to each account card in the horizontally scrollable row.
+
+2. ACCOUNTS LIST — Add the currency to each account card, alongside bank name, nickname, and balance.
+
+3. ACCOUNT DETAIL — Add the currency to the header, next to account name and bank.
+
+4. ADD / EDIT TRANSACTION — The amount input should be formatted in the transaction's account currency.
+
+5. SETTINGS / PROFILE — Replace the language control entirely: it currently shows only "English" as a placeholder; now show two fully real, selectable options — "English" and "Português (Brasil)" — as a segmented control or list with a clear selected state. Add a new Theme control with three options: "Light", "Dark", "System" (same selectable treatment, "System" marked as the default). Add a new "Default currency" row (e.g. "BRL — Brazilian Real" with a chevron to change it), used to pre-fill currency when adding a new account. Keep the existing Security section (change password, log out) and Data section (Export my data) exactly as they are.
+
+ADD this new screen:
+
+6. ADD ACCOUNT — fields for account nickname (text), bank name (text or picker of common Brazilian banks), currency (dropdown of currency codes — BRL, USD, EUR — pre-selected to the user's default currency preference from Settings), and opening balance (numeric input, formatted per the chosen currency). Primary "Save Account" button fixed at the bottom.
+```
+
+---
+
+## Prompt Mestre (cole se ainda não gerou nada no Stitch)
 
 ```
 Design a mobile-first Progressive Web App called "Kontrola" — a calm, judgment-free personal finance tracker for a single person's bank account, evolving into shared/family finances later. Platform: Mobile (PWA), portrait, thumb-reach friendly, installable to home screen on iOS and Android.
