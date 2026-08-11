@@ -1,0 +1,56 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kontrola
+      POSTGRES_PASSWORD: kontrola
+      POSTGRES_DB: kontrola
+    ports:
+      # Host 5433 -> container 5432, to avoid clashing with a Postgres you
+      # might already have running locally on the default port. Containers
+      # on the docker-compose network (app, adminer) still reach it at
+      # db:5432 internally — this only affects connections from the host.
+      - "5433:5432"
+    volumes:
+      - kontrola_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kontrola -d kontrola"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      # Overrides whatever DATABASE_URL is in .env (that one's for Neon) —
+      # inside docker-compose we always talk to the local `db` service.
+      DATABASE_URL: postgres://kontrola:kontrola@db:5432/kontrola
+      NODE_ENV: development
+    volumes:
+      - .:/app
+      - kontrola_node_modules:/app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+    command: npm run dev
+
+volumes:
+  kontrola_db_data:
+  kontrola_node_modules:

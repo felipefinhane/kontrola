@@ -8,8 +8,12 @@ A personal finance tracker. Starts as a single-user bank-account ledger, growing
 A person with a login in Kontrola. Owns Accounts and Transactions.
 
 **Account**:
-A bank account (checking/savings) tracked in Kontrola. Holds a Balance, always derived from its `actual` Transactions. Owned by one User, and may be shared with other Users via AccountMember.
+A bank account (checking/savings) tracked in Kontrola, denominated in one Currency. Holds a Balance, always derived from its `actual` Transactions. Owned by one User, and may be shared with other Users via AccountMember.
 _Avoid_: Wallet, Bank (the bank itself is never modeled — only the accounts held there).
+
+**Currency**:
+The unit an Account's Balance and Transactions are denominated in (e.g. BRL, USD), set once when the Account is created. Kontrola never auto-converts between currencies — a User with Accounts in more than one Currency sees one Balance subtotal per Currency, never a single blended total (see [ADR-0007](./docs/adr/0007-no-currency-conversion.md)).
+_Avoid_: Treating Currency as a User-level setting — it belongs to the Account. A User's "default currency" is only a preference for pre-filling new Accounts, not a conversion target.
 
 **CreditCard**:
 A credit card, tracked separately from Account. Has a statement cycle, due date, and limit instead of a running Balance. Not built until v2.
@@ -28,7 +32,7 @@ Whether a Transaction increases (`credit`) or decreases (`debit`) its Account's 
 _Avoid_: OP, C/D (the source spreadsheet's column name — retired).
 
 **Balance**:
-The current amount in an Account. Always computed by summing the Account's `actual` Transactions — never stored as a typed-in value.
+The current amount in an Account, in the Account's own Currency. Always computed by summing the Account's `actual` Transactions — never stored as a typed-in value.
 _Avoid_: Saldo.
 
 **Category**:

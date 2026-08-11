@@ -1,0 +1,16 @@
+# Dev-only image (see ADR-0006) — hot-reloads against the source volume-mounted
+# by docker-compose.yml. Not used in production (that's Vercel, see ADR-0001).
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Installed into the image (not just the volume) so kontrola_node_modules
+# survives even when docker-compose.yml mounts the source over /app.
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
