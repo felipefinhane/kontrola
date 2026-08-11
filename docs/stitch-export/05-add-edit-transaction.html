@@ -1,0 +1,329 @@
+<!-- Add / Edit Transaction (Multi-currency) — canonical, replaces superseded/add-edit-transaction.old.html -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kontrola - Add Transaction</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#1a1c1a",
+                      "surface-variant": "#e3e2e0",
+                      "on-tertiary-container": "#c59d56",
+                      "surface-container-low": "#f4f3f1",
+                      "secondary": "#006c4e",
+                      "semantic-debit": "#E2685E",
+                      "inverse-on-surface": "#f2f1ee",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "secondary-fixed-dim": "#5bddac",
+                      "primary-fixed-dim": "#adc8f5",
+                      "surface-bright": "#faf9f6",
+                      "on-primary-container": "#8aa4cf",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#4d3500",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#002115",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dbdad7",
+                      "background": "#faf9f6",
+                      "on-surface-variant": "#43474e",
+                      "inverse-surface": "#2f312f",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#7afac7",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#007353",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1a1c1a",
+                      "primary-light": "#EAF1F8",
+                      "surface-container-high": "#e9e8e5",
+                      "outline-variant": "#c4c6cf",
+                      "primary": "#022448",
+                      "tertiary-fixed-dim": "#ebc076",
+                      "outline": "#74777f",
+                      "on-primary-fixed": "#001c3b",
+                      "on-tertiary-fixed": "#271900",
+                      "inverse-primary": "#adc8f5",
+                      "surface": "#faf9f6",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#2d486d",
+                      "surface-container": "#efeeeb",
+                      "primary-fixed": "#d5e3ff",
+                      "tertiary": "#322100",
+                      "primary-container": "#1e3a5f",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "surface-tint": "#455f87",
+                      "tertiary-fixed": "#ffdea9",
+                      "surface-container-highest": "#e3e2e0",
+                      "secondary-container": "#7afac7",
+                      "text-charcoal": "#232323"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-margin": "20px",
+                      "stack-xl": "40px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "currency-tabular": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "currency-tabular": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .thumb-zone-padding { padding-bottom: 120px; }
+        .currency-input::placeholder { color: theme('colors.outline'); }
+
+        /* Smooth transitions for toggle */
+        .type-toggle-bg { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .is-debit .type-toggle-bg { transform: translateX(100%); }
+        .is-debit .debit-text { color: theme('colors.on-primary'); }
+        .is-debit .credit-text { color: theme('colors.on-surface-variant'); }
+
+        .is-credit .type-toggle-bg { transform: translateX(0); background-color: theme('colors.secondary'); }
+        .is-credit .credit-text { color: theme('colors.on-primary'); }
+        .is-credit .debit-text { color: theme('colors.on-surface-variant'); }
+        .is-debit .type-toggle-bg { background-color: theme('colors.semantic-debit'); }
+
+        .currency-display {
+            transition: color 0.3s ease;
+        }
+        .is-credit .currency-display { color: theme('colors.secondary'); }
+        .is-debit .currency-display { color: theme('colors.semantic-debit'); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased is-debit" id="app-body">
+<!-- Top App Bar - Simplified for transactional view -->
+<header class="w-full top-0 sticky bg-background z-40 px-container-margin py-stack-md flex justify-between items-center flat no shadows">
+<button aria-label="Cancel" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary text-center absolute left-1/2 -translate-x-1/2">Transaction</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="px-container-margin pt-stack-sm pb-32 flex flex-col gap-stack-lg max-w-md mx-auto">
+<!-- Toggle: Credit / Debit -->
+<div class="relative bg-surface-container p-1 rounded-xl flex items-center justify-between mx-auto w-full max-w-[240px]">
+<div class="absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-lg type-toggle-bg shadow-sm"></div>
+<button class="relative z-10 w-1/2 py-2 text-center font-label-md text-label-md credit-text rounded-lg transition-colors" id="btn-credit" onclick="setTransactionType('credit')">Credit</button>
+<button class="relative z-10 w-1/2 py-2 text-center font-label-md text-label-md debit-text rounded-lg transition-colors" id="btn-debit" onclick="setTransactionType('debit')">Debit</button>
+</div>
+<!-- Amount Input -->
+<div class="flex flex-col items-center justify-center mt-stack-md">
+<div class="text-center w-full relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-display-lg-mobile text-display-lg-mobile text-outline opacity-50 currency-display transition-colors" id="currency-symbol">$</span>
+<input class="currency-input w-full text-center bg-transparent border-none focus:ring-0 font-display-lg-mobile text-display-lg-mobile currency-display p-0" id="amount-input" inputmode="decimal" placeholder="0.00" type="text"/>
+<div class="h-0.5 w-3/4 mx-auto mt-2 bg-surface-variant rounded-full"></div>
+</div>
+</div>
+<!-- Details Form -->
+<div class="flex flex-col gap-stack-md mt-stack-md">
+<!-- Description -->
+<div class="bg-primary-light rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary opacity-60">edit</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-primary p-0 placeholder-primary/50" placeholder="Description" type="text"/>
+</div>
+<!-- Account Picker -->
+<div class="bg-primary-light rounded-xl p-3 flex items-center justify-between cursor-pointer active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-primary opacity-60 uppercase tracking-wider">Account</div>
+<div class="font-body-md text-body-md text-primary font-semibold">Main Checking</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+<!-- Date -->
+<div class="bg-primary-light rounded-xl p-3 flex items-center justify-between cursor-pointer active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary opacity-60">calendar_today</span>
+<span class="font-body-md text-body-md text-primary">Today</span>
+</div>
+</div>
+<!-- Category Grid -->
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-stack-sm px-1">Category</h3>
+<div class="grid grid-cols-4 gap-4">
+<!-- Cat 1 (Active) -->
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-high border-2 border-semantic-debit flex items-center justify-center text-semantic-debit transition-colors is-debit-accent is-credit-accent">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">Food</span>
+</button>
+<!-- Cat 2 -->
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined">local_taxi</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Transport</span>
+</button>
+<!-- Cat 3 -->
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Shopping</span>
+</button>
+<!-- Cat 4 -->
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined">home</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Housing</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action -->
+<div class="fixed bottom-0 left-0 w-full px-container-margin pb-stack-lg pt-stack-md bg-gradient-to-t from-background via-background to-transparent z-50">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-sm text-headline-sm shadow-lg active:scale-[0.98] transition-transform duration-200">
+            Save Transaction
+        </button>
+</div>
+<script>
+        function setTransactionType(type) {
+            const body = document.getElementById('app-body');
+            if (type === 'credit') {
+                body.classList.remove('is-debit');
+                body.classList.add('is-credit');
+                document.querySelectorAll('.is-debit-accent').forEach(el => {
+                    el.classList.remove('border-semantic-debit', 'text-semantic-debit');
+                    el.classList.add('border-secondary', 'text-secondary');
+                });
+            } else {
+                body.classList.remove('is-credit');
+                body.classList.add('is-debit');
+                document.querySelectorAll('.is-credit-accent').forEach(el => {
+                    el.classList.remove('border-secondary', 'text-secondary');
+                    el.classList.add('border-semantic-debit', 'text-semantic-debit');
+                });
+            }
+        }
+
+        // Basic amount formatting logic for demo
+        const input = document.getElementById('amount-input');
+        input.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/[^0-9.]/g, '');
+            // simple validation to keep one decimal point
+            const parts = value.split('.');
+            if (parts.length > 2) value = parts[0] + '.' + parts.slice(1).join('');
+            e.target.value = value;
+        });
+    </script>
+</body></html>

@@ -1,0 +1,192 @@
+<!-- Accounts Empty State (Stitch mislabeled this block's HTML comment as "Settings / Profile" in the export — the <title> "Kontrola - Accounts (Empty)" and content confirm it is the empty-accounts state) -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Kontrola - Accounts (Empty)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c6cf",
+                        "semantic-debit": "#E2685E",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#007353",
+                        "surface-container-high": "#e9e8e5",
+                        "tertiary": "#322100",
+                        "on-tertiary-fixed": "#271900",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#adc8f5",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "text-charcoal": "#232323",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-bright": "#faf9f6",
+                        "secondary-fixed-dim": "#5bddac",
+                        "primary-light": "#EAF1F8",
+                        "tertiary-container": "#4d3500",
+                        "surface-variant": "#e3e2e0",
+                        "background": "#faf9f6",
+                        "on-primary-container": "#8aa4cf",
+                        "surface-container": "#efeeeb",
+                        "surface-tint": "#455f87",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "outline": "#74777f",
+                        "secondary": "#006c4e",
+                        "primary-fixed": "#d5e3ff",
+                        "primary-fixed-dim": "#adc8f5",
+                        "error": "#ba1a1a",
+                        "surface": "#faf9f6",
+                        "primary": "#022448",
+                        "inverse-on-surface": "#f2f1ee",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "on-secondary-fixed": "#002115",
+                        "on-primary-fixed": "#001c3b",
+                        "primary-container": "#1e3a5f",
+                        "secondary-fixed": "#7afac7",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#c59d56",
+                        "secondary-container": "#7afac7",
+                        "tertiary-fixed-dim": "#ebc076",
+                        "on-surface-variant": "#43474e",
+                        "on-surface": "#1a1c1a",
+                        "surface-container-highest": "#e3e2e0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdea9",
+                        "inverse-surface": "#2f312f",
+                        "surface-dim": "#dbdad7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-xl": "40px",
+                        "stack-lg": "24px",
+                        "stack-sm": "8px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "currency-tabular": ["Inter"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "currency-tabular": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Hide scrollbar for clean horizontal scrolls if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col items-center justify-center relative md:hidden pb-24">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-background dark:bg-background flex justify-between items-center px-container-margin py-stack-md z-40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-low flex items-center justify-center">
+<img class="object-cover w-full h-full" data-alt="A small, soft, professionally lit close-up portrait of a friendly user smiling, suitable for a mobile app profile picture. The lighting is bright and cheerful, reinforcing a calm control aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE302NyBd8TA8OGeJdeBOLCLHyjlkzNkvOXtjsFJKGr62GDAbuDl1Izn_5zYmCtHZs-P7svNAmOHENvb6HqknvpQNP3XLA4-riMg4l__a5V0eMU-STaEkKIbNcUdcmnxQ07v7_YLxsu1NNsHL_YWJF8pG_MjaVDUcPg9XwkT-vMcn2Nrj2-kkniLXgMK0gqOOaikaZBpgPbWAtWuKEETvLWmqQ6thiEfBLBdJFHUDat_2pGxaM6o1d">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed-dim">Kontrola</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Canvas (Empty State) -->
+<main class="flex-grow flex flex-col items-center justify-center px-container-margin w-full max-w-md text-center pb-20">
+<!-- Illustration Area (using soft geometric shapes/icons for a calm feel) -->
+<div class="relative mb-stack-xl">
+<!-- Background glow/soft shape -->
+<div class="absolute inset-0 bg-primary-light rounded-full blur-2xl opacity-50 w-48 h-48 -translate-x-1/2 left-1/2"></div>
+<!-- Foreground container -->
+<div class="relative w-40 h-40 bg-surface rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(2,36,72,0.06)] border border-surface-container-low">
+<!-- Stacked icons to create an illustration feel -->
+<div class="relative">
+<span class="material-symbols-outlined text-6xl text-primary opacity-20 absolute -top-4 -right-4 blur-[1px]">account_balance_wallet</span>
+<span class="material-symbols-outlined text-6xl text-secondary z-10 relative">account_balance_wallet</span>
+<span class="material-symbols-outlined text-3xl text-surface absolute -bottom-2 -right-2 bg-secondary rounded-full p-1 border-2 border-surface shadow-sm">add</span>
+</div>
+</div>
+</div>
+<!-- Typography -->
+<h2 class="font-headline-md text-headline-md-mobile text-primary mb-stack-sm">Add your first account</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto mb-stack-xl">
+            Add your first account to start tracking — it only takes a minute
+        </p>
+<!-- Primary Action -->
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-xl shadow-lg hover:bg-primary/90 active:scale-95 transition-all w-full flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Add Account
+        </button>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest dark:bg-surface-container-lowest rounded-t-xl shadow-[0_-4px_20px_rgba(2,36,72,0.06)] dark:shadow-none">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- History (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+<!-- Accounts (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1 fill" data-icon="account_balance_wallet" data-weight="fill">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</a>
+<!-- Planned (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm">Planned</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+</body></html>

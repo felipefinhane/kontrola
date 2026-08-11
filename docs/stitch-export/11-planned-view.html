@@ -1,0 +1,234 @@
+<!-- Planned View (Stitch mislabeled this block's HTML comment as "Categories" in the export — the <title> "Planned Transactions" and content confirm it is the Planned screen) -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Planned Transactions - Kontrola</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f3f1",
+                        "on-tertiary-container": "#c59d56",
+                        "on-error-container": "#93000a",
+                        "semantic-debit": "#E2685E",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "primary": "#022448",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "primary-fixed": "#d5e3ff",
+                        "on-secondary-fixed": "#002115",
+                        "tertiary": "#322100",
+                        "secondary-container": "#7afac7",
+                        "primary-light": "#EAF1F8",
+                        "primary-container": "#1e3a5f",
+                        "primary-fixed-dim": "#adc8f5",
+                        "on-primary-container": "#8aa4cf",
+                        "surface-dim": "#dbdad7",
+                        "surface-container-highest": "#e3e2e0",
+                        "tertiary-container": "#4d3500",
+                        "surface-bright": "#faf9f6",
+                        "surface": "#faf9f6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#271900",
+                        "tertiary-fixed-dim": "#ebc076",
+                        "inverse-on-surface": "#f2f1ee",
+                        "on-surface-variant": "#43474e",
+                        "secondary-fixed": "#7afac7",
+                        "surface-container-high": "#e9e8e5",
+                        "on-secondary-container": "#007353",
+                        "inverse-primary": "#adc8f5",
+                        "on-primary": "#ffffff",
+                        "background": "#faf9f6",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#5bddac",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "surface-container": "#efeeeb",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdea9",
+                        "secondary": "#006c4e",
+                        "surface-tint": "#455f87",
+                        "on-background": "#1a1c1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e3e2e0",
+                        "text-charcoal": "#232323",
+                        "on-primary-fixed": "#001c3b",
+                        "outline": "#74777f",
+                        "on-surface": "#1a1c1a",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "inverse-surface": "#2f312f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "container-margin": "20px",
+                        "stack-xl": "40px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "currency-tabular": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "currency-tabular": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .planned-border {
+            border: 1.5px dashed #C9A15A;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background dark:bg-background flat no shadows flex justify-between items-center px-container-margin py-stack-md z-40">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full overflow-hidden hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A macro shot of a sleek, minimalist frosted glass sphere against a soft, warm off-white background, bathed in gentle diffused light, exuding a sense of calm and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhkkUadXeWmAZuQiy4hoPcxBvtd6t4Ng0X7D8n-PuzyVK8Hqh6T0G-FUnXZm2zJ09opS87O56TxOH4yH1IdCbkd8r_OTyg0XFp9mqRTOga-3Pyl_z9l1crv960jWcyb2KJpRyS2EmAt7wzgEUcPrKhprLd9Z3VNax9bnWgI8ve-MRx25cFWubsJaOmT22k4tErljDGhlGqZLRqXpz-MS93uUuF2Gvl388p5YnrmP-s0sf8_0Sc6mc1">
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed-dim tracking-tight">Kontrola</h1>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="px-container-margin pt-stack-sm pb-stack-xl max-w-2xl mx-auto">
+<!-- Banner -->
+<div class="bg-primary-light rounded-xl p-4 mb-stack-lg flex gap-4 items-start">
+<div class="mt-1 flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-1">Looking ahead</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Planned transactions don't count toward your balance yet. Confirm them when they happen to keep your balance accurate.</p>
+</div>
+</div>
+<!-- Upcoming Section -->
+<section class="mb-stack-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-stack-sm ml-2">Upcoming</h3>
+<div class="space-y-stack-sm">
+<!-- Planned Item 1 -->
+<div class="planned-border rounded-xl p-4 bg-surface-container-lowest flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Rent</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tomorrow</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="font-currency-tabular text-currency-tabular text-on-tertiary-container">- $1,200.00</p>
+<button aria-label="Confirm transaction" class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+</div>
+</div>
+<!-- Planned Item 2 -->
+<div class="planned-border rounded-xl p-4 bg-surface-container-lowest flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Electricity Bill</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 28</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="font-currency-tabular text-currency-tabular text-on-tertiary-container">- $85.50</p>
+<button aria-label="Confirm transaction" class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Next Week Section -->
+<section>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-stack-sm ml-2">Next Week</h3>
+<div class="space-y-stack-sm">
+<!-- Planned Item 3 -->
+<div class="planned-border rounded-xl p-4 bg-surface-container-lowest flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">fitness_center</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Gym Membership</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Nov 2</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="font-currency-tabular text-currency-tabular text-on-tertiary-container">- $45.00</p>
+<button aria-label="Confirm transaction" class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest dark:bg-surface-container-lowest shadow-[0_-4px_20px_rgba(2,36,72,0.06)] dark:shadow-none shadow-lg rounded-t-xl md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</button>
+<!-- Active Tab -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm">Planned</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<!-- FAB for adding planned transaction -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-[#2DB88A] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-[#259c74] transition-all active:scale-95 z-40 md:hidden">
+<span class="material-symbols-outlined" style="font-size: 28px;">add</span>
+</button>
+</body></html>

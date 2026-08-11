@@ -7,6 +7,8 @@
 > **Se você já gerou o Prompt Mestre antes desta atualização**: não precisa recomeçar do zero — cole o **Prompt de Atualização** logo abaixo no mesmo chat/projeto do Stitch, que ele reaproveita o que já existe e só ajusta o que mudou.
 >
 > Depois que o Stitch gerar o resultado, exporta o HTML/CSS (ou o link do projeto) e a gente usa como referência real de layout pra implementar no Next.js.
+>
+> **O que já foi gerado e exportado está salvo em [`stitch-export/`](./stitch-export/INDEX.md)** — um arquivo `.html` por tela, com índice explicando o que é canônico e o que ficou substituído. Tem um bug conhecido registrado lá (o card de patrimônio total da tela de Contas ainda soma tudo numa moeda só, violando a ADR-0007) com o prompt de correção pronto.
 
 ---
 
@@ -83,6 +85,8 @@ GENERATE THESE SCREENS NOW (same visual system across all of them):
 
 Keep spacing, corner radius, color usage, and typography perfectly consistent across all 8 screens — they must read as one coherent design system, not 8 separate designs.
 ```
+
+> **Telas bônus que o Stitch gerou sozinho**, sem estarem no prompt: **Forgot Password** (a partir do link "Forgot password?" da tela de Log In) e **Change Password** (a partir da linha "Change Password" da tela de Settings). Não fazia mal nenhum pedir — são sub-fluxos genuínos e úteis, mantive os dois. Ficaram salvos em [`stitch-export/03b-forgot-password.html`](./stitch-export/03b-forgot-password.html) e [`stitch-export/14b-change-password.html`](./stitch-export/14b-change-password.html).
 
 ---
 

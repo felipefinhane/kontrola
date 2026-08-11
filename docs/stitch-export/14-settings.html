@@ -1,0 +1,317 @@
+<!-- Settings / Profile (Refined) — canonical, replaces superseded/settings.old.html.
+     This is the one that correctly implements the Language (EN/PT-BR), Theme
+     (Light/Dark/System) and Default currency controls from the update prompt. -->
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kontrola - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "text-charcoal": "#232323",
+                      "surface-container-low": "#f4f3f1",
+                      "surface-container": "#efeeeb",
+                      "surface": "#faf9f6",
+                      "on-secondary-fixed": "#002115",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "surface-tint": "#455f87",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#7afac7",
+                      "on-secondary-container": "#007353",
+                      "surface-container-highest": "#e3e2e0",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#8aa4cf",
+                      "inverse-surface": "#2f312f",
+                      "on-primary-fixed-variant": "#2d486d",
+                      "background": "#faf9f6",
+                      "primary-fixed-dim": "#adc8f5",
+                      "surface-dim": "#dbdad7",
+                      "tertiary-container": "#4d3500",
+                      "on-error-container": "#93000a",
+                      "primary-light": "#EAF1F8",
+                      "primary": "#022448",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "on-tertiary-fixed": "#271900",
+                      "surface-bright": "#faf9f6",
+                      "outline-variant": "#c4c6cf",
+                      "secondary": "#006c4e",
+                      "on-tertiary-container": "#c59d56",
+                      "surface-container-high": "#e9e8e5",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e3e2e0",
+                      "semantic-debit": "#E2685E",
+                      "inverse-on-surface": "#f2f1ee",
+                      "tertiary-fixed-dim": "#ebc076",
+                      "on-background": "#1a1c1a",
+                      "on-error": "#ffffff",
+                      "tertiary": "#322100",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#ffdea9",
+                      "primary-fixed": "#d5e3ff",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#43474e",
+                      "primary-container": "#1e3a5f",
+                      "outline": "#74777f",
+                      "inverse-primary": "#adc8f5",
+                      "on-surface": "#1a1c1a",
+                      "secondary-fixed-dim": "#5bddac",
+                      "on-primary-fixed": "#001c3b",
+                      "secondary-container": "#7afac7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "gutter": "16px",
+                      "container-margin": "20px",
+                      "stack-xl": "40px",
+                      "stack-lg": "24px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "currency-tabular": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "currency-tabular": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-[100px]">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background flex justify-between items-center px-container-margin py-stack-md z-40">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="A softly lit, professional yet approachable headshot of a woman named Sarah M. She is wearing modern, minimal clothing in neutral tones. The background is a calm, out-of-focus studio setting with gentle, warm light, fitting a modern wellness or finance app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiH6vvMy1DyylZPZ5W6LXwQOpkvLrrSZJVZc8uWZAJangzZoDmZ5pAAhemqIRQ_P_If41SRuYnLZZrrAdxtJSBnvHpvI2_lMQNIvE5FSONckU3NfdnPCMWIZyOUX7ad5yyfY6MjxyOXZ_8WMeJR-USYVO7Ah7wYtvlF9bzCJC4AiuCo8uqcIe3TwRN9mE2fW_9RS0yPPLcawoHO6JTzEW_avzZwB3aVzpV6o2p_HAzLEOw3ZFxHCqX"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">Kontrola</h1>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<main class="px-container-margin py-stack-lg flex flex-col gap-stack-xl max-w-2xl mx-auto">
+<!-- Profile Header -->
+<section class="flex flex-col items-center gap-stack-sm text-center">
+<div class="w-24 h-24 rounded-full bg-primary-light flex items-center justify-center overflow-hidden mb-stack-sm shadow-[0_4px_20px_rgba(2,36,72,0.06)]">
+<img class="object-cover w-full h-full" data-alt="A softly lit, professional yet approachable headshot of a woman named Sarah M. She is wearing modern, minimal clothing in neutral tones. The background is a calm, out-of-focus studio setting with gentle, warm light, fitting a modern wellness or finance app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFywwsKBjKPf3n1KRLXh0Jm0KmqVMFgGSI-eES3RO9ethurtRJyFmlZASgcz3XK2zTrTS3yUuMU3aoQwIDe-p86bztDhhgqXz_jpbE-hGYkalLhudpphj4LKsOSJP1H_Kf1zRi5VghhdSUAerrMdfmRd85YWviZqthCKTCENKvxIo0882Lcjf3lpZgts9JfFfbyjE2F-l1-2xhvQidJOuNQ5U0HnBEDJ3xXgSEApU9CUAJOBSdFwDs"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Sarah M.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">sarah.m@example.com</p>
+</section>
+<!-- Settings Groups -->
+<div class="flex flex-col gap-stack-lg">
+<!-- General -->
+<section>
+<h3 class="font-label-sm text-label-sm text-outline mb-stack-sm uppercase tracking-wider pl-gutter">General</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(2,36,72,0.06)] overflow-hidden">
+<div class="w-full p-gutter flex flex-col gap-stack-sm">
+<div class="flex items-center gap-gutter mb-1">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">language</span>
+</div>
+<span class="font-body-md text-body-md text-text-charcoal">Language</span>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-lg">
+<button class="flex-1 py-2 text-label-sm rounded-md bg-surface-container-lowest shadow-sm text-primary">English</button>
+<button class="flex-1 py-2 text-label-sm rounded-md text-on-surface-variant hover:bg-surface-variant/20 transition-colors">Português (Brasil)</button>
+</div>
+</div>
+<div class="w-full p-gutter flex flex-col gap-stack-sm border-t border-surface-container-high">
+<div class="flex items-center gap-gutter mb-1">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">palette</span>
+</div>
+<span class="font-body-md text-body-md text-text-charcoal">Theme</span>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-lg">
+<button class="flex-1 py-2 text-label-sm rounded-md text-on-surface-variant hover:bg-surface-variant/20 transition-colors">Light</button>
+<button class="flex-1 py-2 text-label-sm rounded-md text-on-surface-variant hover:bg-surface-variant/20 transition-colors">Dark</button>
+<button class="flex-1 py-2 text-label-sm rounded-md bg-surface-container-lowest shadow-sm text-primary">System</button>
+</div>
+</div><button class="w-full flex items-center justify-between p-gutter hover:bg-surface-container-low transition-colors min-h-[72px] border-t border-surface-container-high">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<span class="font-body-md text-body-md text-text-charcoal">Default currency</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md text-on-surface-variant">BRL — Brazilian Real</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</button></div>
+</section>
+<!-- Data -->
+<section>
+<h3 class="font-label-sm text-label-sm text-outline mb-stack-sm uppercase tracking-wider pl-gutter">Data</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(2,36,72,0.06)] overflow-hidden">
+<button class="w-full flex items-center justify-between p-gutter hover:bg-surface-container-low transition-colors min-h-[72px]">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">download</span>
+</div>
+<span class="font-body-md text-body-md text-text-charcoal">Export my data</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Security -->
+<section>
+<h3 class="font-label-sm text-label-sm text-outline mb-stack-sm uppercase tracking-wider pl-gutter">Security</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(2,36,72,0.06)] overflow-hidden flex flex-col">
+<button class="w-full flex items-center justify-between p-gutter hover:bg-surface-container-low transition-colors border-b border-surface-container-high min-h-[72px]">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">lock</span>
+</div>
+<span class="font-body-md text-body-md text-text-charcoal">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center p-gutter hover:bg-surface-container-low transition-colors min-h-[72px]">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container">logout</span>
+</div>
+<span class="font-body-md text-body-md text-semantic-debit">Log Out</span>
+</div>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest shadow-[0_-4px_20px_rgba(2,36,72,0.06)] rounded-t-xl md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-label-sm text-label-sm">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Planned</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+</body></html>

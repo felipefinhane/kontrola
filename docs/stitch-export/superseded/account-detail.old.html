@@ -1,0 +1,259 @@
+<!-- Account Detail -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Account Detail - Kontrola</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1a1c1a",
+                    "surface-variant": "#e3e2e0",
+                    "on-tertiary-container": "#c59d56",
+                    "surface-container-low": "#f4f3f1",
+                    "secondary": "#006c4e",
+                    "semantic-debit": "#E2685E",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "secondary-fixed-dim": "#5bddac",
+                    "primary-fixed-dim": "#adc8f5",
+                    "surface-bright": "#faf9f6",
+                    "on-primary-container": "#8aa4cf",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#4d3500",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#002115",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dbdad7",
+                    "background": "#faf9f6",
+                    "on-surface-variant": "#43474e",
+                    "inverse-surface": "#2f312f",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#7afac7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#007353",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1a",
+                    "primary-light": "#EAF1F8",
+                    "surface-container-high": "#e9e8e5",
+                    "outline-variant": "#c4c6cf",
+                    "primary": "#022448",
+                    "tertiary-fixed-dim": "#ebc076",
+                    "outline": "#74777f",
+                    "on-primary-fixed": "#001c3b",
+                    "on-tertiary-fixed": "#271900",
+                    "inverse-primary": "#adc8f5",
+                    "surface": "#faf9f6",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2d486d",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#d5e3ff",
+                    "tertiary": "#322100",
+                    "primary-container": "#1e3a5f",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "surface-tint": "#455f87",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-container-highest": "#e3e2e0",
+                    "secondary-container": "#7afac7",
+                    "text-charcoal": "#232323"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "20px",
+                    "stack-xl": "40px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Manrope"],
+                    "display-lg-mobile": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "currency-tabular": ["Inter"],
+                    "headline-sm": ["Manrope"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Manrope"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "currency-tabular": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-[100px] antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background flex justify-between items-center px-container-margin py-stack-md z-40">
+<div class="flex items-center gap-stack-sm">
+<button class="w-10 h-10 rounded-full overflow-hidden hover:bg-surface-container-low transition-colors active:scale-95 duration-200 flex items-center justify-center">
+<img alt="User profile photo" class="w-8 h-8 object-cover rounded-full" data-alt="A close up, well-lit professional headshot of a person looking friendly and approachable, set against a soft, light-mode corporate background with subtle gradient lighting to convey a modern, calm aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsy8S1fqEWYvecYeYvxkbf9W4TzpbzzJKmNDNKGLgWM9YqHBzRYXXt04-W_RbRR-Stt43WiPIV60re00hZpcafInd4rxLv9sWfRejapzYwc-Vp3Z318beRuu3uIQZLIvk9_WsCzTqGCPCXday5X6eu4NKh0UoTfbIC---QmReY3d0Ep2OGMx4C6WQguOQJMEdWA9lTA4qh746s4yTzu-ldTVDKwVEdsB9WpN7uGkarFm1fiv2hVu_y">
+</button>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Kontrola</h1>
+<button class="w-10 h-10 flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="px-container-margin pt-stack-sm">
+<!-- Account Header Card -->
+<section class="bg-on-primary rounded-xl shadow-[0_4px_20px_rgba(2,36,72,0.06)] p-stack-lg mb-stack-lg border-b-[3px] border-primary relative overflow-hidden">
+<!-- Decorative background element for tactile feel -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-light rounded-full blur-3xl opacity-50 -mr-10 -mt-10 pointer-events-none"></div>
+<div class="flex items-center gap-stack-sm mb-stack-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined filled text-[20px]">account_balance</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Main Checking</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Global Standard Bank •••• 4092</p>
+</div>
+</div>
+<div class="mt-stack-sm relative z-10">
+<p class="font-label-sm text-label-sm text-outline mb-1">Available Balance</p>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+                    $14,250.00
+                </div>
+</div>
+<!-- Quick Actions -->
+<div class="flex gap-stack-sm mt-stack-lg relative z-10">
+<button class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-200 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+                    Transfer
+                </button>
+<button class="flex-1 bg-primary-light text-primary font-label-md text-label-md py-3 px-4 rounded-lg hover:bg-surface-variant transition-colors active:scale-95 duration-200 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                    Pay
+                </button>
+</div>
+</section>
+<!-- Transactions Section -->
+<section>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md">Recent Activity</h3>
+<!-- Date Group: Today -->
+<div class="mb-stack-lg">
+<h4 class="font-label-sm text-label-sm text-outline mb-stack-sm pl-2">TODAY</h4>
+<div class="flex flex-col gap-stack-sm">
+<!-- Actual Transaction -->
+<div class="bg-on-primary rounded-xl p-4 shadow-[0_4px_20px_rgba(2,36,72,0.06)] flex items-center gap-stack-md hover:bg-surface-bright transition-colors active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined filled">storefront</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate font-medium">Whole Foods Market</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Groceries</p>
+</div>
+<div class="text-right shrink-0">
+<p class="font-currency-tabular text-currency-tabular text-on-surface">-$142.50</p>
+</div>
+</div>
+<!-- Planned Transaction -->
+<div class="bg-background rounded-xl p-4 border-[1.5px] border-dashed border-tertiary flex items-center gap-stack-md relative overflow-hidden group cursor-pointer">
+<!-- Hover hint for planned items -->
+<div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-surface-variant/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-end pr-4">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+</div>
+<div class="w-12 h-12 rounded-full border border-tertiary flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-tertiary truncate flex items-center gap-2">
+                                Electric Utility
+                                <span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] px-2 py-0.5 rounded-full">Planned</span>
+</p>
+<p class="font-label-sm text-label-sm text-on-tertiary-container">Due tomorrow</p>
+</div>
+<div class="text-right shrink-0 group-hover:pr-10 transition-all duration-300">
+<p class="font-currency-tabular text-currency-tabular text-tertiary">-$85.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Date Group: Yesterday -->
+<div class="mb-stack-lg">
+<h4 class="font-label-sm text-label-sm text-outline mb-stack-sm pl-2">YESTERDAY</h4>
+<div class="flex flex-col gap-stack-sm">
+<!-- Actual Transaction (Income) -->
+<div class="bg-on-primary rounded-xl p-4 shadow-[0_4px_20px_rgba(2,36,72,0.06)] flex items-center gap-stack-md hover:bg-surface-bright transition-colors active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined filled">arrow_downward</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate font-medium">Acme Corp Payroll</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Direct Deposit</p>
+</div>
+<div class="text-right shrink-0">
+<p class="font-currency-tabular text-currency-tabular text-secondary">+$3,250.00</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Shell) -->
+<!-- Note: Semantic Shell mandate applied. FAB suppressed because this is a Details/Transactional view -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest rounded-t-xl shadow-[0_-4px_20px_rgba(2,36,72,0.06)] md:hidden">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- History (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+<!-- Accounts (Active) - Semantic mapping based on screen intent -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined filled mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-primary">Accounts</span>
+</a>
+<!-- Planned (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Planned</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+</body></html>

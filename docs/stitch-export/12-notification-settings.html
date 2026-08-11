@@ -1,0 +1,267 @@
+<!-- Notification Settings (Stitch mislabeled this block's HTML comment as "Planned View" in the export — the <title> "Kontrola - Notifications" and content confirm it is the Notification Settings screen) -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Kontrola - Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d5e3ff",
+                        "surface-tint": "#455f87",
+                        "tertiary-container": "#4d3500",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c1a",
+                        "on-error": "#ffffff",
+                        "surface-container": "#efeeeb",
+                        "on-primary-fixed": "#001c3b",
+                        "on-tertiary-container": "#c59d56",
+                        "tertiary-fixed-dim": "#ebc076",
+                        "on-surface-variant": "#43474e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#007353",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "secondary-container": "#7afac7",
+                        "tertiary": "#322100",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e3e2e0",
+                        "surface-container-high": "#e9e8e5",
+                        "primary": "#022448",
+                        "primary-light": "#EAF1F8",
+                        "surface-bright": "#faf9f6",
+                        "on-background": "#1a1c1a",
+                        "background": "#faf9f6",
+                        "secondary-fixed-dim": "#5bddac",
+                        "secondary-fixed": "#7afac7",
+                        "surface-dim": "#dbdad7",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e3e2e0",
+                        "on-secondary-fixed": "#002115",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "text-charcoal": "#232323",
+                        "inverse-primary": "#adc8f5",
+                        "surface": "#faf9f6",
+                        "secondary": "#006c4e",
+                        "inverse-surface": "#2f312f",
+                        "primary-container": "#1e3a5f",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#8aa4cf",
+                        "outline": "#74777f",
+                        "primary-fixed-dim": "#adc8f5",
+                        "inverse-on-surface": "#f2f1ee",
+                        "semantic-debit": "#E2685E",
+                        "surface-container-low": "#f4f3f1",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "40px",
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "container-margin": "20px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "currency-tabular": ["Inter"],
+                        "body-md": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "headline-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "currency-tabular": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Ambient shadows */
+        .shadow-ambient-lvl1 {
+            box-shadow: 0 4px 20px rgba(2, 36, 72, 0.06);
+        }
+
+        .shadow-ambient-lvl2 {
+            box-shadow: 0 4px 12px rgba(2, 36, 72, 0.12);
+        }
+
+        /* Toggle Switch styling */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #2DB88A; /* Accent color from spec */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2DB88A;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 1;
+            border-color: #e2e8f0;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 3rem;
+            height: 1.5rem;
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col relative pb-[80px]">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background flex justify-between items-center px-container-margin py-stack-md z-40">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-container-high shadow-ambient-lvl1">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A clean, modern portrait of a user in a serene, brightly lit environment. The lighting is soft and flattering, emphasizing a calm and approachable demeanor. The background is a soft, muted greyish-white, fitting perfectly with a modern light-mode wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhF9Q09dvgqvqjf62Yrk_VYgCC6wgwWkeoJs57vB98BhSjxkGoFLJnFPKg5U7FMnebRg6D1Jxi358-eVSY62YmTU89FDutgftUSngBectw3lKAdcqWw5aetzqrBzrKEwh_Nh8Gw7EjELDxocO7KrMqV353FuHtiVF6dDK3d60DSVhuzdGYfFnn0vGBueHkd_Tbk-uCidzOWCiEeKTsxLAeHHRFmwfA3_WUI5KAy0sScrX6UQvqipGf">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight font-bold">Kontrola</h1>
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-container-margin py-stack-md flex flex-col gap-stack-lg max-w-md mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col gap-stack-sm mb-stack-md">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+<h2 class="font-headline-md text-headline-md-mobile text-primary mt-2">Notifications</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Stay on track without feeling overwhelmed.</p>
+</div>
+<!-- Push Notifications Toggle Card -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-ambient-lvl1 flex flex-col gap-stack-md">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1 pr-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Enable Push Reminders</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">So you don't lose the habit like last time. Gentle nudges, zero judgment.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in mt-1 flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="pushToggle" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="pushToggle"></label>
+</div>
+</div>
+</section>
+<!-- Frequency / Threshold Control -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-ambient-lvl1 flex flex-col gap-stack-md">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Nudge Frequency</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Remind me if I haven't logged anything in:</p>
+<!-- Stepper -->
+<div class="flex items-center justify-between bg-surface-container-low rounded-lg p-2 max-w-[200px] mx-auto w-full">
+<button aria-label="Decrease days" class="w-12 h-12 flex items-center justify-center rounded-lg text-primary hover:bg-surface-variant transition-colors active:scale-95 bg-surface-container-lowest shadow-sm" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex flex-col items-center justify-center px-4">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary leading-none" id="daysValue">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mt-1">Days</span>
+</div>
+<button aria-label="Increase days" class="w-12 h-12 flex items-center justify-center rounded-lg text-primary hover:bg-surface-variant transition-colors active:scale-95 bg-surface-container-lowest shadow-sm" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</section>
+<!-- iOS Status Indicator -->
+<section class="bg-primary-light rounded-xl p-stack-lg border border-primary/10 flex flex-col gap-stack-md">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-semantic-debit flex-shrink-0 shadow-sm mt-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-md text-label-md text-primary font-semibold">Home Screen Installation Required</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">For push notifications to work on iOS, Kontrola needs to be added to your Home Screen.</p>
+<a class="font-label-md text-label-md text-primary underline mt-2 inline-flex items-center gap-1 active:opacity-70 transition-opacity" href="#">
+                        How to install
+                        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest rounded-t-xl shadow-[0_-4px_20px_rgba(2,36,72,0.06)] md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:-translate-y-0.5 transition-transform" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:-translate-y-0.5 transition-transform" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:-translate-y-0.5 transition-transform" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Accounts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:-translate-y-0.5 transition-transform" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-1">Planned</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple stepper logic for presentation
+        document.addEventListener('DOMContentLoaded', () => {
+            const display = document.getElementById('daysValue');
+            const btns = document.querySelectorAll('.bg-surface-container-lowest.shadow-sm');
+
+            if(btns.length === 2 && display) {
+                let val = 3;
+                btns[0].addEventListener('click', () => {
+                    if(val > 1) {
+                        val--;
+                        display.textContent = val;
+                    }
+                });
+                btns[1].addEventListener('click', () => {
+                    if(val < 14) {
+                        val++;
+                        display.textContent = val;
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

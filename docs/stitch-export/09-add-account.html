@@ -1,0 +1,308 @@
+<!-- Add Account -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kontrola - Add Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#007353",
+                      "primary-light": "#EAF1F8",
+                      "on-primary-container": "#8aa4cf",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#7afac7",
+                      "on-surface-variant": "#43474e",
+                      "on-primary-fixed-variant": "#2d486d",
+                      "primary-fixed": "#d5e3ff",
+                      "surface-tint": "#455f87",
+                      "inverse-surface": "#2f312f",
+                      "on-secondary": "#ffffff",
+                      "outline": "#74777f",
+                      "inverse-on-surface": "#f2f1ee",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#c4c6cf",
+                      "surface-variant": "#e3e2e0",
+                      "tertiary": "#322100",
+                      "primary": "#022448",
+                      "on-tertiary-container": "#c59d56",
+                      "primary-fixed-dim": "#adc8f5",
+                      "surface-container-highest": "#e3e2e0",
+                      "tertiary-container": "#4d3500",
+                      "secondary-fixed": "#7afac7",
+                      "background": "#faf9f6",
+                      "surface-dim": "#dbdad7",
+                      "secondary": "#006c4e",
+                      "surface-container-low": "#f4f3f1",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e9e8e5",
+                      "on-secondary-fixed": "#002115",
+                      "secondary-fixed-dim": "#5bddac",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "surface-bright": "#faf9f6",
+                      "on-primary-fixed": "#001c3b",
+                      "tertiary-fixed": "#ffdea9",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "surface-container": "#efeeeb",
+                      "tertiary-fixed-dim": "#ebc076",
+                      "inverse-primary": "#adc8f5",
+                      "on-surface": "#1a1c1a",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "text-charcoal": "#232323",
+                      "on-background": "#1a1c1a",
+                      "semantic-debit": "#E2685E",
+                      "on-tertiary-fixed": "#271900",
+                      "surface": "#faf9f6",
+                      "primary-container": "#1e3a5f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "container-margin": "20px",
+                      "stack-xl": "40px",
+                      "gutter": "16px",
+                      "stack-lg": "24px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "display-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "currency-tabular": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "currency-tabular": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Ambient shadow utility */
+        .shadow-ambient {
+            box-shadow: 0 4px 20px rgba(2, 36, 72, 0.06);
+        }
+        .shadow-elevated {
+            box-shadow: 0 4px 12px rgba(2, 36, 72, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased pb-24">
+<!-- Top App Bar (Task-focused, suppressing global nav) -->
+<header class="w-full top-0 sticky bg-background z-40 px-container-margin py-stack-md flex justify-between items-center flat no shadows">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low active:scale-95 duration-200 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary">Add Account</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-container-margin pt-stack-sm pb-stack-xl flex flex-col gap-stack-lg max-w-lg mx-auto w-full">
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-sm">
+            Let's set up a new account to keep track of your finances calmly.
+        </p>
+<!-- Balance Input (Hero section) -->
+<section class="flex flex-col items-center justify-center bg-surface-container-lowest rounded-[24px] p-stack-lg shadow-ambient">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Opening Balance</label>
+<div class="flex items-baseline gap-2 relative group">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant opacity-70">R$</span>
+<input class="font-display-lg-mobile text-display-lg-mobile text-primary bg-transparent border-none focus:ring-0 text-center w-full max-w-[200px] p-0 placeholder:text-surface-variant outline-none" id="balance-input" inputmode="decimal" placeholder="0.00" type="text" value=""/>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 origin-center rounded-full"></div>
+</div>
+<div class="mt-stack-md w-full max-w-[120px]">
+<div class="relative">
+<select class="w-full appearance-none bg-primary-light text-primary font-label-md text-label-md rounded-xl py-2 pl-4 pr-8 border-none focus:ring-2 focus:ring-primary/20 outline-none text-center cursor-pointer">
+<option selected="" value="BRL">BRL - R$</option>
+<option value="USD">USD - $</option>
+<option value="EUR">EUR - €</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-primary pointer-events-none text-sm">expand_more</span>
+</div>
+</div>
+</section>
+<div class="space-y-stack-md">
+<!-- Account Nickname -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-primary ml-1" for="account-name">Account Nickname</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant/60">edit</span>
+<input class="w-full bg-primary-light border-none rounded-xl py-4 pl-12 pr-4 font-body-md text-body-md text-primary placeholder:text-primary/40 focus:ring-2 focus:ring-primary/20 transition-all outline-none" id="account-name" placeholder="e.g. Main Checking, Secret Stash" type="text"/>
+</div>
+</div>
+<!-- Bank Selection -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-primary ml-1">Institution</label>
+<!-- Quick Picks -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 pt-1 -mx-container-margin px-container-margin snap-x">
+<button class="snap-start shrink-0 flex flex-col items-center justify-center w-20 h-24 bg-surface-container-lowest rounded-2xl shadow-ambient border-2 border-transparent hover:border-primary-light active:scale-95 transition-all focus:border-primary/30 group">
+<div class="w-10 h-10 rounded-full bg-[#8A05BE]/10 flex items-center justify-center mb-2 group-focus:ring-2 ring-offset-2 ring-[#8A05BE]/50">
+<span class="material-symbols-outlined text-[#8A05BE]">account_balance</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Nubank</span>
+</button>
+<button class="snap-start shrink-0 flex flex-col items-center justify-center w-20 h-24 bg-surface-container-lowest rounded-2xl shadow-ambient border-2 border-transparent hover:border-primary-light active:scale-95 transition-all focus:border-primary/30 group">
+<div class="w-10 h-10 rounded-full bg-[#EC7000]/10 flex items-center justify-center mb-2 group-focus:ring-2 ring-offset-2 ring-[#EC7000]/50">
+<span class="material-symbols-outlined text-[#EC7000]">account_balance</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Itaú</span>
+</button>
+<button class="snap-start shrink-0 flex flex-col items-center justify-center w-20 h-24 bg-surface-container-lowest rounded-2xl shadow-ambient border-2 border-transparent hover:border-primary-light active:scale-95 transition-all focus:border-primary/30 group">
+<div class="w-10 h-10 rounded-full bg-[#CC092F]/10 flex items-center justify-center mb-2 group-focus:ring-2 ring-offset-2 ring-[#CC092F]/50">
+<span class="material-symbols-outlined text-[#CC092F]">account_balance</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Bradesco</span>
+</button>
+<button class="snap-start shrink-0 flex flex-col items-center justify-center w-20 h-24 bg-surface-container-lowest rounded-2xl shadow-ambient border-2 border-transparent hover:border-primary-light active:scale-95 transition-all focus:border-primary/30 group">
+<div class="w-10 h-10 rounded-full bg-surface-variant/50 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Other</span>
+</button>
+</div>
+</div>
+<!-- Hidden custom bank input, revealed if 'Other' is clicked (simulated logic) -->
+<div class="relative flex items-center hidden" id="custom-bank-input">
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant/60">business</span>
+<input class="w-full bg-primary-light border-none rounded-xl py-4 pl-12 pr-4 font-body-md text-body-md text-primary placeholder:text-primary/40 focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Enter bank name" type="text"/>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full p-container-margin bg-gradient-to-t from-background via-background to-transparent z-50">
+<button class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl py-4 shadow-elevated active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">check</span>
+            Save Account
+        </button>
+</div>
+<script>
+        // Simple input formatting for the balance field to feel 'calm'
+        const balanceInput = document.getElementById('balance-input');
+        balanceInput.addEventListener('input', function(e) {
+            let val = e.target.value.replace(/[^\d.]/g, '');
+            // Basic logic to allow typing normally, a robust app would use a proper currency formatter
+            if(val !== '') {
+                e.target.value = val;
+            }
+        });
+    </script>
+</body></html>
