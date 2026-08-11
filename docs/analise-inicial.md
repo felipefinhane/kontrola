@@ -71,6 +71,7 @@ Isso mapeia bem para **Row Level Security (RLS)** no Postgres: "cada usuário s�
 3. **v1.2**: import OFX/CSV do banco.
 4. **v2**: cartão de crédito (faturas, parcelamento, categorização por item da fatura).
 5. **v3**: compartilhamento — grupos/contas conjuntas, múltiplos usuários por conta.
+6. **v4**: transferência entre contas (mover dinheiro entre duas contas suas) — surgiu como botão no design do Stitch antes de ser planejado; registrado como intenção real, mas sem prioridade nem modelo de dados definido ainda. Quando chegar a vez, decidir junto com "pagar fatura do cartão" (v2), já que os dois são a mesma pergunta de fundo: como representar uma Transaction vinculada entre duas contas/entidades diferentes.
 
 ## 4. Histórico da escolha do nome
 
