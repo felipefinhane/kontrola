@@ -1,6 +1,8 @@
 # Kontrola — Análise inicial + decisões de arquitetura
 
 > Nome do projeto definido como **Kontrola**, mas o domínio (`.com`/`.app`) não estava disponível. Fica como nome de trabalho por enquanto — vamos revisitar quando o projeto tiver mais cara própria. (Ver seção 4 do histórico original mais abaixo para outras ideias já descartadas/cotadas.)
+>
+> **Este documento é o registro histórico da primeira análise.** Depois dele veio uma sessão de entrevista (grilling) que travou várias decisões em detalhe — algumas delas **substituem** o que está escrito aqui (ex.: o banco de dados virou **Neon**, não Supabase). A fonte da verdade agora é [`../CONTEXT.md`](../CONTEXT.md) (glossário/modelo de domínio) e [`./adr/`](./adr/) (decisões e por quê). Vale ler este arquivo pelo contexto/diagnóstico do problema, mas para arquitetura confira as ADRs primeiro.
 
 ## 1. O que a planilha antiga (`Finhane_Financeiro.xlsx`) mostrou
 
