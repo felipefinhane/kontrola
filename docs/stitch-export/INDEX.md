@@ -89,6 +89,30 @@ Add safe-area support across all screens, since many phones have a camera/notch 
 
 **Importante**: mesmo pedindo isso no Stitch, o jeito confiável de garantir isso é implementar direto no Next.js (meta viewport + `env(safe-area-inset-*)` no CSS global do app) — a exportação estática do Stitch não é garantia de que isso sobrevive fielmente. Vamos tratar isso na hora do scaffold, independente do que o Stitch devolver.
 
+## ⚠️ Pendente #3 — formatação de moeda só foi corrigida nos totais, não nas linhas
+
+As correções anteriores trataram só os totais/cabeçalhos (Home, card de Contas, header da Account Detail). Cada **linha de transação individual** continua em formato americano (`$1,234.56`) na maioria das telas: Transactions List, Planned view, Confirm Recurring (símbolo do input), Add/Edit Transaction (símbolo do input), Review Import, Member Dashboard Shared. `19-credit-cards-list.html` e `20-statement-detail.html` já nasceram certas em R$ — usar como referência.
+
+```
+Fix currency formatting on every remaining screen that still shows amounts in US format ($1,234.56) instead of Brazilian format (R$ 1.234,56) — the same fix already applied to the Home and Accounts totals. This affects: Transactions List, Planned view, Confirm Recurring Transaction (the amount input and its currency symbol), Add/Edit Transaction (the amount input's currency symbol), Review Import, and any other screen showing individual transaction line amounts. The Credit Cards List and Statement Detail screens already use the correct R$ format — use those as the reference.
+```
+
+## ⚠️ Pendente #4 — nav diferente em 2 telas, com aba "Budgets" não planejada
+
+`19-credit-cards-list.html` e `25-member-dashboard-shared.html` usam `Home, Cards, Budgets, Settings` em vez do padrão `Home, History, Accounts, Planned, Settings` usado em todo o resto do app. A aba "Budgets" (orçamento/limite de gasto por categoria) nunca foi discutida — **decisão: não faz parte do Kontrola por enquanto**, alinhar a navegação dessas 2 telas com o padrão.
+
+```
+Fix the bottom navigation on the "Credit Cards" and "Member Dashboard (Shared)" screens — they currently use a different nav ("Home, Cards, Budgets, Settings") than the rest of the app. Replace it with the same 5-tab navigation used everywhere else: Home, History, Accounts, Planned, Settings (with "Accounts" active on the Credit Cards screen, since credit cards are a type of account).
+```
+
+## Nota — taxonomia de categoria mais rica nos mockups do que a lista oficial
+
+Nossa lista oficial (`CONTEXT.md`) tem 9 categorias: Housing, Food, Transport, Health, Education, Subscriptions, Income, Transfer, Other. Os mockups usam nomes soltos e mais específicos espalhados pelas telas — "Groceries", "Bills", "Utilities", "Dining", "Entertainment", "Shopping" (esse último aparece até no grid de categorias do Add Transaction, `05-add-edit-transaction.html`) — que não batem com a lista oficial. Provavelmente é só o Stitch variando texto de exemplo pra parecer mais real, não uma proposta deliberada. Não travei nenhuma decisão aqui — só registrando pra caso valha revisar a granularidade da lista oficial antes de implementar.
+
+## Nota — acessibilidade (aria-label) inconsistente entre telas
+
+Varredura em todos os 27 arquivos: a maioria não tem `aria-label` em botões só-de-ícone (sino de notificação, seta de voltar, fechar). Um punhado de telas geradas mais tarde (Notification Settings, Confirm Recurring, Import Transactions) já vêm com isso. Não vale a pena perseguir isso tela por tela no Stitch — a correção real vai ser um componente `IconButton` compartilhado no Next.js que **exige** `aria-label`, garantindo isso de forma estrutural em vez de tela por tela.
+
 ## Fora de escopo por decisão (não salvo)
 
 - **Desktop responsivo** — o Kontrola é mobile-first (PWA); suporte a desktop fica de lado por enquanto, pode virar uma fase própria depois. Nenhuma variante `_desktop` foi salva.
