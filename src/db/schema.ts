@@ -15,7 +15,10 @@ import {
 // roadmap. CreditCard (v2) and AccountMember (v3) are deliberately not
 // modeled yet — same discipline we applied to the Stitch screens: build
 // what's needed now, not what's coming later. See CONTEXT.md for the
-// vocabulary these tables implement.
+// vocabulary these tables implement. PushSubscription is here despite
+// being infrastructure-flavored, not domain-flavored, because Notification
+// Settings (docs/stitch-export/12-notification-settings.html) is in scope
+// right now and can't work without somewhere to store it (see ADR-0010).
 
 // A Postgres session variable set per-request (see src/db/index.ts's
 // withUserContext) backs every policy below — this is ADR-0002's chosen
@@ -85,6 +88,31 @@ export const users = pgTable(
     pgPolicy("users_delete_self_only", {
       for: "delete",
       using: sql`${table.id} = ${currentUserId}`,
+    }),
+  ],
+).enableRLS();
+
+export const pushSubscriptions = pgTable(
+  "push_subscriptions",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    // Web Push API's PushSubscription.toJSON() shape — one row per
+    // installed device/browser, not per User (CONTEXT.md PushSubscription).
+    endpoint: text("endpoint").notNull().unique(),
+    p256dhKey: text("p256dh_key").notNull(),
+    authKey: text("auth_key").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [
+    pgPolicy("push_subscriptions_owner_only", {
+      for: "all",
+      using: sql`${table.userId} = ${currentUserId}`,
+      withCheck: sql`${table.userId} = ${currentUserId}`,
     }),
   ],
 ).enableRLS();

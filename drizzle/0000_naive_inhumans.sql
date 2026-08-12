@@ -19,6 +19,17 @@ CREATE TABLE "categories" (
 );
 --> statement-breakpoint
 ALTER TABLE "categories" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "push_subscriptions" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"user_id" uuid NOT NULL,
+	"endpoint" text NOT NULL,
+	"p256dh_key" text NOT NULL,
+	"auth_key" text NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "push_subscriptions_endpoint_unique" UNIQUE("endpoint")
+);
+--> statement-breakpoint
+ALTER TABLE "push_subscriptions" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
 CREATE TABLE "recurring_templates" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"account_id" uuid NOT NULL,
@@ -67,6 +78,7 @@ CREATE TABLE "users" (
 ALTER TABLE "users" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
 ALTER TABLE "accounts" ADD CONSTRAINT "accounts_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "categories" ADD CONSTRAINT "categories_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "push_subscriptions" ADD CONSTRAINT "push_subscriptions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "recurring_templates" ADD CONSTRAINT "recurring_templates_account_id_accounts_id_fk" FOREIGN KEY ("account_id") REFERENCES "public"."accounts"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "recurring_templates" ADD CONSTRAINT "recurring_templates_category_id_categories_id_fk" FOREIGN KEY ("category_id") REFERENCES "public"."categories"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "transactions" ADD CONSTRAINT "transactions_account_id_accounts_id_fk" FOREIGN KEY ("account_id") REFERENCES "public"."accounts"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
@@ -74,6 +86,7 @@ ALTER TABLE "transactions" ADD CONSTRAINT "transactions_category_id_categories_i
 ALTER TABLE "transactions" ADD CONSTRAINT "transactions_recurring_template_id_recurring_templates_id_fk" FOREIGN KEY ("recurring_template_id") REFERENCES "public"."recurring_templates"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
 CREATE POLICY "accounts_owner_only" ON "accounts" AS PERMISSIVE FOR ALL TO public USING ("accounts"."user_id" = current_setting('app.user_id', true)::uuid) WITH CHECK ("accounts"."user_id" = current_setting('app.user_id', true)::uuid);--> statement-breakpoint
 CREATE POLICY "categories_own_or_system" ON "categories" AS PERMISSIVE FOR ALL TO public USING ("categories"."user_id" = current_setting('app.user_id', true)::uuid OR "categories"."user_id" IS NULL) WITH CHECK ("categories"."user_id" = current_setting('app.user_id', true)::uuid);--> statement-breakpoint
+CREATE POLICY "push_subscriptions_owner_only" ON "push_subscriptions" AS PERMISSIVE FOR ALL TO public USING ("push_subscriptions"."user_id" = current_setting('app.user_id', true)::uuid) WITH CHECK ("push_subscriptions"."user_id" = current_setting('app.user_id', true)::uuid);--> statement-breakpoint
 CREATE POLICY "recurring_templates_via_account_owner" ON "recurring_templates" AS PERMISSIVE FOR ALL TO public USING (EXISTS (SELECT 1 FROM accounts WHERE accounts.id = "recurring_templates"."account_id" AND accounts.user_id = current_setting('app.user_id', true)::uuid)) WITH CHECK (EXISTS (SELECT 1 FROM accounts WHERE accounts.id = "recurring_templates"."account_id" AND accounts.user_id = current_setting('app.user_id', true)::uuid));--> statement-breakpoint
 CREATE POLICY "transactions_via_account_owner" ON "transactions" AS PERMISSIVE FOR ALL TO public USING (EXISTS (SELECT 1 FROM accounts WHERE accounts.id = "transactions"."account_id" AND accounts.user_id = current_setting('app.user_id', true)::uuid)) WITH CHECK (EXISTS (SELECT 1 FROM accounts WHERE accounts.id = "transactions"."account_id" AND accounts.user_id = current_setting('app.user_id', true)::uuid));--> statement-breakpoint
 CREATE POLICY "users_select_for_login" ON "users" AS PERMISSIVE FOR SELECT TO public USING (true);--> statement-breakpoint
@@ -86,6 +99,7 @@ CREATE POLICY "users_delete_self_only" ON "users" AS PERMISSIVE FOR DELETE TO pu
 -- no-op whenever the app connects as the same role that owns the tables.
 ALTER TABLE "accounts" FORCE ROW LEVEL SECURITY;--> statement-breakpoint
 ALTER TABLE "categories" FORCE ROW LEVEL SECURITY;--> statement-breakpoint
+ALTER TABLE "push_subscriptions" FORCE ROW LEVEL SECURITY;--> statement-breakpoint
 ALTER TABLE "recurring_templates" FORCE ROW LEVEL SECURITY;--> statement-breakpoint
 ALTER TABLE "transactions" FORCE ROW LEVEL SECURITY;--> statement-breakpoint
 ALTER TABLE "users" FORCE ROW LEVEL SECURITY;

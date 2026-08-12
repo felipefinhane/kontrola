@@ -42,3 +42,7 @@ _Avoid_: Tag (a Tag would be free-form; Category is the fixed/curated concept �
 **RecurringTemplate**:
 A definition of a Transaction that repeats on a schedule (e.g. monthly rent). Generates a `planned` Transaction each cycle for the User to confirm. Has a `frequency` (Weekly, Monthly, Quarterly, Semi-Annual, or Annual — see [ADR-0008](./docs/adr/0008-recurring-template-scope.md)) and an `is_estimated` flag: when `true`, the generated amount is a best guess (e.g. a utility bill that varies) rather than an exact figure, and the UI marks it as such (e.g. "~R$ 120 (Est.)") — the User is still expected to adjust the amount when confirming.
 _Avoid_: "Recurring transaction" as a single concept — the template and the Transactions it generates are different things. Avoid a free-form "repeat every N days" interval — see ADR-0008 for why a fixed frequency catalog was chosen instead.
+
+**PushSubscription**:
+A single browser/device's registration for push notifications (the endpoint URL and keys the Web Push API needs to deliver to it). A User can have more than one — installing the PWA on a second device creates another PushSubscription, it doesn't replace the first. Notifications (recurring confirmations, inactivity reminders) get sent to every PushSubscription a User has.
+_Avoid_: Treating notification delivery as a single per-User setting — see ADR-0010 for how these get triggered.
