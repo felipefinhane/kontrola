@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Planned View - Calm Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-tint": "#adc8f5",
+                "surface-container-low": "#161c23",
+                "on-primary-fixed-variant": "#2d476d",
+                "primary-fixed": "#d5e3ff",
+                "primary": "#adc8f5",
+                "on-primary": "#143155",
+                "on-surface-variant": "#c4c6cf",
+                "primary-fixed-dim": "#adc8f5",
+                "surface-variant": "#2f353d",
+                "secondary": "#5bddac",
+                "on-error": "#690005",
+                "secondary-fixed": "#7afac7",
+                "error-container": "#93000a",
+                "tertiary-fixed-dim": "#ebc076",
+                "on-tertiary-fixed-variant": "#5e4100",
+                "on-primary-container": "#1e3a5f",
+                "error": "#ffb4ab",
+                "on-tertiary": "#422d00",
+                "inverse-primary": "#455f86",
+                "secondary-container": "#00a578",
+                "inverse-on-surface": "#2b3139",
+                "text-secondary": "#64748B",
+                "on-error-container": "#ffdad6",
+                "surface-container-highest": "#2f353d",
+                "outline": "#8e9199",
+                "light-text": "#232323",
+                "on-tertiary-fixed": "#271900",
+                "tertiary": "#ebc076",
+                "on-secondary-fixed": "#002115",
+                "surface-container": "#1a2027",
+                "on-surface": "#dde3ed",
+                "inverse-surface": "#dde3ed",
+                "surface-container-high": "#242a32",
+                "tertiary-fixed": "#ffdea9",
+                "on-primary-fixed": "#001c3b",
+                "on-secondary-fixed-variant": "#00513a",
+                "surface-dim": "#0e141b",
+                "primary-container": "#8aa4cf",
+                "outline-variant": "#43474e",
+                "light-primary": "#1E3A5F",
+                "on-secondary": "#003827",
+                "surface-bright": "#343a41",
+                "tertiary-container": "#c49d56",
+                "secondary-fixed-dim": "#5bddac",
+                "surface-container-lowest": "#090f15",
+                "semantic-debit": "#E2685E",
+                "background": "#0e141b",
+                "text-primary": "#F5F3EE",
+                "surface": "#1A222C",
+                "light-background": "#FAF9F6",
+                "on-secondary-container": "#003121",
+                "on-background": "#dde3ed",
+                "on-tertiary-container": "#4d3500"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "32px",
+                "gutter": "16px",
+                "margin-mobile": "16px",
+                "safe-area-bottom": "env(safe-area-inset-bottom)",
+                "unit": "8px",
+                "safe-area-top": "env(safe-area-inset-top)",
+                "xl": "32px",
+                "md": "16px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Manrope"
+                ],
+                "display-lg": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "currency-tabular": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Manrope"
+                ],
+                "headline-sm": [
+                        "Manrope"
+                ],
+                "display-lg-mobile": [
+                        "Manrope"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "currency-tabular": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-[calc(64px+env(safe-area-inset-top))] pb-[calc(96px+env(safe-area-inset-bottom))]">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile w-full h-16 pt-safe-area-top bg-surface dark:bg-surface docked full-width top-0 flat no shadows fixed z-40">
+<div class="flex items-center gap-3 cursor-pointer transition-colors duration-200 hover:bg-surface-variant dark:hover:bg-surface-variant p-2 rounded-full">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest flex items-center justify-center">
+<img alt="User Avatar" class="object-cover w-full h-full" data-alt="A small, stylized profile avatar of a calm, professional individual with neutral colors and a subtle deep navy charcoal aesthetic. The avatar is simple, elegant, and fits perfectly within a minimal, dark mode financial or control app interface. High quality, soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-I7I9NxqK-WfSJzStpMJRzMRg7wvn8-irCIu6zKn6AhghIfx9DFI4zNthdWqiF5-ZsgLy1qHBiWlEXlOsRRzzMXzKJKJETbOoEW71XNB8z2Js6PbVuQQOGBDr2Qq-0kAs5-jJZfIb7O2fC-w6-LynTaTnNYtNj9OFejH9b1M8ffsDWOLuXi8dstl6MHL6dsJlHF8AO_8IJVSdYHEVs2ocuIP6Iddu8qPs0L1vxV0IbSycavq8D6VY"/>
+</div>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight font-extrabold">Calm Control</h1>
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant dark:text-on-surface-variant transition-colors duration-200 hover:bg-surface-variant dark:hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile flex flex-col gap-xl max-w-2xl mx-auto w-full pt-md">
+<!-- Banner -->
+<section class="bg-surface-container border border-tertiary/30 rounded-xl p-md flex items-start gap-md">
+<span class="material-symbols-outlined text-tertiary mt-1" data-icon="info">info</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-1">Forecast Status</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Review your planned transactions below. Confirm them to apply to your current balance or edit them to match reality. Keeping this updated ensures accurate financial forecasting.</p>
+</div>
+</section>
+<!-- List Header -->
+<div class="flex justify-between items-end border-b border-surface-variant pb-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Upcoming</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase">Needs Review</span>
+</div>
+<!-- Forecast Entries (Dashed Amber Styling) -->
+<div class="flex flex-col gap-md">
+<!-- Entry 1 -->
+<div class="border border-dashed border-tertiary rounded-xl p-md bg-surface-container-low transition-colors duration-200 hover:bg-surface-container flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div class="flex items-center gap-md w-full sm:w-auto">
+<div class="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-background font-semibold">Utility Bill</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Estimated for Oct 15</p>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-md">
+<span class="font-currency-tabular text-currency-tabular text-tertiary">-R$ 120,00</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full hover:bg-primary-fixed transition-colors duration-200">
+                        Confirm
+                    </button>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="border border-dashed border-tertiary rounded-xl p-md bg-surface-container-low transition-colors duration-200 hover:bg-surface-container flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div class="flex items-center gap-md w-full sm:w-auto">
+<div class="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-background font-semibold">Groceries Estimate</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Planned for Oct 18</p>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-md">
+<span class="font-currency-tabular text-currency-tabular text-tertiary">-R$ 350,00</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full hover:bg-primary-fixed transition-colors duration-200">
+                        Confirm
+                    </button>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="border border-dashed border-tertiary rounded-xl p-md bg-surface-container-low transition-colors duration-200 hover:bg-surface-container flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div class="flex items-center gap-md w-full sm:w-auto">
+<div class="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-background font-semibold">Expected Income</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Expected Oct 20</p>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-md">
+<span class="font-currency-tabular text-currency-tabular text-secondary">+R$ 2.400,00</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full hover:bg-primary-fixed transition-colors duration-200">
+                        Confirm
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-[calc(24px+env(safe-area-inset-bottom))] pt-2 bg-surface-container shadow-md rounded-t-xl md:hidden">
+<button aria-label="Home" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary scale-95 duration-100 active:scale-90">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button aria-label="History" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary scale-95 duration-100 active:scale-90">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</button>
+<button aria-label="Accounts" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary scale-95 duration-100 active:scale-90">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</button>
+<button aria-label="Planned" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 duration-100 active:scale-90">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm">Planned</span>
+</button>
+<button aria-label="Settings" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary scale-95 duration-100 active:scale-90">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<!-- Side Nav for Desktop (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-16 bottom-0 w-64 bg-surface-container border-r border-surface-variant p-4 z-30 pt-safe-area-top pb-safe-area-bottom">
+<button aria-label="Home" class="flex items-center gap-3 text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-variant transition-colors mb-2 w-full text-left">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-body-md text-body-md font-medium">Home</span>
+</button>
+<button aria-label="History" class="flex items-center gap-3 text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-variant transition-colors mb-2 w-full text-left">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-md text-body-md font-medium">History</span>
+</button>
+<button aria-label="Accounts" class="flex items-center gap-3 text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-variant transition-colors mb-2 w-full text-left">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-body-md text-body-md font-medium">Accounts</span>
+</button>
+<button aria-label="Planned" class="flex items-center gap-3 bg-primary-container text-on-primary-container px-4 py-3 rounded-xl mb-2 w-full text-left">
+<span class="material-symbols-outlined" data-icon="calendar_today" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-body-md text-body-md font-medium">Planned</span>
+</button>
+<button aria-label="Settings" class="flex items-center gap-3 text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-variant transition-colors mt-auto w-full text-left">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md font-medium">Settings</span>
+</button>
+</nav>
+<style>
+        @media (min-width: 768px) {
+            main {
+                padding-left: 17rem; /* Make room for side nav */
+                max-width: none;
+            }
+        }
+    </style>
+</body></html>

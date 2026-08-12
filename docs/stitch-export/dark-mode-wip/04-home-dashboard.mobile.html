@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Dashboard - Calm Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-tint": "#adc8f5",
+                "surface-container-low": "#161c23",
+                "on-primary-fixed-variant": "#2d476d",
+                "primary-fixed": "#d5e3ff",
+                "primary": "#adc8f5",
+                "on-primary": "#143155",
+                "on-surface-variant": "#c4c6cf",
+                "primary-fixed-dim": "#adc8f5",
+                "surface-variant": "#2f353d",
+                "secondary": "#5bddac",
+                "on-error": "#690005",
+                "secondary-fixed": "#7afac7",
+                "error-container": "#93000a",
+                "tertiary-fixed-dim": "#ebc076",
+                "on-tertiary-fixed-variant": "#5e4100",
+                "on-primary-container": "#1e3a5f",
+                "error": "#ffb4ab",
+                "on-tertiary": "#422d00",
+                "inverse-primary": "#455f86",
+                "secondary-container": "#00a578",
+                "inverse-on-surface": "#2b3139",
+                "text-secondary": "#64748B",
+                "on-error-container": "#ffdad6",
+                "surface-container-highest": "#2f353d",
+                "outline": "#8e9199",
+                "light-text": "#232323",
+                "on-tertiary-fixed": "#271900",
+                "tertiary": "#ebc076",
+                "on-secondary-fixed": "#002115",
+                "surface-container": "#1a2027",
+                "on-surface": "#dde3ed",
+                "inverse-surface": "#dde3ed",
+                "surface-container-high": "#242a32",
+                "tertiary-fixed": "#ffdea9",
+                "on-primary-fixed": "#001c3b",
+                "on-secondary-fixed-variant": "#00513a",
+                "surface-dim": "#0e141b",
+                "primary-container": "#8aa4cf",
+                "outline-variant": "#43474e",
+                "light-primary": "#1E3A5F",
+                "on-secondary": "#003827",
+                "surface-bright": "#343a41",
+                "tertiary-container": "#c49d56",
+                "secondary-fixed-dim": "#5bddac",
+                "surface-container-lowest": "#090f15",
+                "semantic-debit": "#E2685E",
+                "background": "#0e141b",
+                "text-primary": "#F5F3EE",
+                "surface": "#1A222C",
+                "light-background": "#FAF9F6",
+                "on-secondary-container": "#003121",
+                "on-background": "#dde3ed",
+                "on-tertiary-container": "#4d3500"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "32px",
+                "gutter": "16px",
+                "margin-mobile": "16px",
+                "safe-area-bottom": "env(safe-area-inset-bottom)",
+                "unit": "8px",
+                "safe-area-top": "env(safe-area-inset-top)"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Manrope"
+                ],
+                "display-lg": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "currency-tabular": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Manrope"
+                ],
+                "headline-sm": [
+                        "Manrope"
+                ],
+                "display-lg-mobile": [
+                        "Manrope"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "currency-tabular": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary pt-safe-area-top pb-safe-area-bottom">
+<!-- TopAppBar (Web & Mobile) -->
+<header class="bg-surface dark:bg-surface font-headline-md text-headline-md docked full-width top-0 flex justify-between items-center px-margin-mobile w-full h-16 sticky z-40">
+<div class="flex items-center gap-unit">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden flex-shrink-0 border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close up portrait photo of a sophisticated person in moody, low-key lighting against a dark navy background. The light subtly catches their features. Deep shadows and muted teal tones create a calm, professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu3-pZX-xDsmFhlh9UTf-9MwSGaCNoNQInNdz9XoL6kyi8IEGKNWDWGeFAIKsWFv_4d64J38ktJTC1gi-RnJbfohNsrZAkbJuFlygNOvNaIN1xp0FfaVj07ykIrX6geS5cvzgLSiwLfvYeYF4Q5pU8KjF1khjuHdBQGXDHs7WI2g-sThu-_-gx89UFET1LXvjlqtmEZuQTUei8wduCUHd-qn53cDbIuO4sm6kWjJzdQAaop9nwS0ZC"/>
+</div>
+</div>
+<div class="font-headline-md text-headline-md text-primary dark:text-primary font-bold tracking-tight">
+            Calm Control
+        </div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant dark:hover:bg-surface-variant transition-colors duration-200 text-on-surface dark:text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-4xl mx-auto md:pt-margin-desktop">
+<!-- Web Sidebar Navigation (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col w-64 fixed left-0 top-16 h-[calc(100vh-4rem)] bg-surface-container px-gutter py-margin-desktop gap-unit border-r border-surface-variant">
+<a class="flex items-center gap-gutter px-gutter py-3 rounded-lg bg-primary-container text-on-primary-container font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-gutter px-gutter py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 font-label-md" href="#">
+<span class="material-symbols-outlined">history</span>
+                History
+            </a>
+<a class="flex items-center gap-gutter px-gutter py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 font-label-md" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                Accounts
+            </a>
+<a class="flex items-center gap-gutter px-gutter py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 font-label-md" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                Planned
+            </a>
+<a class="flex items-center gap-gutter px-gutter py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors duration-200 font-label-md mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<!-- Dashboard Layout -->
+<div class="md:ml-64 p-margin-mobile flex flex-col gap-margin-desktop">
+<!-- Hero / Aggregate Balance Section -->
+<section class="flex flex-col gap-unit">
+<h1 class="font-body-md text-body-md text-on-surface-variant">Total Net Worth</h1>
+<div class="flex flex-col md:flex-row gap-gutter md:items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">R$ 1.200</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">,00</span>
+</div>
+<div class="hidden md:block w-px h-8 bg-surface-variant"></div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-primary">R$ 23.218</span>
+<span class="font-body-md text-body-md text-primary opacity-80">,77</span>
+</div>
+</div>
+</section>
+<!-- Accounts Horizontal Scroll -->
+<section>
+<div class="flex justify-between items-center mb-gutter">
+<h2 class="font-headline-md text-headline-md text-on-surface">Accounts</h2>
+<button class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors">View All</button>
+</div>
+<div class="flex gap-gutter overflow-x-auto hide-scrollbar pb-unit -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Card 1: Chase -->
+<div class="flex-shrink-0 w-64 p-gutter rounded-xl bg-surface border border-surface-variant flex flex-col gap-gutter shadow-[0_4px_24px_rgba(45,212,191,0.05)]">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 rounded-full bg-[#117aca] flex items-center justify-center text-white font-headline-md font-bold">
+                                C
+                            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Checking</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface mb-1">R$ 845,50</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Chase Sapphire</div>
+</div>
+</div>
+<!-- Card 2: Nubank -->
+<div class="flex-shrink-0 w-64 p-gutter rounded-xl bg-surface border border-surface-variant flex flex-col gap-gutter shadow-[0_4px_24px_rgba(45,212,191,0.05)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#8A05BE] opacity-10 rounded-bl-full blur-2xl pointer-events-none"></div>
+<div class="flex justify-between items-start relative z-10">
+<div class="w-10 h-10 rounded-full bg-[#8A05BE] flex items-center justify-center text-white font-headline-md font-bold">
+                                N
+                            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">NuConta</span>
+</div>
+<div class="relative z-10">
+<div class="font-headline-md text-headline-md text-on-surface mb-1">R$ 15.804,20</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Nubank</div>
+</div>
+</div>
+<!-- Add New Card -->
+<button class="flex-shrink-0 w-16 rounded-xl border border-dashed border-outline-variant flex items-center justify-center text-outline-variant hover:text-primary hover:border-primary hover:bg-surface-variant transition-all duration-200">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</section>
+<!-- Recent Transactions -->
+<section>
+<div class="flex justify-between items-center mb-gutter">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Activity</h2>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+<div class="flex flex-col gap-unit">
+<!-- Transaction 1 -->
+<div class="flex items-center justify-between p-gutter rounded-lg bg-surface hover:bg-surface-container-high transition-colors duration-200 border border-transparent hover:border-surface-variant">
+<div class="flex items-center gap-gutter">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Whole Foods</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Groceries • Today</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-lg text-body-lg text-on-surface font-medium">-R$ 84,20</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Chase</div>
+</div>
+</div>
+<!-- Transaction 2 -->
+<div class="flex items-center justify-between p-gutter rounded-lg bg-surface hover:bg-surface-container-high transition-colors duration-200 border border-transparent hover:border-surface-variant">
+<div class="flex items-center gap-gutter">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Blue Bottle Coffee</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Dining • Yesterday</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-lg text-body-lg text-on-surface font-medium">-R$ 5,50</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Chase</div>
+</div>
+</div>
+<!-- Transaction 3 -->
+<div class="flex items-center justify-between p-gutter rounded-lg bg-surface hover:bg-surface-container-high transition-colors duration-200 border border-transparent hover:border-surface-variant">
+<div class="flex items-center gap-gutter">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Freelance Project</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Income • Mon</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-lg text-body-lg text-primary font-medium">+R$ 4.500,00</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Nubank</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container dark:bg-surface-container font-label-sm text-label-sm fixed bottom-0 w-full z-50 rounded-t-xl shadow-md flex justify-around items-center px-4 pb-[calc(env(safe-area-inset-bottom)+16px)] pt-2">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container dark:text-on-primary-container rounded-full px-4 py-1 hover:text-primary dark:hover:text-primary scale-95 duration-100 active:scale-90 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary scale-95 duration-100 active:scale-90 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">history</span>
+<span class="mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary scale-95 duration-100 active:scale-90 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">account_balance_wallet</span>
+<span class="mt-1">Accounts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary scale-95 duration-100 active:scale-90 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">calendar_today</span>
+<span class="mt-1">Planned</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary scale-95 duration-100 active:scale-90 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Your Cards - Kontrola</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-tint": "#adc8f5",
+                "surface-container-low": "#161c23",
+                "on-primary-fixed-variant": "#2d476d",
+                "primary-fixed": "#d5e3ff",
+                "primary": "#adc8f5",
+                "on-primary": "#143155",
+                "on-surface-variant": "#c4c6cf",
+                "primary-fixed-dim": "#adc8f5",
+                "surface-variant": "#2f353d",
+                "secondary": "#5bddac",
+                "on-error": "#690005",
+                "secondary-fixed": "#7afac7",
+                "error-container": "#93000a",
+                "tertiary-fixed-dim": "#ebc076",
+                "on-tertiary-fixed-variant": "#5e4100",
+                "on-primary-container": "#1e3a5f",
+                "error": "#ffb4ab",
+                "on-tertiary": "#422d00",
+                "inverse-primary": "#455f86",
+                "secondary-container": "#00a578",
+                "inverse-on-surface": "#2b3139",
+                "text-secondary": "#64748B",
+                "on-error-container": "#ffdad6",
+                "surface-container-highest": "#2f353d",
+                "outline": "#8e9199",
+                "light-text": "#232323",
+                "on-tertiary-fixed": "#271900",
+                "tertiary": "#ebc076",
+                "on-secondary-fixed": "#002115",
+                "surface-container": "#1a2027",
+                "on-surface": "#dde3ed",
+                "inverse-surface": "#dde3ed",
+                "surface-container-high": "#242a32",
+                "tertiary-fixed": "#ffdea9",
+                "on-primary-fixed": "#001c3b",
+                "on-secondary-fixed-variant": "#00513a",
+                "surface-dim": "#0e141b",
+                "primary-container": "#8aa4cf",
+                "outline-variant": "#43474e",
+                "light-primary": "#1E3A5F",
+                "on-secondary": "#003827",
+                "surface-bright": "#343a41",
+                "tertiary-container": "#c49d56",
+                "secondary-fixed-dim": "#5bddac",
+                "surface-container-lowest": "#090f15",
+                "semantic-debit": "#E2685E",
+                "background": "#0e141b",
+                "text-primary": "#F5F3EE",
+                "surface": "#1A222C",
+                "light-background": "#FAF9F6",
+                "on-secondary-container": "#003121",
+                "on-background": "#dde3ed",
+                "on-tertiary-container": "#4d3500"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "32px",
+                "gutter": "16px",
+                "margin-mobile": "16px",
+                "safe-area-bottom": "env(safe-area-inset-bottom)",
+                "unit": "8px",
+                "safe-area-top": "env(safe-area-inset-top)"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Manrope"
+                ],
+                "display-lg": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "currency-tabular": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Manrope"
+                ],
+                "headline-sm": [
+                        "Manrope"
+                ],
+                "display-lg-mobile": [
+                        "Manrope"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "currency-tabular": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle glow effects */
+        .card-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top right, rgba(173, 200, 245, 0.05), transparent 50%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        
+        .progress-bar-warning {
+            background: linear-gradient(90deg, #adc8f5 0%, #adc8f5 60%, #ffb4ab 85%, #ffb4ab 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background z-40 pt-safe-area-top">
+<div class="flex justify-between items-center px-margin-mobile py-4 w-full">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant flex items-center justify-center shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a user in soft, cinematic lighting against a dark moody background, high quality, professional avatar style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDpnHdsTsXv314rI6SrgQNgT25BdI6fkbQ9qgDdx_bFDBw7HZhW7DJeiItLVE5Dy52UJDCZYb2jt-0CqWEHTno2sa4UXOkt_UVjawzhTD6iWBNhTnDF2lp5dYDI_Fo7FMkfyTFx0pWx7D5aiJh9k9vHHdCigSUMjJTH8KchKIv-c3nWPl8gMNMBaMmeeXv9sSbwqwuCuhJRUWH47eswPsiG6d_Wlter8t2dyuF2mfI5DZjcGwQXWW5"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary text-center flex-1 mx-4">
+                Kontrola
+            </h1>
+<button aria-label="Notifications" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-4 pb-[120px] overflow-y-auto">
+<!-- Page Title -->
+<div class="mb-6 flex justify-between items-end">
+<div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Your Cards</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage physical &amp; virtual</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total Balance</p>
+<p class="font-headline-md text-headline-md text-primary">R$ 4.340,70</p>
+</div>
+</div>
+<!-- Cards List (Bento-style stacked) -->
+<div class="flex flex-col gap-4">
+<!-- Card 1: Mastercard Platinum (High Usage) -->
+<div class="relative bg-surface-container rounded-3xl p-6 border border-outline-variant overflow-hidden card-glow group active:scale-[0.98] transition-transform duration-200">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-8 bg-surface-container-high rounded flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-on-surface">MC</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Mastercard Platinum</h3>
+<p class="font-currency-tabular text-currency-tabular text-on-surface-variant tracking-widest mt-0.5">•••• 4921</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">contactless</span>
+</div>
+<div class="mb-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Current Bill</p>
+<div class="flex items-end gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface">R$ 3.450,20</span>
+</div>
+</div>
+<!-- Usage Warning -->
+<div class="mt-4">
+<div class="flex justify-between font-label-sm text-label-sm mb-2">
+<span class="text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                            High limit usage
+                        </span>
+<span class="text-on-surface-variant">Due Oct 15</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full progress-bar-warning w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Visa Signature -->
+<div class="relative bg-surface-container rounded-3xl p-6 border border-outline-variant overflow-hidden card-glow active:scale-[0.98] transition-transform duration-200">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-8 bg-surface-container-high rounded flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-on-surface italic pr-1">V</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Visa Signature</h3>
+<p class="font-currency-tabular text-currency-tabular text-on-surface-variant tracking-widest mt-0.5">•••• 8820</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Current Bill</p>
+<span class="font-headline-md text-headline-md text-on-surface">R$ 890,50</span>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Due</p>
+<span class="font-body-md text-body-md text-on-surface">Oct 28</span>
+</div>
+</div>
+<div class="mt-4 w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[30%] rounded-full opacity-60"></div>
+</div>
+</div>
+<!-- Card 3: Nu Travel -->
+<div class="relative bg-surface-container rounded-3xl p-6 border border-outline-variant overflow-hidden card-glow active:scale-[0.98] transition-transform duration-200">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-8 bg-surface-container-high rounded flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-primary">NU</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Nu Travel</h3>
+<p class="font-currency-tabular text-currency-tabular text-on-surface-variant tracking-widest mt-0.5">•••• 1102</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Current Bill</p>
+<span class="font-headline-md text-headline-md text-on-surface-variant">R$ 0,00</span>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Due</p>
+<span class="font-body-md text-body-md text-on-surface-variant">Nov 05</span>
+</div>
+</div>
+</div>
+<!-- Add New Card Placeholder -->
+<button class="w-full flex items-center justify-center gap-2 p-6 border-2 border-dashed border-outline-variant rounded-3xl text-outline-variant hover:border-primary hover:text-primary transition-colors duration-300 mt-2">
+<span class="material-symbols-outlined">add_card</span>
+<span class="font-label-md text-label-md">Add New Card</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-[calc(16px+env(safe-area-inset-bottom))] pt-2 bg-surface-container-lowest rounded-t-xl">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<!-- History -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-label-sm text-label-sm">History</span>
+</button>
+<!-- Accounts (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</button>
+<!-- Planned -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Planned</span>
+</button>
+<!-- Settings -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/20 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+</body></html>
