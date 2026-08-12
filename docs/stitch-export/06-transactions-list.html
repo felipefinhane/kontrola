@@ -1,13 +1,16 @@
-<!DOCTYPE html><html class="light" lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Transactions List -- moeda corrigida (R$), refinado a partir do pedido de moeda -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Kontrola - Transactions List</title>
 <!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@500;600&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
         tailwind.config = {
@@ -153,14 +156,14 @@
 <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
 </button>
 <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
-<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close up, well-lit professional portrait of a person smiling softly, against a clean, light mode neutral background. The aesthetic is modern, approachable, and calm, fitting a wellness-focused app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVC22sRf4vwu2PmcCcUr5UE6nWzjmzy3YkPVd1QTbt21XqtAGHgSzbq9WjUkG8jwJ6krwfb5ztFDIhgf6GqnPLA4qN-camtQbDoTKHsuktzCaCxacYsKS6QicAsIdEy6moQPDiDkGNUvQ2oCdTV5dacGzXgyZkEuSISXT3NqheHu6MyQ2NGcz7UpnExlFGrm6hFi1jAI8aa9NPRmp5piXAhF4e6MdDvE1nhncLnLLq6aFyhXVntOJB">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close up, well-lit professional portrait of a person smiling softly, against a clean, light mode neutral background. The aesthetic is modern, approachable, and calm, fitting a wellness-focused app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVC22sRf4vwu2PmcCcUr5UE6nWzjmzy3YkPVd1QTbt21XqtAGHgSzbq9WjUkG8jwJ6krwfb5ztFDIhgf6GqnPLA4qN-camtQbDoTKHsuktzCaCxacYsKS6QicAsIdEy6moQPDiDkGNUvQ2oCdTV5dacGzXgyZkEuSISXT3NqheHu6MyQ2NGcz7UpnExlFGrm6hFi1jAI8aa9NPRmp5piXAhF4e6MdDvE1nhncLnLLq6aFyhXVntOJB"/>
 </div>
 </div>
 </header>
 <!-- Mobile Top App Bar -->
 <header class="md:hidden flex justify-between items-center px-container-margin py-stack-md w-full top-0 sticky z-40 bg-background">
 <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
-<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close up, well-lit professional portrait of a person smiling softly, against a clean, light mode neutral background. The aesthetic is modern, approachable, and calm, fitting a wellness-focused app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKiZDoslNhgzfh-6wufWlNJFI5LphA8R82sZ2rJauMGd-_uAshVC2Pgz1X2jBLmVhK4sh0yscsZbt18qQ5LajsDNGwYZ6aL3dJZH5goDws-mtKMkWnk7nrqsXanPOV4ZULrfkN0GbFG0XqZiHA2g4mfPSxedb9oc_zqsLas5Rg1YpghRu5M23RxVFmZu84Rl6TeqakS05np49PL27nqbNeyDkQPxxwR2cgMvZm_8Xpjyg-AQNYDKuD">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close up, well-lit professional portrait of a person smiling softly, against a clean, light mode neutral background. The aesthetic is modern, approachable, and calm, fitting a wellness-focused app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKiZDoslNhgzfh-6wufWlNJFI5LphA8R82sZ2rJauMGd-_uAshVC2Pgz1X2jBLmVhK4sh0yscsZbt18qQ5LajsDNGwYZ6aL3dJZH5goDws-mtKMkWnk7nrqsXanPOV4ZULrfkN0GbFG0XqZiHA2g4mfPSxedb9oc_zqsLas5Rg1YpghRu5M23RxVFmZu84Rl6TeqakS05np49PL27nqbNeyDkQPxxwR2cgMvZm_8Xpjyg-AQNYDKuD"/>
 </div>
 <h1 class="font-headline-md text-headline-md-mobile text-primary">Kontrola</h1>
 <button class="w-10 h-10 rounded-full bg-transparent flex items-center justify-center hover:bg-surface-container-low transition-colors text-primary active:scale-95 duration-200">
@@ -209,7 +212,7 @@
 </div>
 </div>
 <div class="text-right">
-<p class="font-currency-tabular text-currency-tabular text-on-surface">- $142.50</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface">- R$ 142,50</p>
 </div>
 </div>
 <!-- Transaction Item (Actual) -->
@@ -224,7 +227,7 @@
 </div>
 </div>
 <div class="text-right">
-<p class="font-currency-tabular text-currency-tabular text-[#2E7D32]">+ $45.00</p>
+<p class="font-currency-tabular text-currency-tabular text-[#2E7D32]">+ R$ 45,00</p>
 </div>
 </div>
 <!-- Transaction Item (Planned) -->
@@ -239,7 +242,7 @@
 </div>
 </div>
 <div class="text-right flex items-center gap-3">
-<p class="font-currency-tabular text-currency-tabular text-on-tertiary-container opacity-80 group-hover:opacity-100">- $85.00</p>
+<p class="font-currency-tabular text-currency-tabular text-on-tertiary-container opacity-80 group-hover:opacity-100">- R$ 85,00</p>
 <!-- Hover confirm action -->
 <button class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm hover:scale-105">
 <span class="material-symbols-outlined text-[18px]">check</span>
@@ -264,7 +267,7 @@
 </div>
 </div>
 <div class="text-right">
-<p class="font-currency-tabular text-currency-tabular text-on-surface">- $18.45</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface">- R$ 18,45</p>
 </div>
 </div>
 <!-- Transaction Item (Actual) -->
@@ -279,7 +282,7 @@
 </div>
 </div>
 <div class="text-right">
-<p class="font-currency-tabular text-currency-tabular text-on-surface">- $15.99</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface">- R$ 15,99</p>
 </div>
 </div>
 </div>
@@ -300,7 +303,7 @@
 </div>
 </div>
 <div class="text-right">
-<p class="font-currency-tabular text-currency-tabular text-on-surface">- $45.20</p>
+<p class="font-currency-tabular text-currency-tabular text-on-surface">- R$ 45,20</p>
 </div>
 </div>
 </div>

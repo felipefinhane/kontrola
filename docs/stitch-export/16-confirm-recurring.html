@@ -1,13 +1,16 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Confirm Recurring -- simbolo do input corrigido pra R$ -->
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Confirm Recurring Transaction</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -211,8 +214,8 @@
 <div class="flex flex-col items-center justify-center py-stack-sm border-b border-surface-variant">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Amount</span>
 <div class="flex items-center">
-<span class="font-currency-tabular text-currency-tabular text-on-surface mr-1">$</span>
-<input aria-label="Transaction Amount" class="bg-transparent border-none text-center font-display-lg-mobile text-display-lg-mobile text-primary focus:ring-0 p-0 w-32" inputmode="decimal" type="number" value="1500.00">
+<span class="font-currency-tabular text-currency-tabular text-on-surface mr-1">R$</span>
+<input aria-label="Transaction Amount" class="bg-transparent border-none text-center font-display-lg-mobile text-display-lg-mobile text-primary focus:ring-0 p-0 w-32" inputmode="decimal" type="text" value="1.500,00"/>
 </div>
 </div>
 <!-- Detail Fields Grid -->
@@ -267,7 +270,7 @@
 <!-- Note Field -->
 <div class="flex flex-col gap-1">
 <label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="note">Note (Optional)</label>
-<input class="w-full bg-surface-container rounded-lg border-none px-4 py-3 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" id="note" placeholder="Add a note..." type="text">
+<input class="w-full bg-surface-container rounded-lg border-none px-4 py-3 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" id="note" placeholder="Add a note..." type="text"/>
 </div>
 </div>
 </main>

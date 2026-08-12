@@ -1,15 +1,17 @@
-<!-- v3 -- BÔNUS: o Stitch gerou essa sozinha, não estava no prompt original. O que o membro convidado vê no dashboard de uma conta compartilhada. -->
-<!DOCTYPE html><html class="light" lang="en" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Member Dashboard Shared -- moeda (R$) e nav padrao corrigidas, sem aba Budgets -->
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Kontrola - Member Dashboard</title>
 <!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Google Fonts: Manrope & Inter -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Tailwind Configuration -->
@@ -172,7 +174,7 @@
 </button>
 <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">Kontrola</h1>
 <button class="flex items-center justify-center active:scale-95 transition-transform overflow-hidden rounded-full w-8 h-8">
-<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling user against a soft, well-lit studio background. Modern, bright lighting emphasizing a calm and friendly demeanor, fitting for a wellness-focused finance app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR2EWtwww4dI8eVfX79fXOib4ed0ktPW5wOgpGkUspRinthMAEeJQG5YqTagBD1Zp6L0mqFP2mIvMjhxfwSP5LPoFhMANBnk1jBv76zXQLUjght7nc7jPmFoD1jx4dCOeGqU6htRs23U-vzPaBS_smAY38UyHk-8lEWq2f9IJ4EZxRGASMY3AujrwP-dR4zGq_RD3ecwL4Iw2odmpc83sMmIv8lDR68zsjVNGhjweHxO5MJ401bF9T">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling user against a soft, well-lit studio background. Modern, bright lighting emphasizing a calm and friendly demeanor, fitting for a wellness-focused finance app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR2EWtwww4dI8eVfX79fXOib4ed0ktPW5wOgpGkUspRinthMAEeJQG5YqTagBD1Zp6L0mqFP2mIvMjhxfwSP5LPoFhMANBnk1jBv76zXQLUjght7nc7jPmFoD1jx4dCOeGqU6htRs23U-vzPaBS_smAY38UyHk-8lEWq2f9IJ4EZxRGASMY3AujrwP-dR4zGq_RD3ecwL4Iw2odmpc83sMmIv8lDR68zsjVNGhjweHxO5MJ401bF9T"/>
 </button>
 </header>
 <!-- Main Content Canvas -->
@@ -181,7 +183,7 @@
 <section class="flex flex-col gap-stack-sm pt-stack-sm">
 <p class="font-body-md text-outline">Total Balance</p>
 <div class="flex items-end gap-2">
-<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary">$14,250.00</h2>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary font-currency-tabular">R$ 14.250,00</h2>
 <span class="font-body-md text-secondary-fixed-dim mb-1 flex items-center">
 <span class="material-symbols-outlined text-[16px]">arrow_upward</span>
                     2.4%
@@ -204,7 +206,7 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-outline mb-1">Checking</p>
-<p class="font-currency-tabular text-currency-tabular text-text-charcoal">$3,420.50</p>
+<p class="font-currency-tabular text-currency-tabular text-text-charcoal">R$ 3.420,50</p>
 </div>
 </div>
 <!-- Joint Savings (Shared) -->
@@ -221,7 +223,7 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-outline mb-1">Joint Vault</p>
-<p class="font-currency-tabular text-currency-tabular text-text-charcoal">$10,829.50</p>
+<p class="font-currency-tabular text-currency-tabular text-text-charcoal">R$ 10.829,50</p>
 </div>
 </div>
 </div>
@@ -241,7 +243,7 @@
 <p class="font-label-sm text-label-sm text-outline">Checking • Today</p>
 </div>
 </div>
-<p class="font-currency-tabular text-currency-tabular text-text-charcoal">-$142.30</p>
+<p class="font-currency-tabular text-currency-tabular text-text-charcoal">-R$ 142,30</p>
 </div>
 <!-- Shared Transaction -->
 <div class="flex items-center justify-between p-gutter border-b border-surface-container min-h-[72px]">
@@ -257,7 +259,7 @@
 <p class="font-label-sm text-label-sm text-outline">Joint Vault • Yesterday</p>
 </div>
 </div>
-<p class="font-currency-tabular text-currency-tabular text-text-charcoal">-$2,100.00</p>
+<p class="font-currency-tabular text-currency-tabular text-text-charcoal">-R$ 2.100,00</p>
 </div>
 <!-- Planned Transaction -->
 <div class="flex items-center justify-between p-gutter min-h-[72px] border-2 border-dashed border-tertiary-fixed-dim bg-surface opacity-80 hover:opacity-100 transition-opacity cursor-pointer group">
@@ -271,7 +273,7 @@
 </div>
 </div>
 <div class="flex items-center gap-3">
-<p class="font-currency-tabular text-currency-tabular text-tertiary">-$85.00</p>
+<p class="font-currency-tabular text-currency-tabular text-tertiary">-R$ 85,00</p>
 <button class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity md:flex hidden">
 <span class="material-symbols-outlined text-[16px]">check</span>
 </button>
@@ -285,28 +287,31 @@
 <span class="material-symbols-outlined text-[24px]">add</span>
 </button>
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface-container-lowest shadow-[0_-4px_20px_0_rgba(2,36,72,0.06)] rounded-t-xl md:hidden">
-<!-- Active: Home -->
-<a class="flex flex-col items-center justify-center bg-primary-light text-primary rounded-xl px-4 py-1 hover:opacity-80 transition-opacity active:scale-90 transition-transform" href="#">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface-container-lowest shadow-[0_-4px_20px_0_rgba(2,36,72,0.06)] rounded-t-xl md:hidden"><!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-light text-primary rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90" href="#">
 <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
-<span class="font-label-sm text-label-sm">Home</span>
+<span class="font-label-sm text-[10px]">Home</span>
 </a>
-<!-- Inactive: Cards -->
-<a class="flex flex-col items-center justify-center text-outline px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform rounded-xl" href="#">
-<span class="material-symbols-outlined mb-1">credit_card</span>
-<span class="font-label-sm text-label-sm">Cards</span>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-outline px-3 py-1 hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">history</span>
+<span class="font-label-sm text-[10px]">History</span>
 </a>
-<!-- Inactive: Budgets -->
-<a class="flex flex-col items-center justify-center text-outline px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform rounded-xl" href="#">
-<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
-<span class="font-label-sm text-label-sm">Budgets</span>
+<!-- Accounts -->
+<a class="flex flex-col items-center justify-center text-outline px-3 py-1 hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">account_balance</span>
+<span class="font-label-sm text-[10px]">Accounts</span>
 </a>
-<!-- Inactive: Settings -->
-<a class="flex flex-col items-center justify-center text-outline px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform rounded-xl" href="#">
+<!-- Planned -->
+<a class="flex flex-col items-center justify-center text-outline px-3 py-1 hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">event_upcoming</span>
+<span class="font-label-sm text-[10px]">Planned</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-outline px-3 py-1 hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl" href="#">
 <span class="material-symbols-outlined mb-1">settings</span>
-<span class="font-label-sm text-label-sm">Settings</span>
-</a>
-</nav>
+<span class="font-label-sm text-[10px]">Settings</span>
+</a></nav>
 <script>
         // Toast logic
         document.addEventListener('DOMContentLoaded', () => {
@@ -334,6 +339,4 @@
             }
         }
     </script>
-
-
 </body></html>
