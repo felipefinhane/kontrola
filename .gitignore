@@ -1,42 +1,54 @@
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Next.js
-.next/
-out/
-build/
-dist/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Env
-.env
-.env*.local
-.env.production
+# testing
+/coverage
 
-# Testing
-coverage/
+# next.js
+/.next/
+/out/
 
-# Misc
+# production
+/build
+/dist
+
+# misc
 .DS_Store
 *.pem
 .turbo/
 
-# Logs
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed) -- keep .env.example tracked
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
 # Editor
 .vscode/
 .idea/
 
-# Vercel / Supabase local
-.vercel
-.supabase/
-
 # Raw Stitch export bundles (huge, full of PNG screenshots — the .html
 # screens we actually use are extracted into docs/stitch-export/)
-stitch_multi_platform_prompt_analyzer.zip
+stitch_multi_platform_prompt_analyzer*.zip
 *.zip

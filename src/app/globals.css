@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — source of truth is docs/kontrola-calm-control-DESIGN.md
+ * (dark) and the original Stitch master prompt (light), both derived from
+ * our own decisions, not Stitch's full auto-generated Material 3 ramp.
+ * Kept to the roles the screens actually use — see docs/stitch-export/.
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-background: #faf9f6;
+  --color-foreground: #232323;
+  --color-surface: #ffffff;
+  --color-surface-variant: #f4f3f1;
+  --color-border: #e3e2e0;
+  --color-muted: #74777f;
+
+  --color-primary: #1e3a5f;
+  --color-on-primary: #ffffff;
+  --color-primary-light: #eaf1f8;
+
+  --color-accent: #2db88a;
+  --color-on-accent: #ffffff;
+  --color-debit: #e2685e;
+  --color-planned: #c9a15a;
+  --color-error: #ba1a1a;
+}
+
+.dark {
+  --color-background: #12181f;
+  --color-foreground: #f5f3ee;
+  --color-surface: #1a222c;
+  --color-surface-variant: #232d3b;
+  --color-border: #2f353d;
+  --color-muted: #8d919a;
+
+  --color-primary: #8aa4cf;
+  --color-on-primary: #12181f;
+  --color-primary-light: #1e3a5f;
+
+  --color-accent: #2db88a;
+  --color-on-accent: #12181f;
+  --color-debit: #e2685e;
+  --color-planned: #c9a15a;
+  --color-error: #ffb4ab;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-surface: var(--color-surface);
+  --color-surface-variant: var(--color-surface-variant);
+  --color-border: var(--color-border);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-accent: var(--color-accent);
+  --color-on-accent: var(--color-on-accent);
+  --color-debit: var(--color-debit);
+  --color-planned: var(--color-planned);
+  --color-error: var(--color-error);
+
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-inter);
+}
+
+/* Safe-area utilities — see docs/stitch-export/INDEX.md pendente #2.
+   Applied directly here rather than relying on Stitch exports to carry
+   this through (ADR discussion: the static export isn't a guarantee). */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}

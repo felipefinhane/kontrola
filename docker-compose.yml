@@ -14,6 +14,10 @@ services:
       - "5433:5432"
     volumes:
       - kontrola_db_data:/var/lib/postgresql/data
+      # Creates the restricted kontrola_app role on first boot — see the
+      # file itself and ADR-0002/0009 for why the bootstrap user alone
+      # isn't enough to test RLS locally.
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U kontrola -d kontrola"]
       interval: 5s
@@ -39,9 +43,13 @@ services:
     env_file:
       - .env
     environment:
-      # Overrides whatever DATABASE_URL is in .env (that one's for Neon) —
-      # inside docker-compose we always talk to the local `db` service.
-      DATABASE_URL: postgres://kontrola:kontrola@db:5432/kontrola
+      # Overrides whatever's in .env (that one's for Neon) — inside
+      # docker-compose we always talk to the local `db` service. Runtime
+      # queries use the restricted kontrola_app role, not the bootstrap
+      # superuser, so RLS (ADR-0002) actually gets exercised locally —
+      # see docker/initdb/01-app-role.sql and ADR-0009.
+      DATABASE_URL: postgres://kontrola_app:kontrola_app@db:5432/kontrola
+      DATABASE_ADMIN_URL: postgres://kontrola:kontrola@db:5432/kontrola
       NODE_ENV: development
     volumes:
       - .:/app

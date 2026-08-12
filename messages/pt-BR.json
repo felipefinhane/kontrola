@@ -1,0 +1,10 @@
+{
+  "Common": {
+    "appName": "Kontrola"
+  },
+  "Onboarding": {
+    "tagline": "Controle seu dinheiro sem culpa e sem planilha.",
+    "getStarted": "Começar",
+    "alreadyHaveAccount": "Já tenho uma conta"
+  }
+}
