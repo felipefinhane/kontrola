@@ -46,5 +46,23 @@
     "errors": {
       "invalidCredentials": "Email ou senha incorretos."
     }
+  },
+  "AddAccount": {
+    "back": "Voltar",
+    "title": "Adicionar Conta",
+    "subtitle": "Vamos configurar uma nova conta pra acompanhar suas finanças com calma.",
+    "openingBalanceLabel": "Saldo Inicial",
+    "openingBalanceTransactionLabel": "Saldo inicial",
+    "nicknameLabel": "Apelido da Conta",
+    "nicknamePlaceholder": "ex. Conta Corrente, Reserva Secreta",
+    "institutionLabel": "Instituição",
+    "bankNamePlaceholder": "Digite o nome do banco",
+    "otherBank": "Outro",
+    "save": "Salvar Conta",
+    "saving": "Salvando…",
+    "errors": {
+      "nicknameRequired": "Dê um apelido pra essa conta.",
+      "invalidBalance": "Informe um saldo inicial válido."
+    }
   }
 }

@@ -46,5 +46,23 @@
     "errors": {
       "invalidCredentials": "Incorrect email or password."
     }
+  },
+  "AddAccount": {
+    "back": "Go back",
+    "title": "Add Account",
+    "subtitle": "Let's set up a new account to keep track of your finances calmly.",
+    "openingBalanceLabel": "Opening Balance",
+    "openingBalanceTransactionLabel": "Opening balance",
+    "nicknameLabel": "Account Nickname",
+    "nicknamePlaceholder": "e.g. Main Checking, Secret Stash",
+    "institutionLabel": "Institution",
+    "bankNamePlaceholder": "Enter bank name",
+    "otherBank": "Other",
+    "save": "Save Account",
+    "saving": "Saving…",
+    "errors": {
+      "nicknameRequired": "Give this account a nickname.",
+      "invalidBalance": "Enter a valid opening balance."
+    }
   }
 }
