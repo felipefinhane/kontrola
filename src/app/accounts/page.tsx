@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { auth } from "@/auth";
 import { listAccountsWithBalances } from "@/db/queries/accounts";
-import { groupBalancesByCurrency } from "@/lib/currency";
+import { groupAmountsByCurrency } from "@/lib/currency";
 import { formatMoney, formatMoneyParts } from "@/lib/format-money";
 import { BankIcon, PlusIcon, WalletIcon } from "@/components/icons";
 import { BottomNav } from "@/components/bottom-nav";
@@ -34,7 +34,9 @@ export default async function AccountsPage() {
     getTranslations("Accounts"),
   ]);
 
-  const totals = groupBalancesByCurrency(accounts);
+  const totals = groupAmountsByCurrency(
+    accounts.map((a) => ({ currency: a.currency, amount: a.balance })),
+  );
 
   return (
     <main className="safe-top flex min-h-screen flex-col bg-background pb-28 text-foreground">

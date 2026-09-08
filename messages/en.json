@@ -79,5 +79,25 @@
     "accounts": "Accounts",
     "planned": "Planned",
     "settings": "Settings"
+  },
+  "Categories": {
+    "back": "Go back",
+    "title": "Categories",
+    "totalSpendLabel": "Total Spend (This Month)",
+    "noSpendYet": "No spending recorded yet",
+    "addCategory": "Add Category"
+  },
+  "AddCategory": {
+    "back": "Go back",
+    "title": "Add Category",
+    "subtitle": "Give your custom category a name.",
+    "nameLabel": "Category Name",
+    "namePlaceholder": "e.g. Pets, Hobbies",
+    "save": "Save Category",
+    "saving": "Saving…",
+    "errors": {
+      "required": "Give this category a name.",
+      "duplicate": "You already have a category with this name."
+    }
   }
 }

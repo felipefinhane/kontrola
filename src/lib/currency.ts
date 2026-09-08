@@ -16,18 +16,18 @@ export function isSupportedCurrency(value: string): value is CurrencyCode {
 }
 
 // ADR-0007: "the aggregate balance view groups totals by Currency ...
-// rather than converting everything into one blended number." Order
-// follows first appearance in the account list (itself createdAt-order),
-// not a fixed currency ranking — there's no "primary" currency concept.
-export function groupBalancesByCurrency(
-  accounts: { currency: string; balance: number }[],
+// rather than converting everything into one blended number." Applies
+// beyond just Account balances (#6) — #8's "Total Spend This Month" is
+// the same rule over Transaction amounts instead, so this stays generic
+// rather than accounts-shaped. Order follows first appearance in the
+// input (itself usually createdAt-order upstream), not a fixed currency
+// ranking — there's no "primary" currency concept.
+export function groupAmountsByCurrency(
+  items: { currency: string; amount: number }[],
 ): { currency: string; total: number }[] {
   const totals = new Map<string, number>();
-  for (const account of accounts) {
-    totals.set(
-      account.currency,
-      (totals.get(account.currency) ?? 0) + account.balance,
-    );
+  for (const item of items) {
+    totals.set(item.currency, (totals.get(item.currency) ?? 0) + item.amount);
   }
   return [...totals.entries()].map(([currency, total]) => ({
     currency,

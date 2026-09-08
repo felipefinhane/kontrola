@@ -79,5 +79,25 @@
     "accounts": "Contas",
     "planned": "Planejado",
     "settings": "Ajustes"
+  },
+  "Categories": {
+    "back": "Voltar",
+    "title": "Categorias",
+    "totalSpendLabel": "Gasto Total (Este Mês)",
+    "noSpendYet": "Nenhum gasto registrado ainda",
+    "addCategory": "Adicionar Categoria"
+  },
+  "AddCategory": {
+    "back": "Voltar",
+    "title": "Adicionar Categoria",
+    "subtitle": "Dê um nome pra sua categoria personalizada.",
+    "nameLabel": "Nome da Categoria",
+    "namePlaceholder": "ex. Pets, Hobbies",
+    "save": "Salvar Categoria",
+    "saving": "Salvando…",
+    "errors": {
+      "required": "Dê um nome pra essa categoria.",
+      "duplicate": "Você já tem uma categoria com esse nome."
+    }
   }
 }
