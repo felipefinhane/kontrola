@@ -9,10 +9,13 @@
 -- connect as. Migrations still run as the bootstrap role (DATABASE_ADMIN_URL);
 -- the app's own queries run as this one (DATABASE_URL) -- see .env.example.
 --
--- This mirrors Neon's own setup: the role Neon gives you isn't a true
--- superuser either, just the table owner, which FORCE ROW LEVEL SECURITY
--- already handles there. Locally we need this extra role only because of
--- the bootstrap-superuser quirk above.
+-- ADR-0011: this ALSO has to exist in Neon, not just locally -- Neon's
+-- own default role has BYPASSRLS (a separate grant from SUPERUSER), so it
+-- bypasses RLS too despite FORCE ROW LEVEL SECURITY. An earlier revision
+-- of this comment assumed Neon's role was safe to use directly; it isn't.
+-- The production kontrola_app role is created by hand against Neon
+-- (no init-script equivalent there) -- see ADR-0011 for the exact grants,
+-- which mirror this file.
 CREATE ROLE kontrola_app LOGIN PASSWORD 'kontrola_app';
 GRANT USAGE ON SCHEMA public TO kontrola_app;
 

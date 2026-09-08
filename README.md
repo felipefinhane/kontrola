@@ -40,7 +40,9 @@ Production uses Vercel + Neon directly ([ADR-0001](docs/adr/0001-neon-over-supab
 - `npm run db:seed` — insert the default Categories if they're not already there
 - `npm run db:studio` — Drizzle's own DB browser, alternative to Adminer
 
-> **RLS gotcha, if you ever regenerate the migration from scratch:** Postgres doesn't restrict a table's *owner* by policy alone, even with RLS enabled — `FORCE ROW LEVEL SECURITY` closes that gap, but drizzle-kit doesn't express it. The generated `drizzle/0000_*.sql` has it hand-added for all 5 tables; re-add it if you ever wipe and regenerate. See the comment above `currentUserId` in `src/db/schema.ts`.
+> **RLS gotcha, if you ever regenerate the migration from scratch:** Postgres doesn't restrict a table's *owner* by policy alone, even with RLS enabled — `FORCE ROW LEVEL SECURITY` closes that gap, but drizzle-kit doesn't express it. The generated `drizzle/0000_*.sql` has it hand-added for all 6 tables; re-add it if you ever wipe and regenerate. See the comment above `currentUserId` in `src/db/schema.ts`.
+>
+> **RLS gotcha #2, if you ever provision a fresh Neon project:** `FORCE ROW LEVEL SECURITY` alone is *not* enough — Neon's default owner role has the separate `BYPASSRLS` grant, which ignores RLS regardless of FORCE. The app must run as its own restricted role there too, same as local dev's `kontrola_app` (`docker/initdb/01-app-role.sql`) — see [ADR-0011](docs/adr/0011-neon-needs-its-own-restricted-role.md) for the exact grants and how this was discovered.
 
 ## Known gaps (parked for later)
 

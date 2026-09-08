@@ -3,10 +3,9 @@ import { defineConfig } from "drizzle-kit";
 
 // Migrations need to CREATE TABLEs/ROLEs — the restricted kontrola_app
 // role (docker/initdb/01-app-role.sql, ADR-0009) can't do that, so this
-// prefers DATABASE_ADMIN_URL (set in docker-compose.yml) and only falls
-// back to DATABASE_URL for environments with just one role (e.g. Neon,
-// where FORCE ROW LEVEL SECURITY already closes the owner-bypass gap —
-// see ADR-0002).
+// prefers DATABASE_ADMIN_URL (set in docker-compose.yml, and in every
+// deployed environment per ADR-0011) and only falls back to DATABASE_URL
+// if DATABASE_ADMIN_URL genuinely isn't set anywhere.
 const connectionString =
   process.env.DATABASE_ADMIN_URL ?? process.env.DATABASE_URL;
 
