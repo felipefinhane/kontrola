@@ -30,5 +30,21 @@
       "emailTaken": "An account with this email already exists.",
       "signInFailed": "Something went wrong signing you in — try logging in instead."
     }
+  },
+  "Login": {
+    "tagline": "Calm Control.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Forgot password?",
+    "submit": "Log In",
+    "submitting": "Logging in…",
+    "or": "or",
+    "signUpPrompt": "Don't have an account?",
+    "signUpLink": "Sign Up",
+    "errors": {
+      "invalidCredentials": "Incorrect email or password."
+    }
   }
 }

@@ -19,13 +19,14 @@ export type SignUpState = {
   };
 };
 
+// drizzle-orm wraps the underlying pg error in its own DrizzleQueryError
+// rather than exposing pg's `.code` directly — the real Postgres error
+// (with `.code`) lives one level down, under `.cause`. Verified against
+// a live duplicate-email insert (see docs/TASKS.md #3): the outer error
+// has no `.code` of its own at all, only `.cause.code`.
 function isUniqueViolation(err: unknown): boolean {
-  return (
-    typeof err === "object" &&
-    err !== null &&
-    "code" in err &&
-    (err as { code?: unknown }).code === "23505"
-  );
+  const pgCode = (err as { cause?: { code?: unknown } } | null)?.cause?.code;
+  return pgCode === "23505";
 }
 
 export async function signUp(

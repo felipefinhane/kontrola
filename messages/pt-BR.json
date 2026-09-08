@@ -30,5 +30,21 @@
       "emailTaken": "Já existe uma conta com esse email.",
       "signInFailed": "Algo deu errado ao entrar — tente fazer login."
     }
+  },
+  "Login": {
+    "tagline": "Calm Control.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "voce@exemplo.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Esqueceu a senha?",
+    "submit": "Entrar",
+    "submitting": "Entrando…",
+    "or": "ou",
+    "signUpPrompt": "Não tem uma conta?",
+    "signUpLink": "Criar conta",
+    "errors": {
+      "invalidCredentials": "Email ou senha incorretos."
+    }
   }
 }
