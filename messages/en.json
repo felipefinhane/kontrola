@@ -8,5 +8,27 @@
     "addToHomeScreenInstruction": "Tap the Share icon and select \"Add to Home Screen\"",
     "getStarted": "Get Started",
     "alreadyHaveAccount": "I already have an account"
+  },
+  "SignUp": {
+    "title": "Create an account",
+    "subtitle": "Join Kontrola for a calmer financial life.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "hello@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a strong password",
+    "passwordHint": "Use at least 8 characters, a number, and a symbol.",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "trustBadge": "Bank-level encryption",
+    "submit": "Create account",
+    "submitting": "Creating account…",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Log in",
+    "errors": {
+      "invalidEmail": "Enter a valid email address.",
+      "weakPassword": "Use at least 8 characters, a number, and a symbol.",
+      "emailTaken": "An account with this email already exists.",
+      "signInFailed": "Something went wrong signing you in — try logging in instead."
+    }
   }
 }

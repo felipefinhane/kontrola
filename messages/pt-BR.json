@@ -8,5 +8,27 @@
     "addToHomeScreenInstruction": "Toque no ícone de compartilhar e selecione \"Adicionar à Tela de Início\"",
     "getStarted": "Começar",
     "alreadyHaveAccount": "Já tenho uma conta"
+  },
+  "SignUp": {
+    "title": "Crie sua conta",
+    "subtitle": "Entre no Kontrola para uma vida financeira mais tranquila.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "hello@example.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "Crie uma senha forte",
+    "passwordHint": "Use pelo menos 8 caracteres, um número e um símbolo.",
+    "showPassword": "Mostrar senha",
+    "hidePassword": "Ocultar senha",
+    "trustBadge": "Criptografia nível bancário",
+    "submit": "Criar conta",
+    "submitting": "Criando conta…",
+    "loginPrompt": "Já tem uma conta?",
+    "loginLink": "Entrar",
+    "errors": {
+      "invalidEmail": "Informe um email válido.",
+      "weakPassword": "Use pelo menos 8 caracteres, um número e um símbolo.",
+      "emailTaken": "Já existe uma conta com esse email.",
+      "signInFailed": "Algo deu errado ao entrar — tente fazer login."
+    }
   }
 }
