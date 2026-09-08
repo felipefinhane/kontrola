@@ -4,6 +4,8 @@
   },
   "Onboarding": {
     "tagline": "Controle seu dinheiro sem culpa e sem planilha.",
+    "addToHomeScreenTitle": "Adicione o Kontrola à tela de início para ativar os lembretes",
+    "addToHomeScreenInstruction": "Toque no ícone de compartilhar e selecione \"Adicionar à Tela de Início\"",
     "getStarted": "Começar",
     "alreadyHaveAccount": "Já tenho uma conta"
   }

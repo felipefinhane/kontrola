@@ -23,12 +23,13 @@ Plano de execução do MVP, na ordem de dependência real. Fonte de verdade — 
 #14 Change Password                ← #4
 #15 Push notifications             ← #4
 #16 Forgot Password (decisão)      (livre, mas precisa decidir provedor de email antes de construir)
+#17 Vercel env vars + Neon prod DB (livre, mas bloqueia deploy funcional em produção)
 ```
 
 ## Lista
 
-- [ ] **#1 Build real Onboarding screen**
-  Replace the placeholder `src/app/page.tsx` with the real screen from `docs/stitch-export/01-onboarding.html`: logo, tagline, "Get Started" -> /signup, "I already have an account" -> /login, and the iOS "Add to Home Screen" callout. Use the design tokens already in `globals.css`, next-intl's Onboarding messages (already have en/pt-BR strings).
+- [x] **#1 Build real Onboarding screen**
+  Replaced the placeholder `src/app/page.tsx` with the real screen from `docs/stitch-export/01-onboarding.html`: logo, tagline, "Get Started" -> /signup, "I already have an account" -> /login (both routes still 404 until #2/#3), and the "Add to Home Screen" callout (inline SVG icon, no new icon-library dependency). Added the two missing Onboarding message keys (`addToHomeScreenTitle`, `addToHomeScreenInstruction`) to en/pt-BR. Uses the existing `globals.css` tokens only, so it gets dark mode for free even though 01-onboarding.html itself has no dark variant.
 
 - [ ] **#2 Build Sign Up (server action + screen)**
   `docs/stitch-export/02-sign-up.html`. Server action: validate email/password server-side (grilling decision: the "8 chars, a number, a symbol" hint becomes a real rule, not just UI), hash with bcryptjs, insert into `users` via the admin/unscoped `db` (no session exists yet — same reasoning as the login lookup in `src/auth.ts`), then sign the user in. No email verification (grilling decision, MVP scope).
@@ -74,3 +75,6 @@ Plano de execução do MVP, na ordem de dependência real. Fonte de verdade — 
 
 - [ ] **#16 Forgot Password flow — needs a decision first**
   `docs/stitch-export/03b-forgot-password.html` exists but sending a reset email needs an email provider, which hasn't been decided (no ADR, nothing in `.env.example`). Before building: decide the provider (e.g. Resend, since it's the common Vercel-ecosystem pick) or explicitly defer this screen past MVP.
+
+- [ ] **#17 Vercel env vars + Neon production DB**
+  Vercel project `finhane/kontrola` exists (linked to `github.com/felipefinhane/kontrola`, auto-deploys on push to `main`) but has **zero environment variables set** — no `DATABASE_URL`, `AUTH_SECRET`, `VAPID_PUBLIC_KEY`/`VAPID_PRIVATE_KEY`, or `FIELD_ENCRYPTION_KEY` (see `.env.example` for the full list and how each is generated). No Neon database has been provisioned yet either (ADR-0001 picks Neon, ADR-0009 explains the plain `pg` driver choice, but nothing's actually created). Builds succeed today because the screens built so far don't touch the DB at build time — this will start failing at runtime the moment a route that does (auth, any data screen) gets deployed. Do this before or alongside whichever of #2-#4 lands first: provision the Neon DB, run migrations against it, then `vercel env add` each secret (or set via the dashboard) for Production (and Preview, if PR previews matter).

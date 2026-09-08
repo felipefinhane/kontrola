@@ -45,5 +45,5 @@ Production uses Vercel + Neon directly ([ADR-0001](docs/adr/0001-neon-over-supab
 ## Known gaps (parked for later)
 
 - **Dark mode / safe-area only cover 6 of 27 Stitch screens** — the design is unified and documented ([`docs/kontrola-calm-control-DESIGN.md`](docs/kontrola-calm-control-DESIGN.md)); safe-area itself is already implemented for real in `src/app/layout.tsx` + `globals.css`, independent of Stitch's coverage. Full details and ready-to-paste Stitch prompts for the rest of the screens in [`docs/stitch-export/INDEX.md`](docs/stitch-export/INDEX.md).
-- **Only the placeholder Onboarding screen is built** (`src/app/page.tsx`) — every other screen in `docs/stitch-export/` still needs to be turned into real Next.js pages/components.
+- **Only Onboarding is built** (`src/app/page.tsx`, `docs/stitch-export/01-onboarding.html`) — every other screen in `docs/stitch-export/` still needs to be turned into real Next.js pages/components. See `docs/TASKS.md` for the order.
 - **Auth.js has no real sign-up flow yet** — `src/auth.ts` can log a user in (Credentials provider checks `password_hash` via bcrypt) but nothing creates that first row yet.

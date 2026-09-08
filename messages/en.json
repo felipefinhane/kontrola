@@ -4,6 +4,8 @@
   },
   "Onboarding": {
     "tagline": "Track your money without the guilt or the spreadsheet.",
+    "addToHomeScreenTitle": "Add Kontrola to your Home Screen to enable reminders",
+    "addToHomeScreenInstruction": "Tap the Share icon and select \"Add to Home Screen\"",
     "getStarted": "Get Started",
     "alreadyHaveAccount": "I already have an account"
   }
