@@ -64,5 +64,20 @@
       "nicknameRequired": "Give this account a nickname.",
       "invalidBalance": "Enter a valid opening balance."
     }
+  },
+  "Accounts": {
+    "totalBalance": "Total Balance",
+    "linkedAccounts": "Linked Accounts",
+    "addAccount": "Add Account",
+    "addTransaction": "Add Transaction",
+    "emptyTitle": "Add your first account",
+    "emptyDescription": "Add your first account to start tracking — it only takes a minute"
+  },
+  "Nav": {
+    "home": "Home",
+    "history": "History",
+    "accounts": "Accounts",
+    "planned": "Planned",
+    "settings": "Settings"
   }
 }

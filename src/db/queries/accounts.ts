@@ -39,6 +39,52 @@ export async function getAccount(userId: string, accountId: string) {
   });
 }
 
+export type AccountWithBalance = typeof accounts.$inferSelect & {
+  // CONTEXT.md: "Balance is always derived, never stored" — summed here
+  // from `actual` Transactions, never read off a column.
+  balance: number;
+};
+
+export async function listAccountsWithBalances(
+  userId: string,
+): Promise<AccountWithBalance[]> {
+  return withUserContext(userId, async (tx) => {
+    const accountRows = await tx
+      .select()
+      .from(accounts)
+      .orderBy(accounts.createdAt);
+    if (accountRows.length === 0) return [];
+
+    // One query for every actual Transaction across all of this user's
+    // Accounts (RLS scopes it, same as everything else here), summed in
+    // JS rather than a SQL CASE/SUM — simpler to read and plenty fast at
+    // personal-finance transaction volumes (ADR-0003's same call for
+    // field encryption).
+    const txRows = await tx
+      .select({
+        accountId: transactions.accountId,
+        amount: transactions.amount,
+        direction: transactions.direction,
+      })
+      .from(transactions)
+      .where(eq(transactions.status, "actual"));
+
+    const balanceByAccount = new Map<string, number>();
+    for (const t of txRows) {
+      const signed = t.direction === "credit" ? Number(t.amount) : -Number(t.amount);
+      balanceByAccount.set(
+        t.accountId,
+        (balanceByAccount.get(t.accountId) ?? 0) + signed,
+      );
+    }
+
+    return accountRows.map((account) => ({
+      ...account,
+      balance: balanceByAccount.get(account.id) ?? 0,
+    }));
+  });
+}
+
 export type NewAccountInput = {
   nickname: string;
   bankName: string | null;

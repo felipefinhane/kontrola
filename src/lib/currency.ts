@@ -14,3 +14,23 @@ export type CurrencyCode = (typeof SUPPORTED_CURRENCIES)[number]["code"];
 export function isSupportedCurrency(value: string): value is CurrencyCode {
   return SUPPORTED_CURRENCIES.some((c) => c.code === value);
 }
+
+// ADR-0007: "the aggregate balance view groups totals by Currency ...
+// rather than converting everything into one blended number." Order
+// follows first appearance in the account list (itself createdAt-order),
+// not a fixed currency ranking — there's no "primary" currency concept.
+export function groupBalancesByCurrency(
+  accounts: { currency: string; balance: number }[],
+): { currency: string; total: number }[] {
+  const totals = new Map<string, number>();
+  for (const account of accounts) {
+    totals.set(
+      account.currency,
+      (totals.get(account.currency) ?? 0) + account.balance,
+    );
+  }
+  return [...totals.entries()].map(([currency, total]) => ({
+    currency,
+    total,
+  }));
+}

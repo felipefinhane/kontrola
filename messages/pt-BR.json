@@ -64,5 +64,20 @@
       "nicknameRequired": "Dê um apelido pra essa conta.",
       "invalidBalance": "Informe um saldo inicial válido."
     }
+  },
+  "Accounts": {
+    "totalBalance": "Saldo Total",
+    "linkedAccounts": "Contas Vinculadas",
+    "addAccount": "Adicionar Conta",
+    "addTransaction": "Adicionar Transação",
+    "emptyTitle": "Adicione sua primeira conta",
+    "emptyDescription": "Adicione sua primeira conta pra começar a acompanhar — leva só um minuto"
+  },
+  "Nav": {
+    "home": "Início",
+    "history": "Histórico",
+    "accounts": "Contas",
+    "planned": "Planejado",
+    "settings": "Ajustes"
   }
 }
