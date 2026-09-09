@@ -44,8 +44,18 @@ Production uses Vercel + Neon directly ([ADR-0001](docs/adr/0001-neon-over-supab
 >
 > **RLS gotcha #2, if you ever provision a fresh Neon project:** `FORCE ROW LEVEL SECURITY` alone is *not* enough — Neon's default owner role has the separate `BYPASSRLS` grant, which ignores RLS regardless of FORCE. The app must run as its own restricted role there too, same as local dev's `kontrola_app` (`docker/initdb/01-app-role.sql`) — see [ADR-0011](docs/adr/0011-neon-needs-its-own-restricted-role.md) for the exact grants and how this was discovered.
 
-## Known gaps (parked for later)
+## Status
 
-- **Dark mode / safe-area only cover 6 of 27 Stitch screens** — the design is unified and documented ([`docs/kontrola-calm-control-DESIGN.md`](docs/kontrola-calm-control-DESIGN.md)); safe-area itself is already implemented for real in `src/app/layout.tsx` + `globals.css`, independent of Stitch's coverage. Full details and ready-to-paste Stitch prompts for the rest of the screens in [`docs/stitch-export/INDEX.md`](docs/stitch-export/INDEX.md).
-- **Only Onboarding is built** (`src/app/page.tsx`, `docs/stitch-export/01-onboarding.html`) — every other screen in `docs/stitch-export/` still needs to be turned into real Next.js pages/components. See `docs/TASKS.md` for the order.
-- **Auth.js has no real sign-up flow yet** — `src/auth.ts` can log a user in (Credentials provider checks `password_hash` via bcrypt) but nothing creates that first row yet.
+All 17 MVP tasks in [`docs/TASKS.md`](docs/TASKS.md) are done — every screen listed there is built, and `docs/TASKS.md`'s own "Post-MVP fixes" section tracks bugs found after the fact on the deployed app. What's *not* in the MVP:
+
+- **v1.1**: `RecurringTemplate` (auto-generating a `planned` Transaction from a recurring schedule) and the inactivity-nudge cron job — [ADR-0010](docs/adr/0010-vercel-cron-for-scheduled-jobs.md) records the mechanism (Vercel Cron), neither job exists yet, no `vercel.json`/`/api/cron/*`.
+- **v2**: `CreditCard` as its own tracked entity (statement cycle, due date, limit).
+- **v3**: `AccountMember` / sharing an Account between Users.
+- **Sending** push notifications — [#15](docs/TASKS.md) built subscription registration and the receiving service worker; nothing calls the Web Push API to actually send one yet (that's the same v1.1 cron job above, once it exists).
+
+Known, disclosed gaps in what *is* built (each documented in more depth at its own `docs/TASKS.md` entry):
+
+- **`RESEND_API_KEY` isn't set in production yet** — #16 Forgot Password's email-sending half is unverified end-to-end until it is.
+- **No graceful fallback for an undecryptable Transaction field** — found during #7: one bad `description`/`note` (e.g. an encryption-key mismatch) 500s the whole page reading it, rather than degrading that one row.
+- **Direct-`onClick` Server Action calls** (theme, default currency, inactivity-days stepper — #13/#15) and anything needing real browser Push APIs or iOS's `navigator.standalone` (#15) were never exercised by an actual browser — this sandbox doesn't have one, so these are type/lint-correct but not runtime-verified.
+- **A User's locale/theme preference doesn't follow them to a new browser on login** — #13 made `users` the source of truth and Settings writes it, but sign-in doesn't yet pull those values back into a fresh session's cookie/`localStorage`.
