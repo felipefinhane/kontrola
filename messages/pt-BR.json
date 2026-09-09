@@ -99,5 +99,33 @@
       "required": "Dê um nome pra essa categoria.",
       "duplicate": "Você já tem uma categoria com esse nome."
     }
+  },
+  "AccountDetail": {
+    "back": "Voltar",
+    "availableBalance": "Saldo Disponível",
+    "pay": "Pagar",
+    "recentActivity": "Atividade Recente",
+    "noTransactions": "Nenhuma transação ainda",
+    "today": "Hoje",
+    "yesterday": "Ontem",
+    "uncategorized": "Sem categoria",
+    "planned": "Planejado"
+  },
+  "Transaction": {
+    "title": "Transação",
+    "cancel": "Cancelar",
+    "save": "Salvar Transação",
+    "saving": "Salvando…",
+    "credit": "Crédito",
+    "debit": "Débito",
+    "descriptionPlaceholder": "Descrição",
+    "accountLabel": "Conta",
+    "categoryLabel": "Categoria",
+    "errors": {
+      "invalidAmount": "Informe um valor maior que zero.",
+      "descriptionRequired": "Dê uma descrição pra essa transação.",
+      "accountRequired": "Escolha uma conta.",
+      "dateInvalid": "Informe uma data válida."
+    }
   }
 }

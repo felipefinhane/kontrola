@@ -99,5 +99,33 @@
       "required": "Give this category a name.",
       "duplicate": "You already have a category with this name."
     }
+  },
+  "AccountDetail": {
+    "back": "Go back",
+    "availableBalance": "Available Balance",
+    "pay": "Pay",
+    "recentActivity": "Recent Activity",
+    "noTransactions": "No transactions yet",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "uncategorized": "Uncategorized",
+    "planned": "Planned"
+  },
+  "Transaction": {
+    "title": "Transaction",
+    "cancel": "Cancel",
+    "save": "Save Transaction",
+    "saving": "Saving…",
+    "credit": "Credit",
+    "debit": "Debit",
+    "descriptionPlaceholder": "Description",
+    "accountLabel": "Account",
+    "categoryLabel": "Category",
+    "errors": {
+      "invalidAmount": "Enter an amount greater than zero.",
+      "descriptionRequired": "Give this transaction a description.",
+      "accountRequired": "Choose an account.",
+      "dateInvalid": "Enter a valid date."
+    }
   }
 }

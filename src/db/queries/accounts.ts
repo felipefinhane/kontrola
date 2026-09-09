@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { withUserContext } from "@/db";
 import { accounts, transactions, users } from "@/db/schema";
 import { encryptField } from "@/lib/crypto";
@@ -44,6 +44,42 @@ export type AccountWithBalance = typeof accounts.$inferSelect & {
   // from `actual` Transactions, never read off a column.
   balance: number;
 };
+
+// Single-Account counterpart to listAccountsWithBalances below — #7
+// Account Detail needs one Account's balance, not every Account's, so
+// this scopes the Transaction sum by accountId instead of fetching (and
+// then filtering out) every Account the user has.
+export async function getAccountWithBalance(
+  userId: string,
+  accountId: string,
+): Promise<AccountWithBalance | null> {
+  return withUserContext(userId, async (tx) => {
+    const [account] = await tx
+      .select()
+      .from(accounts)
+      .where(eq(accounts.id, accountId))
+      .limit(1);
+    if (!account) return null;
+
+    const txRows = await tx
+      .select({ amount: transactions.amount, direction: transactions.direction })
+      .from(transactions)
+      .where(
+        and(
+          eq(transactions.accountId, accountId),
+          eq(transactions.status, "actual"),
+        ),
+      );
+
+    const balance = txRows.reduce(
+      (sum, t) =>
+        sum + (t.direction === "credit" ? Number(t.amount) : -Number(t.amount)),
+      0,
+    );
+
+    return { ...account, balance };
+  });
+}
 
 export async function listAccountsWithBalances(
   userId: string,
