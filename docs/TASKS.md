@@ -24,6 +24,15 @@ Plano de execução do MVP, na ordem de dependência real. Fonte de verdade — 
 #15 Push notifications             ← #4
 #16 Forgot Password (decisão)      (livre, mas precisa decidir provedor de email antes de construir)
 #17 Vercel env vars + Neon prod DB (livre, mas bloqueia deploy funcional em produção)
+#18 RESEND_API_KEY em produção     (livre — só config, termina #16 de verdade)
+#19 Deployment Protection (decisão) (livre — decisão de produto, não código)
+#20 Fallback gracioso p/ campo indecifrável ← #7, #9
+#21 Sincronizar locale/tema no login ← #13
+#22 Verificação em navegador real  ← #13, #15
+#23 RecurringTemplate (v1.1)       ← #9, #11
+#24 Cron: recorrências + inatividade + push ← #23, #15
+#25 CreditCard (v2)                ← #5
+#26 AccountMember / compartilhamento (v3) ← #5
 ```
 
 ## Lista
@@ -133,6 +142,37 @@ Plano de execução do MVP, na ordem de dependência real. Fonte de verdade — 
   **Known issue**: `npm run db:migrate` (the documented script, wraps `drizzle-kit migrate`) hangs on Neon and exits 1 with no error message — its spinner appears to swallow the real error. Worked around by calling `drizzle-orm/node-postgres/migrator`'s `migrate()` directly from a throwaway script instead. Not yet root-caused — works fine against local docker-compose Postgres per the original README instructions, only reproduces against Neon so far. If this resurfaces, try `drizzle-kit migrate --verbose` or piping through `cat` to defeat the TTY spinner before debugging further.
 
   **Also note**: local `.env` still has `DATABASE_ADMIN_URL` pointing at local docker (from `cp .env.example .env`), and `src/db/seed.ts`/`drizzle.config.ts` both prefer it over `DATABASE_URL` — fine for local dev, but means seeding/migrating Neon from a machine with `.env` set up for local docker needs that variable out of the way for that one call (e.g. `DOTENV_CONFIG_PATH` pointed at a file with only `DATABASE_URL`), not just `DATABASE_URL` present. Post-ADR-0011, this got simpler for one-off Neon admin tasks specifically: `DATABASE_ADMIN_URL` in Vercel now holds the `neondb_owner` connection string (`vercel env pull` can fetch it, it's Config type) — use that rather than reaching for the app's own `DATABASE_URL`, which is intentionally the restricted `kontrola_app` role now and can't do admin-only things (e.g. cross-user cleanup queries).
+
+## Backlog pós-MVP
+
+Nada aqui bloqueia o app em produção hoje — são as lacunas registradas no README em 2026-09-09. Ordem não é prioridade estrita, só dependência.
+
+- [ ] **#18 Configurar `RESEND_API_KEY` em produção** — (livre)
+  Termina #16 de verdade: o fluxo de reset de senha está implementado e testado ponta-a-ponta *exceto* o envio real do e-mail (ADR-0012, `src/lib/email.ts`) — hoje falha alto e claro quando a chave não existe, não foi verificado com envio de verdade. Ação: gerar a chave no Resend, setar `RESEND_API_KEY` na Vercel (dashboard, tipo Config — nunca Secret, mesmo motivo do `DATABASE_URL` em #17; nunca colar a chave no chat). Depois, disparar um reset de verdade contra o e-mail do usuário e confirmar o link chega e funciona.
+
+- [ ] **#19 Decisão: Vercel Deployment Protection** — (livre)
+  Hoje só quem tem sessão Vercel (o dono do projeto) acessa `kontrola-chi-ivory.vercel.app` sem cair no login da própria Vercel — inclusive rotas públicas como `/` e `/login` ficam atrás dele para requisições não autenticadas na Vercel. Decisão de produto, não técnica: se outros usuários reais vão logar no app, isso precisa ser desligado (ou trocado por um Protection Bypass token só para automação/testes). Se ficar como está, documentar isso como intencional em vez de deixar como lacuna.
+
+- [ ] **#20 Fallback gracioso para campo indecifrável** — blocked by #7, #9
+  Causou o 500 real em `/home` já visto em produção: um `description`/`note` que não descriptografa (chave errada, corrupção, rotação futura de `FIELD_ENCRYPTION_KEY`) derruba a página inteira, porque `decryptField` (`src/lib/crypto.ts`) lança e nada no caminho de leitura (`src/db/queries/transactions.ts` e cada `page.tsx` que lista Transactions) captura por linha. Ação: envolver a decriptação por Transaction num try/catch que degrada aquela linha específica (ex.: mostrar "[não foi possível carregar]" no lugar da descrição) em vez de propagar o throw pra página toda. Cobre #7 Account Detail, #10 Transactions List, #11 Planned, #12 Home — todos os pontos que renderizam `description`/`note`.
+
+- [ ] **#21 Sincronizar locale/tema no login** — blocked by #13
+  Lacuna já anotada na nota de #13: `users.locale`/`users.theme` são a fonte de verdade e Settings grava lá, mas o login (`src/app/login/actions.ts`, `src/app/signup/actions.ts`) não lê esses valores de volta pro cookie `locale`/`localStorage` do next-themes numa sessão nova — preferência setada num navegador não aparece em outro até visitar Settings lá também. Ação: depois do `signIn()` bem-sucedido, buscar `getUserPreferences` e setar o cookie de locale (o `localStorage` do tema só existe no client, então isso pode precisar de um pequeno client-side effect na primeira renderização pós-login, não só o Server Action).
+
+- [ ] **#22 Verificação em navegador real** — blocked by #13, #15
+  Nada neste sandbox tem navegador de verdade — toda a suíte de testes até aqui usou `fetch`/`FormData` cru replicando a codificação de formulário do Next. Dois grupos de código nunca foram exercitados de fato, só `tsc`/`eslint`/`next build` limpos: (1) Server Actions chamadas via `onClick` direto — tema e moeda padrão (#13, `settings-theme-toggle.tsx`/`settings-currency-select.tsx`) e o stepper de dias de inatividade (#15, `inactivity-stepper.tsx`) — usam o wire protocol de RSC action, não um POST de formulário; (2) qualquer coisa de Push API real (`Notification.requestPermission`, `pushManager.subscribe`, ciclo de vida do service worker) ou `navigator.standalone` do iOS (#15). Ação: passar por essas telas num navegador/dispositivo de verdade (ou pedir pro usuário testar e reportar) antes de considerar #13/#15 totalmente confiáveis.
+
+- [ ] **#23 RecurringTemplate (v1.1)** — blocked by #9, #11
+  `CONTEXT.md` já define a entidade; não existe schema, query nem UI ainda. Objetivo: usuário cadastra uma recorrência (valor, Account, Category, frequência, dia) e o sistema gera automaticamente uma Transaction `planned` a cada ciclo — era exatamente o padrão manual que o usuário já fazia na planilha original (múltiplos meses "com os previstos"), só que automatizado. Decisões em aberto: onde a tela vive (provável sub-página de Settings ou de #7 Account Detail, mesmo critério usado em #8), e se a geração roda síncrona no cadastro (próxima ocorrência) ou só via o cron de #24.
+
+- [ ] **#24 Cron: gerar recorrências + lembrete de inatividade + enviar push** — blocked by #23, #15
+  ADR-0010 já decidiu o mecanismo (Vercel Cron) mas nada foi implementado: sem `vercel.json`, sem `/api/cron/*`. Três coisas convergem no mesmo job/infra: (1) materializar a próxima ocorrência de cada RecurringTemplate (#23) como Transaction `planned`; (2) checar `users.inactivityReminderDays` (#15 já persiste o valor, nunca lido por nada) e disparar um lembrete pra quem não abre o app há X dias; (3) o envio de push em si — #15 só construiu o registro de subscription e o service worker recebendo, nenhum código chama a Web Push API pra mandar uma notificação de verdade. Precisa de `VAPID_PRIVATE_KEY` (já existe na Vercel desde #17) e uma lib tipo `web-push`.
+
+- [ ] **#25 CreditCard (v2)** — blocked by #5
+  Fora do MVP por decisão de escopo (`CONTEXT.md`). Vira sua própria entidade — ciclo de fatura, vencimento, limite — em vez de só uma Account/Transaction genérica. Sem design Stitch ainda; primeiro passo real seria decidir o modelo de dados (fatura como um agrupamento de Transactions com `dueDate`? Um novo tipo de Account?) antes de desenhar tela.
+
+- [ ] **#26 AccountMember / compartilhamento de Account (v3)** — blocked by #5
+  Fora do MVP por decisão de escopo (`CONTEXT.md`, mesma ADR-0005 que #6/#7 já citam pra justificar não desenhar "Transfer" entre contas). Compartilhar uma Account entre Users — muda a RLS (`accounts_owner_only` hoje assume dono único) antes de qualquer UI. Sem design Stitch ainda.
 
 ## Post-MVP fixes
 
