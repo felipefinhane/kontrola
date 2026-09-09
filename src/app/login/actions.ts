@@ -21,7 +21,7 @@ export async function login(
     // propagate, not get caught. Deliberately one generic message either
     // way (no user found vs. wrong password) — don't help an attacker
     // enumerate which emails have accounts.
-    await signIn("credentials", { email, password, redirectTo: "/" });
+    await signIn("credentials", { email, password, redirectTo: "/home" });
   } catch (err) {
     if (err instanceof AuthError) {
       return { error: "invalidCredentials" };

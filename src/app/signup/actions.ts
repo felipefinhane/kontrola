@@ -66,7 +66,7 @@ export async function signUp(
     // for "these credentials are valid," not two. On success this
     // throws Next.js's redirect signal, which must NOT be caught below
     // (only AuthError is a real failure here).
-    await signIn("credentials", { email, password, redirectTo: "/" });
+    await signIn("credentials", { email, password, redirectTo: "/home" });
   } catch (err) {
     if (err instanceof AuthError) {
       return { error: "signInFailed" };
