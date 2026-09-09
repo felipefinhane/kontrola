@@ -165,5 +165,40 @@
     "noTransactions": "Nenhuma transação ainda",
     "uncategorized": "Sem categoria",
     "addTransaction": "Adicionar Transação"
+  },
+  "Settings": {
+    "general": "Geral",
+    "language": "Idioma",
+    "localeName": {
+      "en": "English",
+      "pt-BR": "Português (Brasil)"
+    },
+    "themeLabel": "Tema",
+    "theme": {
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema"
+    },
+    "defaultCurrency": "Moeda padrão",
+    "security": "Segurança",
+    "changePassword": "Alterar Senha",
+    "logOut": "Sair"
+  },
+  "ChangePassword": {
+    "back": "Voltar",
+    "title": "Alterar Senha",
+    "subtitle": "Escolha uma senha forte pra manter seus dados financeiros seguros.",
+    "currentPasswordLabel": "Senha Atual",
+    "newPasswordLabel": "Nova Senha",
+    "newPasswordHint": "Use pelo menos 8 caracteres, um número e um símbolo.",
+    "confirmPasswordLabel": "Confirmar Nova Senha",
+    "save": "Atualizar Senha",
+    "saving": "Atualizando…",
+    "errors": {
+      "currentPasswordIncorrect": "Essa não é sua senha atual.",
+      "weak": "Use pelo menos 8 caracteres, um número e um símbolo.",
+      "sameAsCurrent": "Essa é igual à sua senha atual.",
+      "mismatch": "As senhas não coincidem."
+    }
   }
 }

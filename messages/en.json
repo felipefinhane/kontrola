@@ -165,5 +165,40 @@
     "noTransactions": "No transactions yet",
     "uncategorized": "Uncategorized",
     "addTransaction": "Add Transaction"
+  },
+  "Settings": {
+    "general": "General",
+    "language": "Language",
+    "localeName": {
+      "en": "English",
+      "pt-BR": "Português (Brasil)"
+    },
+    "themeLabel": "Theme",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "defaultCurrency": "Default currency",
+    "security": "Security",
+    "changePassword": "Change Password",
+    "logOut": "Log Out"
+  },
+  "ChangePassword": {
+    "back": "Go back",
+    "title": "Change Password",
+    "subtitle": "Choose a strong password to keep your financial data secure.",
+    "currentPasswordLabel": "Current Password",
+    "newPasswordLabel": "New Password",
+    "newPasswordHint": "Use at least 8 characters, a number, and a symbol.",
+    "confirmPasswordLabel": "Confirm New Password",
+    "save": "Update Password",
+    "saving": "Updating…",
+    "errors": {
+      "currentPasswordIncorrect": "That's not your current password.",
+      "weak": "Use at least 8 characters, a number, and a symbol.",
+      "sameAsCurrent": "That's the same as your current password.",
+      "mismatch": "Passwords don't match."
+    }
   }
 }
