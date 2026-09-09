@@ -217,5 +217,36 @@
     "increaseDays": "Aumentar dias",
     "iosTitle": "Instalação na Tela de Início Necessária",
     "iosDescription": "Pra notificações push funcionarem no iOS, o Kontrola precisa ser adicionado à sua Tela de Início."
+  },
+  "ForgotPassword": {
+    "back": "Voltar",
+    "title": "Esqueceu a Senha?",
+    "subtitle": "Sem problema, acontece. Informe seu email e mandamos um link pra redefinir.",
+    "emailLabel": "Endereço de email",
+    "emailPlaceholder": "hello@example.com",
+    "send": "Enviar Link de Redefinição",
+    "sending": "Enviando…",
+    "checkEmail": "Se esse email tem uma conta, mandamos um link pra redefinir a senha. Confira sua caixa de entrada.",
+    "backToLogin": "Voltar pro Login",
+    "errors": {
+      "invalidEmail": "Informe um email válido."
+    }
+  },
+  "ResetPassword": {
+    "title": "Defina uma Nova Senha",
+    "subtitle": "Escolha uma senha forte pra manter seus dados financeiros seguros.",
+    "newPasswordLabel": "Nova Senha",
+    "newPasswordHint": "Use pelo menos 8 caracteres, um número e um símbolo.",
+    "confirmPasswordLabel": "Confirmar Nova Senha",
+    "save": "Atualizar Senha",
+    "saving": "Atualizando…",
+    "invalidTitle": "Esse link não funciona mais",
+    "invalidDescription": "Pode ter expirado ou já ter sido usado. Peça um novo abaixo.",
+    "requestNewLink": "Pedir Novo Link",
+    "errors": {
+      "weak": "Use pelo menos 8 caracteres, um número e um símbolo.",
+      "mismatch": "As senhas não coincidem.",
+      "invalidToken": "Esse link não funciona mais — peça um novo."
+    }
   }
 }

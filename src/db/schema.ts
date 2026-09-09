@@ -92,6 +92,48 @@ export const users = pgTable(
   ],
 ).enableRLS();
 
+// #16 Forgot Password. Same shape as users' own login-lookup policies
+// above (the four narrow policies comment) — this flow runs before any
+// session exists, so there's no app.user_id to scope by yet. Only ever
+// touched by our own server-side code, never a public listing API — and
+// a row here is only useful to someone who already has the matching raw
+// token from the email itself, which tokenHash never lets a reader
+// recover (same reasoning as users.passwordHash never storing a
+// plaintext password).
+export const passwordResetTokens = pgTable(
+  "password_reset_tokens",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    tokenHash: text("token_hash").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    // Set on use — a null here is what makes a token still redeemable
+    // (besides not being past expiresAt). Consumed tokens are kept, not
+    // deleted, as a lightweight audit trail of reset activity.
+    usedAt: timestamp("used_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  () => [
+    pgPolicy("password_reset_tokens_select_for_verification", {
+      for: "select",
+      using: sql`true`,
+    }),
+    pgPolicy("password_reset_tokens_insert_for_request", {
+      for: "insert",
+      withCheck: sql`true`,
+    }),
+    pgPolicy("password_reset_tokens_update_for_consumption", {
+      for: "update",
+      using: sql`true`,
+      withCheck: sql`true`,
+    }),
+  ],
+).enableRLS();
+
 export const pushSubscriptions = pgTable(
   "push_subscriptions",
   {

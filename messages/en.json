@@ -217,5 +217,36 @@
     "increaseDays": "Increase days",
     "iosTitle": "Home Screen Installation Required",
     "iosDescription": "For push notifications to work on iOS, Kontrola needs to be added to your Home Screen."
+  },
+  "ForgotPassword": {
+    "back": "Go back",
+    "title": "Forgot Password?",
+    "subtitle": "No worries, it happens. Enter your email and we'll send you a link to reset it.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "hello@example.com",
+    "send": "Send Reset Link",
+    "sending": "Sending…",
+    "checkEmail": "If that email has an account, we've sent a link to reset the password. Check your inbox.",
+    "backToLogin": "Back to Log In",
+    "errors": {
+      "invalidEmail": "Enter a valid email address."
+    }
+  },
+  "ResetPassword": {
+    "title": "Set a New Password",
+    "subtitle": "Choose a strong password to keep your financial data secure.",
+    "newPasswordLabel": "New Password",
+    "newPasswordHint": "Use at least 8 characters, a number, and a symbol.",
+    "confirmPasswordLabel": "Confirm New Password",
+    "save": "Update Password",
+    "saving": "Updating…",
+    "invalidTitle": "This link doesn't work anymore",
+    "invalidDescription": "It may have expired or already been used. Request a new one below.",
+    "requestNewLink": "Request New Link",
+    "errors": {
+      "weak": "Use at least 8 characters, a number, and a symbol.",
+      "mismatch": "Passwords don't match.",
+      "invalidToken": "This link doesn't work anymore — request a new one."
+    }
   }
 }

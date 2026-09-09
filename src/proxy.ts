@@ -12,7 +12,13 @@ import { auth } from "@/auth";
 // src/db/index.ts needs a user id from somewhere), so a new protected
 // screen needs no proxy change to become protected; only a new *public*
 // screen does.
-const PUBLIC_ROUTES = new Set(["/", "/signup", "/login", "/forgot-password"]);
+const PUBLIC_ROUTES = new Set([
+  "/",
+  "/signup",
+  "/login",
+  "/forgot-password",
+  "/reset-password",
+]);
 
 export const proxy = auth((req) => {
   const isPublicRoute = PUBLIC_ROUTES.has(req.nextUrl.pathname);
