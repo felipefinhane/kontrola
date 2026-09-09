@@ -10,18 +10,26 @@ import { TransactionForm } from "../transaction-form";
 // Real Add Transaction screen (docs/stitch-export/05-add-edit-transaction.html).
 // Transactional/task-focused (matches the mockup's own "Simplified for
 // transactional view" comment) — no bottom nav, same as #2/#5/#8's Add
-// Category. Always creates an `actual` Transaction; a `planned` one is
-// #11's open decision, out of scope here (src/db/queries/transactions.ts).
+// Category. Creates an `actual` Transaction by default; #11's "Add
+// Planned" entry point passes `?status=planned` to create a `planned`
+// one instead (the form itself has no status toggle, matching the
+// mockup — the entry point decides, not the user mid-form).
 //
 // accountId/direction query params let #7's "Pay" quick action land here
-// pre-filled — optional, this route also works cold (e.g. once #10/#12
-// link here without either param).
+// pre-filled; returnTo lets #11 send the user back to /planned instead
+// of the Account Detail default. All optional — this route also works
+// cold with none of them.
 export default async function NewTransactionPage({
   searchParams,
 }: {
-  searchParams: Promise<{ accountId?: string; direction?: string }>;
+  searchParams: Promise<{
+    accountId?: string;
+    direction?: string;
+    status?: string;
+    returnTo?: string;
+  }>;
 }) {
-  const { accountId, direction } = await searchParams;
+  const { accountId, direction, status, returnTo } = await searchParams;
 
   const session = await auth();
   if (!session?.user?.id) {
@@ -44,9 +52,12 @@ export default async function NewTransactionPage({
     accountId && accounts.some((a) => a.id === accountId)
       ? accountId
       : accounts[0].id;
-  const cancelHref = accountId
-    ? `/accounts/${selectedAccountId}`
-    : "/accounts";
+  const cancelHref =
+    returnTo && returnTo.startsWith("/")
+      ? returnTo
+      : accountId
+        ? `/accounts/${selectedAccountId}`
+        : "/accounts";
 
   return (
     <main className="safe-top safe-bottom flex min-h-screen flex-col bg-background text-foreground">
@@ -66,6 +77,8 @@ export default async function NewTransactionPage({
         <TransactionForm
           accounts={accounts}
           categories={categories}
+          status={status === "planned" ? "planned" : undefined}
+          returnTo={returnTo}
           defaultValues={{
             accountId: selectedAccountId,
             direction: direction === "credit" ? "credit" : "debit",

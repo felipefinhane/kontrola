@@ -127,5 +127,43 @@
       "accountRequired": "Escolha uma conta.",
       "dateInvalid": "Informe uma data válida."
     }
+  },
+  "Transactions": {
+    "title": "Transações",
+    "filterAccount": "Conta",
+    "filterCategory": "Categoria",
+    "filterStatus": "Status",
+    "statusActual": "Realizada",
+    "statusPlanned": "Planejada",
+    "noTransactions": "Nenhuma transação com esses filtros",
+    "today": "Hoje",
+    "yesterday": "Ontem",
+    "uncategorized": "Sem categoria",
+    "confirm": "Confirmar transação",
+    "addTransaction": "Adicionar Transação"
+  },
+  "Planned": {
+    "title": "Planejado",
+    "bannerTitle": "Olhando à frente",
+    "bannerBody": "Transações planejadas ainda não contam pro seu saldo. Confirme quando acontecerem pra manter o saldo certo.",
+    "empty": "Nada planejado ainda",
+    "upcoming": "Em breve",
+    "later": "Mais adiante",
+    "today": "Hoje",
+    "tomorrow": "Amanhã",
+    "overdue": "Atrasado",
+    "confirm": "Confirmar transação",
+    "addPlanned": "Adicionar Transação Planejada"
+  },
+  "Home": {
+    "totalBalance": "Saldo Total",
+    "emptyTitle": "Adicione sua primeira conta",
+    "emptyDescription": "Adicione sua primeira conta pra começar a acompanhar — leva só um minuto",
+    "addAccount": "Adicionar Conta",
+    "recentTransactions": "Transações Recentes",
+    "viewAll": "Ver Todas",
+    "noTransactions": "Nenhuma transação ainda",
+    "uncategorized": "Sem categoria",
+    "addTransaction": "Adicionar Transação"
   }
 }

@@ -17,6 +17,8 @@ export function TransactionForm({
   accounts,
   categories,
   transactionId,
+  status,
+  returnTo,
   defaultValues,
   cancelHref,
 }: {
@@ -26,6 +28,14 @@ export function TransactionForm({
   // action either way — see src/app/transactions/actions.ts for why this
   // isn't `.bind()`-ed in instead.
   transactionId?: string;
+  // "planned" only on create, from #11's "Add Planned" entry point (a
+  // query param, not a form control — the mockup has no status toggle).
+  // Ignored on edit; status doesn't change through this form, only via
+  // confirmTransactionAction.
+  status?: "planned";
+  // Where to land after save — defaults to the Account Detail screen
+  // (src/app/transactions/actions.ts's safeReturnTo) when omitted.
+  returnTo?: string;
   defaultValues: {
     accountId: string;
     categoryId?: string | null;
@@ -64,6 +74,8 @@ export function TransactionForm({
       {transactionId && (
         <input type="hidden" name="transactionId" value={transactionId} />
       )}
+      {status && <input type="hidden" name="status" value={status} />}
+      {returnTo && <input type="hidden" name="returnTo" value={returnTo} />}
 
       {/* Credit / Debit segmented toggle */}
       <div className="mx-auto flex w-full max-w-[240px] rounded-xl bg-surface-variant p-1">

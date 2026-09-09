@@ -5,6 +5,7 @@ import { auth } from "@/auth";
 import {
   createTransaction,
   updateTransaction,
+  confirmTransaction,
   type TransactionInput,
 } from "@/db/queries/transactions";
 
@@ -32,6 +33,7 @@ function parseTransactionForm(
     formData.get("direction") === "credit" ? "credit" : "debit";
   const amountRaw = String(formData.get("amount") ?? "").trim();
   const occurredOn = String(formData.get("occurredOn") ?? "");
+  const status = formData.get("status") === "planned" ? "planned" : undefined;
 
   const fieldErrors: NonNullable<TransactionFormState["fieldErrors"]> = {};
   if (!description) fieldErrors.description = "required";
@@ -61,8 +63,19 @@ function parseTransactionForm(
       amount,
       direction,
       occurredOn,
+      status,
     },
   };
+}
+
+// `returnTo` must be an app-relative path (starts with "/", not "//" —
+// that's protocol-relative, an open-redirect vector) — otherwise fall
+// back to the Account Detail screen. Lets #11's "Add Planned" entry
+// point land back on /planned instead of the Account it happened to
+// pick, while #7/#9's default (no returnTo at all) still lands on #7.
+function safeReturnTo(raw: FormDataEntryValue | null, fallback: string): string {
+  const value = String(raw ?? "");
+  return value.startsWith("/") && !value.startsWith("//") ? value : fallback;
 }
 
 // One action for both Add and Edit, distinguished by a hidden
@@ -94,7 +107,28 @@ export async function saveTransaction(
     await createTransaction(session.user.id, parsed.input);
   }
 
-  // Lands back on #7 Account Detail, not a Transactions List (#10) —
-  // that screen doesn't exist yet.
-  redirect(`/accounts/${parsed.input.accountId}`);
+  redirect(
+    safeReturnTo(
+      formData.get("returnTo"),
+      `/accounts/${parsed.input.accountId}`,
+    ),
+  );
+}
+
+// CONTEXT.md: confirming a `planned` Transaction flips it to `actual` in
+// place. Used by #10/#11's inline "confirm" affordance on a planned row
+// — a plain <form> button, not useActionState (no field-level state to
+// show, just an action to fire and land back where the user was).
+export async function confirmTransactionAction(formData: FormData) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    redirect("/login");
+  }
+
+  const transactionId = String(formData.get("transactionId") ?? "");
+  if (transactionId) {
+    await confirmTransaction(session.user.id, transactionId);
+  }
+
+  redirect(safeReturnTo(formData.get("returnTo"), "/planned"));
 }

@@ -1,4 +1,4 @@
-import { desc, eq } from "drizzle-orm";
+import { and, asc, desc, eq } from "drizzle-orm";
 import { withUserContext } from "@/db";
 import { accounts, categories, transactions } from "@/db/schema";
 import { encryptField, decryptField } from "@/lib/crypto";
@@ -18,11 +18,17 @@ export type TransactionInput = {
   amount: number; // > 0, direction carries the sign
   direction: "credit" | "debit";
   occurredOn: string; // YYYY-MM-DD
+  // Defaults to "actual" — #9's own Add/Edit form never sets this
+  // (matches the mockup, no status control there). #11 Planned view's
+  // "Add Planned" entry point is the only caller that passes "planned",
+  // via a query param, not a form toggle.
+  status?: "actual" | "planned";
 };
 
 export type TransactionWithDetails = {
   id: string;
   accountId: string;
+  accountNickname: string;
   categoryId: string | null;
   description: string;
   note: string | null;
@@ -42,6 +48,7 @@ export type TransactionWithDetails = {
 const SELECT_COLUMNS = {
   id: transactions.id,
   accountId: transactions.accountId,
+  accountNickname: accounts.nickname,
   categoryId: transactions.categoryId,
   description: transactions.description,
   note: transactions.note,
@@ -57,6 +64,7 @@ const SELECT_COLUMNS = {
 type RawRow = {
   id: string;
   accountId: string;
+  accountNickname: string;
   categoryId: string | null;
   description: string;
   note: string | null;
@@ -73,6 +81,7 @@ function toTransactionWithDetails(row: RawRow): TransactionWithDetails {
   return {
     id: row.id,
     accountId: row.accountId,
+    accountNickname: row.accountNickname,
     categoryId: row.categoryId,
     description: decryptField(row.description),
     note: row.note ? decryptField(row.note) : null,
@@ -99,7 +108,7 @@ export async function createTransaction(
         description: encryptField(input.description),
         amount: input.amount.toFixed(2),
         direction: input.direction,
-        status: "actual", // #11 owns the "let a User create a planned Transaction directly" decision — out of scope here
+        status: input.status ?? "actual",
         occurredOn: input.occurredOn,
       })
       .returning();
@@ -130,6 +139,26 @@ export async function updateTransaction(
   });
 }
 
+// CONTEXT.md: "A `planned` Transaction becomes `actual` in place (same
+// row, status flips) when confirmed." Only ever flips planned -> actual
+// (the extra status check in `where` makes double-confirming a no-op
+// rather than an error) — there's no UI path back the other way.
+export async function confirmTransaction(userId: string, transactionId: string) {
+  return withUserContext(userId, async (tx) => {
+    const [transaction] = await tx
+      .update(transactions)
+      .set({ status: "actual", updatedAt: new Date() })
+      .where(
+        and(
+          eq(transactions.id, transactionId),
+          eq(transactions.status, "planned"),
+        ),
+      )
+      .returning();
+    return transaction ?? null;
+  });
+}
+
 export async function getTransaction(
   userId: string,
   transactionId: string,
@@ -146,18 +175,54 @@ export async function getTransaction(
   });
 }
 
-export async function getAccountTransactions(
+export type TransactionFilters = {
+  accountId?: string;
+  categoryId?: string;
+  status?: "actual" | "planned";
+  limit?: number;
+  // occurredOn order: "desc" (default) = most recent first, for #10's
+  // history and #12's dashboard; "asc" = soonest first, for #11's
+  // forward-looking Planned view.
+  order?: "asc" | "desc";
+};
+
+// General-purpose list across every Account the user has — #10's History,
+// #11's Planned view, and #12's dashboard "Recent Transactions" are all
+// this with different filters, rather than three near-duplicate queries.
+export async function listTransactions(
   userId: string,
-  accountId: string,
+  filters: TransactionFilters = {},
 ): Promise<TransactionWithDetails[]> {
   return withUserContext(userId, async (tx) => {
-    const rows = await tx
+    const conditions = [];
+    if (filters.accountId) {
+      conditions.push(eq(transactions.accountId, filters.accountId));
+    }
+    if (filters.categoryId) {
+      conditions.push(eq(transactions.categoryId, filters.categoryId));
+    }
+    if (filters.status) {
+      conditions.push(eq(transactions.status, filters.status));
+    }
+
+    const orderFn = filters.order === "asc" ? asc : desc;
+
+    const base = tx
       .select(SELECT_COLUMNS)
       .from(transactions)
       .innerJoin(accounts, eq(accounts.id, transactions.accountId))
       .leftJoin(categories, eq(categories.id, transactions.categoryId))
-      .where(eq(transactions.accountId, accountId))
-      .orderBy(desc(transactions.occurredOn), desc(transactions.createdAt));
+      .where(conditions.length > 0 ? and(...conditions) : undefined)
+      .orderBy(orderFn(transactions.occurredOn), orderFn(transactions.createdAt));
+
+    const rows = filters.limit ? await base.limit(filters.limit) : await base;
     return rows.map(toTransactionWithDetails);
   });
+}
+
+export async function getAccountTransactions(
+  userId: string,
+  accountId: string,
+): Promise<TransactionWithDetails[]> {
+  return listTransactions(userId, { accountId });
 }

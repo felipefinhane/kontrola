@@ -127,5 +127,43 @@
       "accountRequired": "Choose an account.",
       "dateInvalid": "Enter a valid date."
     }
+  },
+  "Transactions": {
+    "title": "Transactions",
+    "filterAccount": "Account",
+    "filterCategory": "Category",
+    "filterStatus": "Status",
+    "statusActual": "Actual",
+    "statusPlanned": "Planned",
+    "noTransactions": "No transactions match these filters",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "uncategorized": "Uncategorized",
+    "confirm": "Confirm transaction",
+    "addTransaction": "Add Transaction"
+  },
+  "Planned": {
+    "title": "Planned",
+    "bannerTitle": "Looking ahead",
+    "bannerBody": "Planned transactions don't count toward your balance yet. Confirm them when they happen to keep your balance accurate.",
+    "empty": "Nothing planned yet",
+    "upcoming": "Upcoming",
+    "later": "Later",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "overdue": "Overdue",
+    "confirm": "Confirm transaction",
+    "addPlanned": "Add Planned Transaction"
+  },
+  "Home": {
+    "totalBalance": "Total Balance",
+    "emptyTitle": "Add your first account",
+    "emptyDescription": "Add your first account to start tracking — it only takes a minute",
+    "addAccount": "Add Account",
+    "recentTransactions": "Recent Transactions",
+    "viewAll": "View All",
+    "noTransactions": "No transactions yet",
+    "uncategorized": "Uncategorized",
+    "addTransaction": "Add Transaction"
   }
 }
