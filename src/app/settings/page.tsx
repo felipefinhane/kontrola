@@ -6,6 +6,7 @@ import { getUserPreferences } from "@/db/queries/users";
 import { locales } from "@/i18n/request";
 import {
   BanknoteIcon,
+  BellIcon,
   ChevronRightIcon,
   GlobeIcon,
   LockIcon,
@@ -108,6 +109,24 @@ export default async function SettingsPage() {
               <SettingsCurrencySelect initialCurrency={prefs.defaultCurrency} />
             </div>
           </div>
+        </section>
+
+        <section className="flex flex-col gap-2">
+          <h3 className="pl-1 text-xs font-semibold uppercase tracking-wider text-muted">
+            {t("notifications")}
+          </h3>
+          <Link
+            href="/settings/notifications"
+            className="flex min-h-[72px] items-center justify-between rounded-xl bg-surface p-4 shadow-sm transition-colors hover:bg-surface-variant"
+          >
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-light text-primary">
+                <BellIcon className="h-5 w-5" />
+              </span>
+              <span className="font-medium">{t("notificationSettings")}</span>
+            </div>
+            <ChevronRightIcon className="h-5 w-5 text-muted" />
+          </Link>
         </section>
 
         <section className="flex flex-col gap-2">

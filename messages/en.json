@@ -180,6 +180,8 @@
       "system": "System"
     },
     "defaultCurrency": "Default currency",
+    "notifications": "Notifications",
+    "notificationSettings": "Notification Settings",
     "security": "Security",
     "changePassword": "Change Password",
     "logOut": "Log Out"
@@ -200,5 +202,20 @@
       "sameAsCurrent": "That's the same as your current password.",
       "mismatch": "Passwords don't match."
     }
+  },
+  "Notifications": {
+    "back": "Settings",
+    "title": "Notifications",
+    "subtitle": "Stay on track without feeling overwhelmed.",
+    "enableTitle": "Enable Push Reminders",
+    "enableDescription": "So you don't lose the habit like last time. Gentle nudges, zero judgment.",
+    "unsupported": "Push notifications aren't supported on this browser.",
+    "nudgeFrequency": "Nudge Frequency",
+    "nudgeDescription": "Remind me if I haven't logged anything in:",
+    "days": "Days",
+    "decreaseDays": "Decrease days",
+    "increaseDays": "Increase days",
+    "iosTitle": "Home Screen Installation Required",
+    "iosDescription": "For push notifications to work on iOS, Kontrola needs to be added to your Home Screen."
   }
 }

@@ -13,6 +13,10 @@ export type UserPreferences = {
   locale: string;
   theme: string;
   defaultCurrency: string;
+  // numeric(3,0) in schema.ts -> drizzle returns it as a string like every
+  // other numeric column in this app (see accounts.ts's `amount`) — parsed
+  // here so callers get a real number, matching what #15's stepper needs.
+  inactivityReminderDays: number;
 };
 
 export async function getUserPreferences(
@@ -25,11 +29,16 @@ export async function getUserPreferences(
         locale: users.locale,
         theme: users.theme,
         defaultCurrency: users.defaultCurrency,
+        inactivityReminderDays: users.inactivityReminderDays,
       })
       .from(users)
       .where(eq(users.id, userId))
       .limit(1);
-    return user ?? null;
+    if (!user) return null;
+    return {
+      ...user,
+      inactivityReminderDays: Number(user.inactivityReminderDays),
+    };
   });
 }
 
@@ -37,6 +46,7 @@ export type UserPreferencesInput = Partial<{
   locale: string;
   theme: string;
   defaultCurrency: string;
+  inactivityReminderDays: number;
 }>;
 
 export async function updateUserPreferences(
@@ -44,14 +54,25 @@ export async function updateUserPreferences(
   input: UserPreferencesInput,
 ) {
   return withUserContext(userId, async (tx) => {
+    const { inactivityReminderDays, ...rest } = input;
     const [user] = await tx
       .update(users)
-      .set({ ...input, updatedAt: new Date() })
+      .set({
+        ...rest,
+        // numeric columns take a string on the way in too (again, same
+        // as `amount` elsewhere) — undefined here just means "don't
+        // change this column," matching Partial's semantics for `rest`.
+        ...(inactivityReminderDays !== undefined
+          ? { inactivityReminderDays: String(inactivityReminderDays) }
+          : {}),
+        updatedAt: new Date(),
+      })
       .where(eq(users.id, userId))
       .returning({
         locale: users.locale,
         theme: users.theme,
         defaultCurrency: users.defaultCurrency,
+        inactivityReminderDays: users.inactivityReminderDays,
       });
     return user ?? null;
   });
